@@ -1,33 +1,7 @@
-2026-05-04 20:40:13 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 7.0.4.Final
-2026-05-04 20:40:13 WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2026-05-04 20:40:14 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-05-04 20:40:14 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [jdbc:h2:mem:tennis_db;DB_CLOSE_DELAY=-1]
-	Database driver: org.h2.Driver
-	Database version: 2.4.240
-	Autocommit mode: false
-	Isolation level: undefined/unknown
-	Pool: DriverManagerConnectionProviderImpl
-	Minimum pool size: 1
-	Maximum pool size: 20
-2026-05-04 20:40:14 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1b5af65b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-05-04 20:41:36 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 7.0.4.Final
-2026-05-04 20:41:36 WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2026-05-04 20:41:36 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-05-04 20:41:36 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [jdbc:h2:mem:tennis_db;DB_CLOSE_DELAY=-1]
-	Database driver: org.h2.Driver
-	Database version: 2.4.240
-	Autocommit mode: false
-	Isolation level: undefined/unknown
-	Pool: DriverManagerConnectionProviderImpl
-	Minimum pool size: 1
-	Maximum pool size: 20
-2026-05-04 20:41:37 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@335972a5] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-05-04 21:06:18 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 7.0.4.Final
-2026-05-04 21:06:18 WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2026-05-04 21:06:18 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-05-04 21:06:18 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2026-05-07 20:30:00 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 7.0.4.Final
+2026-05-07 20:30:00 WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-05-07 20:30:00 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-07 20:30:00 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [jdbc:h2:mem:test_tennis_db;DB_CLOSE_DELAY=-1]
 	Database driver: org.h2.Driver
 	Database version: 2.4.240
@@ -36,96 +10,9 @@
 	Pool: DriverManagerConnectionProviderImpl
 	Minimum pool size: 1
 	Maximum pool size: 20
-2026-05-04 21:06:19 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-05-04 21:06:19 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@340c57e0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-05-04 21:06:19 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1218e12] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-05-04 21:06:19 WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2026-05-04 21:06:19 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-05-04 21:06:19 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [jdbc:h2:mem:tennis_db;DB_CLOSE_DELAY=-1]
-	Database driver: org.h2.Driver
-	Database version: 2.4.240
-	Autocommit mode: false
-	Isolation level: undefined/unknown
-	Pool: DriverManagerConnectionProviderImpl
-	Minimum pool size: 1
-	Maximum pool size: 20
-2026-05-04 21:06:19 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@d3d5094] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-05-04 21:06:20 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@721fc228] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-05-04 21:08:14 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 7.0.4.Final
-2026-05-04 21:08:14 WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2026-05-04 21:08:14 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-05-04 21:08:14 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [jdbc:h2:mem:test_tennis_db;DB_CLOSE_DELAY=-1]
-	Database driver: org.h2.Driver
-	Database version: 2.4.240
-	Autocommit mode: false
-	Isolation level: undefined/unknown
-	Pool: DriverManagerConnectionProviderImpl
-	Minimum pool size: 1
-	Maximum pool size: 20
-2026-05-04 21:08:15 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-05-04 21:08:15 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@340c57e0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-05-04 21:08:15 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1218e12] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-05-04 21:08:15 WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2026-05-04 21:08:15 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-05-04 21:08:15 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [jdbc:h2:mem:tennis_db;DB_CLOSE_DELAY=-1]
-	Database driver: org.h2.Driver
-	Database version: 2.4.240
-	Autocommit mode: false
-	Isolation level: undefined/unknown
-	Pool: DriverManagerConnectionProviderImpl
-	Minimum pool size: 1
-	Maximum pool size: 20
-2026-05-04 21:08:15 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@d3d5094] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-05-04 21:08:15 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@721fc228] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-05-04 21:17:56 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 7.0.4.Final
-2026-05-04 21:17:56 WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2026-05-04 21:17:56 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-05-04 21:17:56 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [jdbc:h2:mem:test_tennis_db;DB_CLOSE_DELAY=-1]
-	Database driver: org.h2.Driver
-	Database version: 2.4.240
-	Autocommit mode: false
-	Isolation level: undefined/unknown
-	Pool: DriverManagerConnectionProviderImpl
-	Minimum pool size: 1
-	Maximum pool size: 20
-2026-05-04 21:17:57 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-05-04 21:17:57 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@340c57e0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-05-04 21:17:57 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1218e12] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-05-04 21:17:57 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@29088be1] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-05-04 21:27:41 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 7.0.4.Final
-2026-05-04 21:27:41 WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2026-05-04 21:27:42 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-05-04 21:27:42 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [jdbc:h2:mem:test_tennis_db;DB_CLOSE_DELAY=-1]
-	Database driver: org.h2.Driver
-	Database version: 2.4.240
-	Autocommit mode: false
-	Isolation level: undefined/unknown
-	Pool: DriverManagerConnectionProviderImpl
-	Minimum pool size: 1
-	Maximum pool size: 20
-2026-05-04 21:27:42 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-05-04 21:27:42 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@340c57e0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-05-04 21:27:42 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1218e12] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-05-04 21:27:43 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@29088be1] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-05-04 21:28:14 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 7.0.4.Final
-2026-05-04 21:28:14 WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2026-05-04 21:28:14 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-05-04 21:28:14 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [jdbc:h2:mem:test_tennis_db;DB_CLOSE_DELAY=-1]
-	Database driver: org.h2.Driver
-	Database version: 2.4.240
-	Autocommit mode: false
-	Isolation level: undefined/unknown
-	Pool: DriverManagerConnectionProviderImpl
-	Minimum pool size: 1
-	Maximum pool size: 20
-2026-05-04 21:28:15 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-05-04 21:28:15 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@340c57e0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-05-04 21:28:15 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1218e12] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-05-04 21:28:15 WARN  i.g.a.t.service.PlayerService - Игрок Мария уже существует в БД!
-2026-05-04 21:28:15 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@65f36591] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-05-07 20:30:01 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-07 20:30:01 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6f7a20da] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-05-07 20:30:01 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@794cb26b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-05-07 20:30:01 INFO  i.g.a.t.service.PlayerService - Игрок Мария сохранен в БД!
+2026-05-07 20:30:01 INFO  i.g.a.t.service.PlayerService - Игрок Мария уже существует в БД!
+2026-05-07 20:30:01 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4a0ee0ba] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.

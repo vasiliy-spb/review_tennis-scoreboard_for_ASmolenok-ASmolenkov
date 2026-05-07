@@ -4,6 +4,7 @@ import io.github.asmolenkov.tennismatchscoreboard.entity.Player;
 import io.github.asmolenkov.tennismatchscoreboard.utils.HibernateUtils;
 import org.hibernate.Session;
 
+import java.util.List;
 import java.util.Optional;
 
 public class PlayerRepository {
@@ -20,5 +21,13 @@ public class PlayerRepository {
                              .getResultCount();
 
         return result > 0;
+    }
+
+    public Optional<Player> findPlayer(String name, Session session){
+        String jpql = "FROM Player p WHERE p.name = :name";
+
+        List<Player> players = session.createQuery(jpql, Player.class).setParameter("name", name).getResultList();
+
+        return players.isEmpty() ? Optional.empty() : Optional.of(players.getFirst());
     }
 }

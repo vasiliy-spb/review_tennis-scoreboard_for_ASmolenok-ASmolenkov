@@ -1,5 +1,6 @@
 package io.github.asmolenkov.tennismatchscoreboard.service;
 
+import io.github.asmolenkov.tennismatchscoreboard.dto.PlayerDto;
 import io.github.asmolenkov.tennismatchscoreboard.entity.Player;
 import io.github.asmolenkov.tennismatchscoreboard.exception.DuplicateNameException;
 import io.github.asmolenkov.tennismatchscoreboard.repository.PlayerRepository;
@@ -10,6 +11,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import java.util.Optional;
+
 @Slf4j
 public class PlayerService {
 
@@ -22,28 +24,33 @@ public class PlayerService {
         this.sessionFactory = sessionFactory;
     }
 
-    public void createPlayer(String name){
+    public PlayerDto createPlayer(String name) {
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = session.beginTransaction();
             try {
-                if (playerRepository.existsByName(name, session)) {
-                    transaction.rollback();
-                    log.warn("Игрок {} уже существует в БД!", name);
-                    return;
-                    // throw new DuplicateNameException("Пользователь с именем '" + name + "' уже существует");
-                }
+                Optional<Player> existingPlayer = playerRepository.findPlayer(name, session);
 
-                Player player = Player.builder()
-                                      .name(name)
-                                      .build();
-                // TODO Не вижу отображения новых игроков в БД(написан тест для проверки метода, убедится в наличии игроков написав тестовый jsp)
-                playerRepository.save(player, session);
-                transaction.commit();
+                return existingPlayer.map(player -> {
+                                         transaction.rollback();
+                                         log.info("Игрок {} уже существует в БД!", name);
+                                         return new PlayerDto(player
+                                                 .getName());
+                                     })
+                                     .orElseGet(() -> {
+                                         Player newPlayer = Player.builder()
+                                                                  .name(name)
+                                                                  .build();
+                                         playerRepository.save(newPlayer, session);
+                                         log.info("Игрок {} сохранен в БД!", name);
+                                         transaction.commit();
+                                         return new PlayerDto(newPlayer.getName());
+                                     });
             } catch (Exception e) {
                 transaction.rollback();
+                throw new RuntimeException(); //TODO заменить на бизнес исключение
             }
-
         }
-
     }
+
+
 }

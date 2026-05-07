@@ -1,5 +1,6 @@
 package io.github.asmolenkov.tennismatchscoreboard.controller;
 
+import io.github.asmolenkov.tennismatchscoreboard.dto.PlayerDto;
 import io.github.asmolenkov.tennismatchscoreboard.entity.Player;
 import io.github.asmolenkov.tennismatchscoreboard.exception.DuplicateNameException;
 import io.github.asmolenkov.tennismatchscoreboard.listener.AppContextListener;
@@ -54,6 +55,7 @@ public class NewMathController extends HttpServlet {
         if (nameSecondPlayer.equalsIgnoreCase(nameOnePlayer)) {
             errorMessage.add("Имена игроков не могут быть одинаковы!");
         }
+        //TODO Добавить проверку на цифры и прочие знаки
 
         if (!errorMessage.isEmpty()) {
             req.setAttribute("error", errorMessage);
@@ -62,10 +64,11 @@ public class NewMathController extends HttpServlet {
                .forward(req, resp);
             return;
         }
-        playerService.createPlayer(nameOnePlayer);
-        playerService.createPlayer(nameSecondPlayer);
+        PlayerDto playerDtoOne = playerService.createPlayer(nameOnePlayer);
+        PlayerDto playerDtoSecond = playerService.createPlayer(nameSecondPlayer);
         log.info("Игроки Сохранены в БД");
-        req.setAttribute("PlayerOneName", nameOnePlayer);
+        req.setAttribute("PlayerOneName", playerDtoOne.name());
+        req.setAttribute("PlayerSecondName", playerDtoSecond.name());
         //TODO Изменить на редирект
         req.getRequestDispatcher("/WEB-INF/views/MatchScore.jsp")
            .forward(req, resp);
