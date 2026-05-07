@@ -3,8 +3,11 @@ package io.github.asmolenkov.tennismatchscoreboard.controller;
 import io.github.asmolenkov.tennismatchscoreboard.dto.PlayerDto;
 import io.github.asmolenkov.tennismatchscoreboard.entity.Player;
 import io.github.asmolenkov.tennismatchscoreboard.exception.DuplicateNameException;
+import io.github.asmolenkov.tennismatchscoreboard.exception.NameIncorrectException;
+import io.github.asmolenkov.tennismatchscoreboard.exception.PlayerCreationException;
 import io.github.asmolenkov.tennismatchscoreboard.listener.AppContextListener;
 import io.github.asmolenkov.tennismatchscoreboard.service.PlayerService;
+import io.github.asmolenkov.tennismatchscoreboard.utils.ValidateUtil;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -17,6 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 @Slf4j
 @WebServlet("/new-math")
 public class NewMathController extends HttpServlet {
@@ -43,34 +47,41 @@ public class NewMathController extends HttpServlet {
         String nameOnePlayer = req.getParameter("name1");
         String nameSecondPlayer = req.getParameter("name2");
         List<String> errorMessage = new ArrayList<>();
-        if (nameOnePlayer.trim()
-                         .isEmpty() || nameOnePlayer.length() > 30) {
-            errorMessage.add("Некорректное имя Игрока #1!");
-        }
+        try {
+            ValidateUtil.validateNamePlayer(nameOnePlayer);
+            ValidateUtil.validateNamePlayer(nameSecondPlayer);
+            ValidateUtil.validateNamesAreUnique(nameOnePlayer, nameSecondPlayer);
 
-        if (nameSecondPlayer.trim()
-                            .isEmpty() || nameSecondPlayer.length() > 30) {
-            errorMessage.add("Некорректное имя Игрока #2!");
-        }
-        if (nameSecondPlayer.equalsIgnoreCase(nameOnePlayer)) {
-            errorMessage.add("Имена игроков не могут быть одинаковы!");
-        }
-        //TODO Добавить проверку на цифры и прочие знаки
-
-        if (!errorMessage.isEmpty()) {
-            req.setAttribute("error", errorMessage);
-            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            req.getRequestDispatcher("/WEB-INF/views/NewMatch.jsp")
+            PlayerDto playerDtoOne = playerService.createPlayer(nameOnePlayer);
+            PlayerDto playerDtoSecond = playerService.createPlayer(nameSecondPlayer);
+            log.info("Игроки Сохранены в БД");
+            req.setAttribute("PlayerOneName", playerDtoOne.name());
+            req.setAttribute("PlayerSecondName", playerDtoSecond.name());
+            //TODO Изменить на редирект
+            req.getRequestDispatcher("/WEB-INF/views/MatchScore.jsp")
                .forward(req, resp);
-            return;
+
+        } catch (NameIncorrectException | PlayerCreationException e) {
+            errorMessage.add(e.getMessage());
+            showErrorPage(req, resp, errorMessage, HttpServletResponse.SC_BAD_REQUEST);
+        }catch (DuplicateNameException e){
+            errorMessage.add(e.getMessage());
+            showErrorPage(req, resp, errorMessage, HttpServletResponse.SC_CONFLICT);
         }
-        PlayerDto playerDtoOne = playerService.createPlayer(nameOnePlayer);
-        PlayerDto playerDtoSecond = playerService.createPlayer(nameSecondPlayer);
-        log.info("Игроки Сохранены в БД");
-        req.setAttribute("PlayerOneName", playerDtoOne.name());
-        req.setAttribute("PlayerSecondName", playerDtoSecond.name());
-        //TODO Изменить на редирект
-        req.getRequestDispatcher("/WEB-INF/views/MatchScore.jsp")
+        catch (Exception e) {
+            log.error("Unexpected error in player creation", e);
+            errorMessage.add("Произошла внутренняя ошибка. Попробуйте позже.");
+            showErrorPage(req, resp, errorMessage, HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    private void showErrorPage(HttpServletRequest req, HttpServletResponse resp, List<String> errors, int codeError)
+            throws ServletException, IOException {
+        req.setAttribute("error", errors);
+        req.setAttribute("name1", req.getParameter("name1"));
+        req.setAttribute("name2", req.getParameter("name2"));
+        resp.setStatus(codeError);
+        req.getRequestDispatcher("/WEB-INF/views/NewMatch.jsp")
            .forward(req, resp);
     }
 }

@@ -2,9 +2,8 @@ package io.github.asmolenkov.tennismatchscoreboard.service;
 
 import io.github.asmolenkov.tennismatchscoreboard.dto.PlayerDto;
 import io.github.asmolenkov.tennismatchscoreboard.entity.Player;
-import io.github.asmolenkov.tennismatchscoreboard.exception.DuplicateNameException;
+import io.github.asmolenkov.tennismatchscoreboard.exception.PlayerCreationException;
 import io.github.asmolenkov.tennismatchscoreboard.repository.PlayerRepository;
-import io.github.asmolenkov.tennismatchscoreboard.utils.HibernateUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -24,7 +23,7 @@ public class PlayerService {
         this.sessionFactory = sessionFactory;
     }
 
-    public PlayerDto createPlayer(String name) {
+    public PlayerDto createPlayer(String name)  {
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = session.beginTransaction();
             try {
@@ -47,7 +46,7 @@ public class PlayerService {
                                      });
             } catch (Exception e) {
                 transaction.rollback();
-                throw new RuntimeException(); //TODO заменить на бизнес исключение
+                throw new PlayerCreationException("Ошибка создания игрока");
             }
         }
     }
