@@ -1,14 +1,12 @@
 package io.github.asmolenkov.tennismatchscoreboard.controller;
 
 import io.github.asmolenkov.tennismatchscoreboard.dto.PlayerDto;
-import io.github.asmolenkov.tennismatchscoreboard.entity.Player;
 import io.github.asmolenkov.tennismatchscoreboard.exception.DuplicateNameException;
 import io.github.asmolenkov.tennismatchscoreboard.exception.NameIncorrectException;
 import io.github.asmolenkov.tennismatchscoreboard.exception.PlayerCreationException;
 import io.github.asmolenkov.tennismatchscoreboard.listener.AppContextListener;
 import io.github.asmolenkov.tennismatchscoreboard.service.PlayerService;
 import io.github.asmolenkov.tennismatchscoreboard.utils.ValidateUtil;
-import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -31,7 +29,7 @@ public class NewMathController extends HttpServlet {
     }
 
     @Override
-    public void init() throws ServletException {
+    public void init()  {
         ServletContext context = getServletContext();
         this.playerService = (PlayerService) context.getAttribute(AppContextListener.PLAYER_SERVICE_KEY);
     }
