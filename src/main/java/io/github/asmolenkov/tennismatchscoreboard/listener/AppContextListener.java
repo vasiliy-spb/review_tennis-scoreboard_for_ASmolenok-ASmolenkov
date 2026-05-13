@@ -1,6 +1,8 @@
 package io.github.asmolenkov.tennismatchscoreboard.listener;
 
+import io.github.asmolenkov.tennismatchscoreboard.repository.MatchRepository;
 import io.github.asmolenkov.tennismatchscoreboard.repository.PlayerRepository;
+import io.github.asmolenkov.tennismatchscoreboard.service.OngoingMatchesService;
 import io.github.asmolenkov.tennismatchscoreboard.service.PlayerService;
 import io.github.asmolenkov.tennismatchscoreboard.utils.HibernateUtils;
 import jakarta.servlet.ServletContext;
@@ -8,12 +10,13 @@ import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 @WebListener
 public class AppContextListener implements ServletContextListener {
     public static final String PLAYER_SERVICE_KEY = "playerService";
     public static final String PLAYER_REPOSITORY_KEY = "playerRepository";
+    public static final String MATH_REPOSITORY_KEY = "mathRepository";
+    public static final String ONGOING_MATH_SERVICE_KEY = "mathRepository";
 
 
 
@@ -23,7 +26,11 @@ public class AppContextListener implements ServletContextListener {
         PlayerRepository playerRepository = new PlayerRepository();
         SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
         PlayerService playerService = new PlayerService(playerRepository, sessionFactory);
-        context.setAttribute("playerService", playerService);
-        context.setAttribute("playerRepository", playerRepository);
+        MatchRepository matchRepository = new MatchRepository();
+        OngoingMatchesService ongoingMatchesService = new OngoingMatchesService(matchRepository);
+        context.setAttribute(PLAYER_SERVICE_KEY, playerService);
+        context.setAttribute(PLAYER_REPOSITORY_KEY, playerRepository);
+        context.setAttribute(MATH_REPOSITORY_KEY, matchRepository);
+        context.setAttribute(ONGOING_MATH_SERVICE_KEY, ongoingMatchesService);
     }
 }

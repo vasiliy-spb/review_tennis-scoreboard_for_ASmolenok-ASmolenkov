@@ -32,7 +32,7 @@ public class PlayerService {
                 return existingPlayer.map(player -> {
                                          transaction.rollback();
                                          log.info("Игрок {} уже существует в БД!", name);
-                                         return new PlayerDto(player
+                                         return new PlayerDto(player.getId(), player
                                                  .getName());
                                      })
                                      .orElseGet(() -> {
@@ -41,8 +41,9 @@ public class PlayerService {
                                                                   .build();
                                          playerRepository.save(newPlayer, session);
                                          log.info("Игрок {} сохранен в БД!", name);
+                                         PlayerDto newPlayerDto = new PlayerDto(newPlayer.getId(), newPlayer.getName());
                                          transaction.commit();
-                                         return new PlayerDto(newPlayer.getName());
+                                         return newPlayerDto;
                                      });
             } catch (Exception e) {
                 transaction.rollback();

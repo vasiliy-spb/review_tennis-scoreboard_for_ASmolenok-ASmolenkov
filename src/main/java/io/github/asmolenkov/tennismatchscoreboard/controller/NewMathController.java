@@ -5,6 +5,7 @@ import io.github.asmolenkov.tennismatchscoreboard.exception.DuplicateNameExcepti
 import io.github.asmolenkov.tennismatchscoreboard.exception.NameIncorrectException;
 import io.github.asmolenkov.tennismatchscoreboard.exception.PlayerCreationException;
 import io.github.asmolenkov.tennismatchscoreboard.listener.AppContextListener;
+import io.github.asmolenkov.tennismatchscoreboard.service.OngoingMatchesService;
 import io.github.asmolenkov.tennismatchscoreboard.service.PlayerService;
 import io.github.asmolenkov.tennismatchscoreboard.utils.ValidateUtil;
 import jakarta.servlet.ServletContext;
@@ -24,6 +25,7 @@ import java.util.List;
 public class NewMathController extends HttpServlet {
 
     private PlayerService playerService;
+    private OngoingMatchesService ongoingMatchesService;
 
     public NewMathController() {
     }
@@ -32,6 +34,7 @@ public class NewMathController extends HttpServlet {
     public void init()  {
         ServletContext context = getServletContext();
         this.playerService = (PlayerService) context.getAttribute(AppContextListener.PLAYER_SERVICE_KEY);
+        this.ongoingMatchesService = (OngoingMatchesService) context.getAttribute(AppContextListener.ONGOING_MATH_SERVICE_KEY);
     }
 
     @Override

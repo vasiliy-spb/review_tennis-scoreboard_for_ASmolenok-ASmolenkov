@@ -1,5 +1,5 @@
 package io.github.asmolenkov.tennismatchscoreboard.dto;
 
-public record PlayerDto(String name) {
+public record PlayerDto(long id, String name) {
 
 }
