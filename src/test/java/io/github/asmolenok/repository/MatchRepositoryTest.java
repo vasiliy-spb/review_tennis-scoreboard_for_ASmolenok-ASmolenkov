@@ -1,5 +1,6 @@
 package io.github.asmolenok.repository;
 
+import io.github.asmolenkov.tennismatchscoreboard.dto.PlayerDto;
 import io.github.asmolenkov.tennismatchscoreboard.model.CurrentMatch;
 import io.github.asmolenkov.tennismatchscoreboard.model.MatchScore;
 import io.github.asmolenkov.tennismatchscoreboard.repository.MatchRepository;
@@ -25,10 +26,12 @@ public class MatchRepositoryTest {
     @DisplayName("✅ Сохранение и поиск матча по UUID")
     void saveAndFindMatch_success() {
         UUID testUuid = UUID.randomUUID();
+        PlayerDto playerOneDto = new PlayerDto(1,"Sasha");
+        PlayerDto playerSecondDto = new PlayerDto(2,"Masha");
         CurrentMatch expectedMatch = CurrentMatch.builder()
                                                  .uuid(testUuid)
-                                                 .playerOneId(1L)
-                                                 .playerSecondId(2L)
+                                                 .playerOne(playerOneDto)
+                                                 .playerSecond(playerSecondDto)
                                                  .matchScore(MatchScore.builder().build())
                                                  .build();
 
@@ -39,8 +42,8 @@ public class MatchRepositoryTest {
 
         assertTrue(actualMatch.isPresent(), "Матч должен быть найден после сохранения");
         assertEquals(expectedMatch.getUuid(), actualMatch.get().getUuid());
-        assertEquals(1L, actualMatch.get().getPlayerOneId());
-        assertEquals(2L, actualMatch.get().getPlayerSecondId());
+        assertEquals(1L, actualMatch.get().getPlayerOne().id());
+        assertEquals(2L, actualMatch.get().getPlayerSecond().id());
     }
 
     @Test

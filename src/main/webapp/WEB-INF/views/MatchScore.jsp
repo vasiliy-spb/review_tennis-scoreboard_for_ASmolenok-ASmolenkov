@@ -8,7 +8,7 @@
 <body>
 <h1>Здесь будет счет матча!</h1>
 
-<p>Имя игрока №1${PlayerOneName}</p>
-<p>Имя игрока №2${PlayerSecondName}</p>
+<p>Имя игрока №1${currentMatch.playerOne.name}</p>
+<p>Имя игрока №2${currentMatch.playerSecond.name}</p>
 </body>
 </html>

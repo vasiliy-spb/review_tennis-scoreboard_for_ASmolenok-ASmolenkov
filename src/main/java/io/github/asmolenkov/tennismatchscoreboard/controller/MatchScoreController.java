@@ -1,5 +1,6 @@
 package io.github.asmolenkov.tennismatchscoreboard.controller;
 
+import io.github.asmolenkov.tennismatchscoreboard.exception.FindMatchException;
 import io.github.asmolenkov.tennismatchscoreboard.listener.AppContextListener;
 import io.github.asmolenkov.tennismatchscoreboard.model.CurrentMatch;
 import io.github.asmolenkov.tennismatchscoreboard.service.OngoingMatchesService;
@@ -10,10 +11,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.util.UUID;
-
+@Slf4j
 @WebServlet("/match-score")
 public class MatchScoreController extends HttpServlet {
     private OngoingMatchesService ongoingMatchesService;
@@ -30,8 +32,14 @@ public class MatchScoreController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
        String uuid = req.getParameter("uuid");
        UUID uuidMath = UUID.fromString(uuid);
-       CurrentMatch currentMatch = ongoingMatchesService.findMatchByUuid(uuidMath);
-
+       try {
+           CurrentMatch currentMatch = ongoingMatchesService.findMatchByUuid(uuidMath);
+           req.setAttribute("currentMatch", currentMatch);
+           log.info("Идет редирект на /WEB-INF/views/MatchScore.jsp");
+           req.getRequestDispatcher("/WEB-INF/views/MatchScore.jsp").forward(req, resp);
+       }catch (FindMatchException e){
+           //TODO Реализовать централизацию обработки исключений.
+       }
 
     }
 }

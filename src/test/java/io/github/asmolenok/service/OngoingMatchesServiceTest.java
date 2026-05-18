@@ -42,8 +42,8 @@ public class OngoingMatchesServiceTest {
 
         CurrentMatch savedMatch = captor.getValue();
         assertNotNull(savedMatch.getUuid(), "UUID должен быть сгенерирован");
-        assertEquals(1L, savedMatch.getPlayerOneId());
-        assertEquals(2L, savedMatch.getPlayerSecondId());
+        assertEquals(1L, savedMatch.getPlayerOne().id());
+        assertEquals(2L, savedMatch.getPlayerSecond().id());
         assertNotNull(savedMatch.getMatchScore(), "MatchScore должен быть инициализирован");
     }
 
@@ -52,10 +52,12 @@ public class OngoingMatchesServiceTest {
     void findMatchByUuid_success() {
 
         UUID testUuid = UUID.randomUUID();
+        PlayerDto playerOneDto = new PlayerDto(10L,"Sasha");
+        PlayerDto playerSecondDto = new PlayerDto(20L,"Masha");
         CurrentMatch fakeMatch = CurrentMatch.builder()
                                              .uuid(testUuid)
-                                             .playerOneId(10L)
-                                             .playerSecondId(20L)
+                                             .playerOne(playerOneDto)
+                                             .playerSecond(playerSecondDto)
                                              .build();
 
         when(matchRepository.find(testUuid)).thenReturn(Optional.of(fakeMatch));
@@ -65,7 +67,7 @@ public class OngoingMatchesServiceTest {
 
 
         assertEquals(testUuid, result.getUuid());
-        assertEquals(10L, result.getPlayerOneId());
+        assertEquals(10L, result.getPlayerOne().id());
         verify(matchRepository, times(1)).find(testUuid);
     }
 
