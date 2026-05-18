@@ -16,12 +16,13 @@ public class OngoingMatchesService {
         this.matchRepository = matchRepository;
     }
 
-    public void createMatch(PlayerDto playerOne, PlayerDto playerSecond){
+    public CurrentMatch createMatch(PlayerDto playerOne, PlayerDto playerSecond){
         UUID uuid = UUID.randomUUID();
         MatchScore matchScore = MatchScore.builder().build();
         CurrentMatch currentMatch = CurrentMatch.builder()
-                .uuid(uuid).playerOneId(playerOne.id()).playerSecondId(playerSecond.id()).matchScore(matchScore).build();
+                .uuid(uuid).playerOne(playerOne).playerSecond(playerSecond).matchScore(matchScore).build();
         matchRepository.save(currentMatch);
+        return currentMatch;
     }
 
     public CurrentMatch findMatchByUuid(UUID uuid){

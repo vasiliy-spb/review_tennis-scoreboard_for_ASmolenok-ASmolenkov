@@ -5,6 +5,7 @@ import io.github.asmolenkov.tennismatchscoreboard.exception.DuplicateNameExcepti
 import io.github.asmolenkov.tennismatchscoreboard.exception.NameIncorrectException;
 import io.github.asmolenkov.tennismatchscoreboard.exception.PlayerCreationException;
 import io.github.asmolenkov.tennismatchscoreboard.listener.AppContextListener;
+import io.github.asmolenkov.tennismatchscoreboard.model.CurrentMatch;
 import io.github.asmolenkov.tennismatchscoreboard.service.OngoingMatchesService;
 import io.github.asmolenkov.tennismatchscoreboard.service.PlayerService;
 import io.github.asmolenkov.tennismatchscoreboard.utils.ValidateUtil;
@@ -56,11 +57,10 @@ public class NewMathController extends HttpServlet {
             PlayerDto playerDtoOne = playerService.createPlayer(nameOnePlayer);
             PlayerDto playerDtoSecond = playerService.createPlayer(nameSecondPlayer);
             log.info("Игроки Сохранены в БД");
-            req.setAttribute("PlayerOneName", playerDtoOne.name());
-            req.setAttribute("PlayerSecondName", playerDtoSecond.name());
+            CurrentMatch currentMatch = ongoingMatchesService.createMatch(playerDtoOne, playerDtoSecond);
+
             //TODO Изменить на редирект
-            req.getRequestDispatcher("/WEB-INF/views/MatchScore.jsp")
-               .forward(req, resp);
+            resp.sendRedirect("/match-score?uuid=%s".formatted(currentMatch.getUuid()));
 
         } catch (NameIncorrectException | PlayerCreationException e) {
             errorMessage.add(e.getMessage());
