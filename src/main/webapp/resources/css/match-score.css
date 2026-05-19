@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #f0f0f0;
+    gap: 20px;
+}
+
+.match-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 25px;
+    padding: 0 10px;
+}
+
+.player-name {
+    font-family: "American Captain Cyrillic", fantasy;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+    flex: 1;
+    padding: 12px 15px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    transition: all 0.2s ease;
+    word-break: break-word; /* Защита от длинных имён */
+}
+
+.player-name:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    color: #1a5f3a;
+}
+
+.vs-badge {
+    background: linear-gradient(135deg, #1a5f3a 0%, #2d8f5e 100%);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 8px 16px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(26, 95, 58, 0.25);
+    letter-spacing: 2px;
+    flex-shrink: 0; /* Запрещает сжиматься */
+    text-transform: uppercase;
+    border: 2px solid #fff;
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 650px) {
+    .match-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .vs-badge {
+        order: -1; /* Переносит VS наверх */
+        transform: scale(0.9);
+    }
+
+    .player-name {
+        font-size: 1.3rem;
+        width: 100%;
+    }
+}
+
+    .players-table {
+        border-collapse: collapse;
+        background: #ffffff;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        border-radius: 12px;
+        overflow: hidden;
+        margin: 0 auto;
+        width: 90%;
+        max-width: 750px;
+        font-family: Tahoma, fantasy;
+        font-size: 1.4rem;
+    }
+
+    .players-table th {
+        background: #1a5f3a;
+        color: #ffffff;
+        padding: 14px 16px;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .players-table td {
+        padding: 12px 16px;
+        text-align: center;
+        border-bottom: 1px solid #e8e8e8;
+        color: #333;
+    }
+
+    .players-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .players-table tbody tr:nth-child(even) {
+        background: #f9fbf9;
+    }
+
+    .players-table tbody tr:hover {
+        background: #f1f5f1;
+    }

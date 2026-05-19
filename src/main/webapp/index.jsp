@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Tennis Match Score Board</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
 <body>
 <h1>Tennis Match Score Board</h1>
