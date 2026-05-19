@@ -1,37 +1,79 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Tennis Match Score Board</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание матча | Tennis Scoreboard</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
 <body>
-<h1>Tennis Match Score Board</h1>
-<img src="resources/image/Tennis.jpg" class="tennis-image" alt="tennis player with a shadow racket">
-
-<c:if test="${not empty error}">
-    <div class="alert alert-error">${error}</div>
-</c:if>
-
-<form action="${pageContext.request.contextPath}/new-math" method="post">
-    <div>
-        <label for="name1">Игрок 1</label>
-        <input type="text" id="name1" name="name1" required placeholder="Введите имя игрока">
+<div class="page-container">
+    <!-- Заголовок с теннисным мячом -->
+    <div class="header-section">
+        <div class="tennis-ball-icon">🎾</div>
+        <h1>Tennis Match<br>Score Board</h1>
+        <p class="subtitle">Создайте новый матч</p>
     </div>
-    <br>
 
-    <div>
-        <label for="name2">Игрок 2</label>
-        <input type="text" id="name2" name="name2" required placeholder="Введите имя игрока">
+    <!-- Изображение -->
+    <div class="image-wrapper">
+        <img src="${pageContext.request.contextPath}/resources/image/Tennis.jpg"
+             alt="Tennis player"
+             class="tennis-image">
     </div>
-    <br>
-    <input type="submit" value="Начать игру!">
-    <br/>
-</form>
 
-<a href="index.jsp">Вернуться к главной странице!</a>
+    <!-- Сообщения об ошибках -->
+    <c:if test="${not empty error}">
+        <div class="alert alert-error">
+            <span class="alert-icon">⚠️</span>
+            <c:forEach var="msg" items="${error}">
+                <p>${msg}</p>
+            </c:forEach>
+        </div>
+    </c:if>
 
+    <!-- Форма -->
+    <div class="form-card">
+        <form action="${pageContext.request.contextPath}/new-math" method="post" class="match-form">
+            <div class="form-group">
+                <label for="name1">
+                    <span class="player-indicator player-one">🎾</span>
+                    Игрок 1
+                </label>
+                <input type="text"
+                       id="name1"
+                       name="name1"
+                       required
+                       placeholder="Введите имя первого игрока"
+                       value="${param.name1}">
+            </div>
 
+            <div class="form-group">
+                <label for="name2">
+                    <span class="player-indicator player-two">🎾</span>
+                    Игрок 2
+                </label>
+                <input type="text"
+                       id="name2"
+                       name="name2"
+                       required
+                       placeholder="Введите имя второго игрока"
+                       value="${param.name2}">
+            </div>
+
+            <button type="submit" class="btn-start">
+                <span class="btn-icon">▶️</span>
+                Начать игру!
+            </button>
+        </form>
+    </div>
+
+    <!-- Ссылка назад -->
+    <a href="index.jsp" class="back-link">
+        <span>←</span> Вернуться к главной странице
+    </a>
+</div>
 </body>
 </html>

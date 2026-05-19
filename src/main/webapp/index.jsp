@@ -1,24 +1,43 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tennis Match Score Board</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
 <body>
-<h1>Tennis Match Score Board</h1>
-<img src="resources/image/Tennis.jpg" class="tennis-image" alt="tennis player with a shadow racket">
+<div class="page-container">
+    <!-- Заголовок -->
+    <div class="header-section">
+        <div class="tennis-ball-icon">🎾</div>
+        <h1>Tennis Match<br>Score Board</h1>
+        <p class="subtitle">Система учёта теннисных матчей</p>
+    </div>
 
-<form action="${pageContext.request.contextPath}/new-math" method="get">
-    <br>
-    <input type="submit" value="Начать новый матч!">
-    <br/>
-</form>
+    <!-- Изображение -->
+    <div class="image-wrapper">
+        <img src="${pageContext.request.contextPath}/resources/image/Tennis.jpg"
+             alt="Tennis player"
+             class="tennis-image">
+    </div>
 
-<form action="${pageContext.request.contextPath}/matches" method="get">
-    <br>
-    <input type="submit" value="Посмотреть сыгранные матчи!">
-    <br/>
-</form>
-</body>
-</html>
+    <!-- Меню -->
+    <div class="menu-card">
+        <div class="menu-title">
+            <span class="menu-icon">📋</span>
+            Главное меню
+        </div>
+
+        <div class="menu-buttons">
+            <a href="${pageContext.request.contextPath}/new-math" class="menu-btn btn-primary">
+                <span class="btn-icon">▶️</span>
+                <div class="btn-text">
+                    <strong>Начать новый матч</strong>
+                    <span>Создать игру и вести счёт</span>
+                </div>
+            </a>
+
+            <a href="${pageContext.request.contextPath}/matches" class="menu-btn btn-secondary">
+                <span class="btn-icon">📊</span>

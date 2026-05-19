@@ -1,62 +1,436 @@
+/* ========================================
+   TENNIS MATCH - CREATE PAGE
+   ======================================== */
+
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 
-h1{
-    color: darkgreen;
+.page-container {
+    width: 100%;
+    max-width: 500px;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Анимация появления */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === ЗАГОЛОВОК === */
+.header-section {
     text-align: center;
-    margin-top: 300px;
-    background-color: #b1b1b2;
+    margin-bottom: 30px;
+}
 
+.tennis-ball-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    animation: bounce 2s infinite;
+    display: inline-block;
 }
-.tennis-image {
-    display: block;        /* Делаем картинку блочным элементом */
-    margin: 20px auto;     /* auto по горизонтали центрирует */
-    width: 500px;          /* Фиксированная ширина (опционально) */
-    max-width: 100%;       /* Адаптивность */
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
-.tennis-image {
+
+h1 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    line-height: 1.2;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* === ИЗОБРАЖЕНИЕ === */
+.image-wrapper {
+    margin-bottom: 25px;
     border-radius: 16px;
-    padding: 4px; /* Толщина рамки */
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     background: linear-gradient(45deg, #1a5f3a, #4CAF50, #8BC34A);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    padding: 4px;
 }
 
+.tennis-image {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 14px;
+    transition: transform 0.3s ease;
+}
+
+.image-wrapper:hover .tennis-image {
+    transform: scale(1.02);
+}
+
+/* === СООБЩЕНИЯ ОБ ОШИБКАХ === */
+.alert {
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    animation: shake 0.5s;
+}
+
+.alert-error {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(238, 90, 111, 0.3);
+}
+
+.alert-icon {
+    font-size: 1.2rem;
+    margin-right: 8px;
+}
+
+.alert p {
+    display: inline;
+    font-weight: 500;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+/* === ФОРМА === */
+.form-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.match-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
 .form-group {
-    margin-bottom: 24px;
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 label {
-    display: block;
-    margin-bottom: 8px;
     font-weight: 600;
     color: #2c3e50;
     font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.player-indicator {
+    font-size: 1.2rem;
+}
+
+.player-one {
+    color: #667eea;
+}
+
+.player-two {
+    color: #764ba2;
 }
 
 input[type="text"] {
     width: 100%;
-    padding: 10px 10px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
     font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    background: #f8f9fa;
 }
+
 input[type="text"]:focus {
     outline: none;
     border-color: #1a5f3a;
-    box-shadow: 0 0 0 4px rgba(26, 95, 58, 0.15);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(26, 95, 58, 0.1);
+    transform: translateY(-2px);
 }
 
 input[type="text"]::placeholder {
     color: #aaa;
 }
 
+/* === КНОПКА === */
+.btn-start {
+    background: linear-gradient(135deg, #1a5f3a 0%, #4CAF50 100%);
+    color: #ffffff;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(26, 95, 58, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
 
+.btn-start:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(26, 95, 58, 0.4);
+}
 
+.btn-start:active {
+    transform: translateY(-1px);
+}
 
+.btn-icon {
+    font-size: 1.2rem;
+}
+
+/* === ССЫЛКА НАЗАД === */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.back-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    transform: translateX(-5px);
+}
+
+.back-link span {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.back-link:hover span {
+    transform: translateX(-3px);
+}
+
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .tennis-ball-icon {
+        font-size: 3rem;
+    }
+
+    .form-card {
+        padding: 25px 20px;
+    }
+
+    input[type="text"] {
+        padding: 12px 14px;
+    }
+
+    .btn-start {
+        padding: 14px 20px;
+        font-size: 1rem;
+    }
+}
+
+/* === ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ === */
+/* Свечение при фокусе на форме */
+.form-card:focus-within {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25),
+    0 0 60px rgba(26, 95, 58, 0.1);
+}
+.menu-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.menu-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.menu-icon {
+    font-size: 1.5rem;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 25px;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+}
+
+.btn-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.btn-text strong {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.btn-text span {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    font-weight: 400;
+}
+
+.btn-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+/* Первая кнопка - основная */
+.btn-primary {
+    background: linear-gradient(135deg, #1a5f3a 0%, #4CAF50 100%);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(26, 95, 58, 0.35);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary .btn-text span {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Вторая кнопка - вторичная */
+.btn-secondary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary .btn-text span {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* === ФУТЕР === */
+.footer {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    padding: 15px;
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 600px) {
+    .menu-card {
+        padding: 25px 20px;
+    }
+
+    .menu-btn {
+        padding: 18px 20px;
+    }
+
+    .btn-icon {
+        font-size: 1.8rem;
+    }
+
+    .btn-text strong {
+        font-size: 1rem;
+    }
+
+    .btn-text span {
+        font-size: 0.8rem;
+    }
+}
+
+/* === ЭФФЕКТЫ ПРИ НАВЕДЕНИИ === */
+.menu-btn:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+/* Пульсация для привлечения внимания */
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    50% {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.menu-btn:hover {
+    animation: pulse 1.5s ease-in-out;
+}
