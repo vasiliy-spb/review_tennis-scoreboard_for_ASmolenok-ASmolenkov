@@ -121,3 +121,50 @@ body {
     .players-table tbody tr:hover {
         background: #f1f5f1;
     }
+
+/* === КНОПКА ДОБАВЛЕНИЯ ОЧКА === */
+.btn-add-point {
+    background: linear-gradient(135deg, #1a5f3a 0%, #4CAF50 100%);
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(26, 95, 58, 0.3);
+    white-space: nowrap;
+}
+
+.btn-add-point:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 95, 58, 0.4);
+    background: linear-gradient(135deg, #2d8f5e 0%, #66BB6A 100%);
+}
+
+.btn-add-point:active {
+    transform: translateY(0);
+}
+
+/* Адаптация ячейки с кнопкой */
+.players-table th:last-child,
+.players-table td:last-child {
+    text-align: center;
+    padding: 10px 12px;
+    width: 120px;
+}
+
+/* На мобильных — скрываем заголовок колонки или уменьшаем */
+@media (max-width: 768px) {
+    .btn-add-point {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .players-table th:last-child,
+    .players-table td:last-child {
+        width: 90px;
+        padding: 8px 6px;
+    }
+}

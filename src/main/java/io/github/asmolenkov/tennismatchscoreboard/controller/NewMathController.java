@@ -59,7 +59,7 @@ public class NewMathController extends HttpServlet {
             log.info("Игроки Сохранены в БД");
             CurrentMatch currentMatch = ongoingMatchesService.createMatch(playerDtoOne, playerDtoSecond);
 
-            //TODO Изменить на редирект
+
             resp.sendRedirect("/match-score?uuid=%s".formatted(currentMatch.getUuid()));
 
         } catch (NameIncorrectException | PlayerCreationException e) {

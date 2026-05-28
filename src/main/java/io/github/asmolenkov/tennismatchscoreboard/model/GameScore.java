@@ -1,19 +1,14 @@
 package io.github.asmolenkov.tennismatchscoreboard.model;
 
+import lombok.Getter;
+
+@Getter
 public class GameScore {
 
-    private int playerOneGame;
-    private int playerSecondGame;
+
     private Point playerOnePoint = Point.ZERO;
     private Point playerSecondPoint = Point.ZERO;
 
-    public void setPlayerOneAddGame(){
-        this.playerOneGame++;
-    }
-
-    public void setPlayerSecondGame(){
-        this.playerSecondGame++;
-    }
 
     public void playerOneAddPoint() {
 
@@ -23,6 +18,10 @@ public class GameScore {
     public void playerSecondAddPoint() {
 
         playerSecondPoint = addPoint(playerSecondPoint);
+    }
+    public void resetPoint(){
+        this.playerOnePoint = Point.ZERO;
+        this.playerSecondPoint = Point.ZERO;
     }
 
     private Point addPoint(Point current) {
@@ -34,4 +33,5 @@ public class GameScore {
             case ADVANTAGE -> Point.ZERO;
         };
     }
+
 }

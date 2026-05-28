@@ -18,4 +18,7 @@ public class MatchRepository {
         return Optional.ofNullable(activeMatches.get(uuid));
     }
 
+    public void update(CurrentMatch currentMatch) {
+        activeMatches.replace(currentMatch.getUuid(),currentMatch);
+    }
 }

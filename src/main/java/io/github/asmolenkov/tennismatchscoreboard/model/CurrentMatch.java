@@ -14,5 +14,6 @@ public class CurrentMatch {
     private final PlayerDto playerOne;
     private final PlayerDto playerSecond;
     private final MatchScore matchScore;
+    private boolean matchFinished = false;
 
 }

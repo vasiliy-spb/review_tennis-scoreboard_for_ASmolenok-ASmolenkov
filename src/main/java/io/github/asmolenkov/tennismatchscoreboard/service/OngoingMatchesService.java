@@ -33,4 +33,8 @@ public class OngoingMatchesService {
             throw new FindMatchException("Такой матч не найден!");
         }
     }
+
+    public void updateMath(CurrentMatch currentMatch) {
+        matchRepository.update(currentMatch);
+    }
 }
