@@ -1,10 +1,7 @@
 package io.github.asmolenkov.tennismatchscoreboard.service;
 
 import io.github.asmolenkov.tennismatchscoreboard.dto.PlayerDto;
-import io.github.asmolenkov.tennismatchscoreboard.model.CurrentMatch;
-import io.github.asmolenkov.tennismatchscoreboard.model.MatchScore;
-import io.github.asmolenkov.tennismatchscoreboard.model.Point;
-import io.github.asmolenkov.tennismatchscoreboard.model.SetScore;
+import io.github.asmolenkov.tennismatchscoreboard.model.*;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -19,45 +16,30 @@ public class MatchScoreCalculationService {
             PlayerDto playerOne = currentMatch.getPlayerOne();
             log.info("ID игрока 1 = {}, а playerId = {}", playerOne.id(), playerId);
             if (playerId == playerOne.id()) {
-                if (currentMatch.getMatchScore()
-                                .getPlayersGameScore()
-                                .getPlayerOnePoint() == Point.ADVANTAGE) {
-
+                Point point = currentMatch.getPointPlayer(PlayerSide.ONE);
+                if (point == Point.ADVANTAGE) {
                     currentSet.setPlayerOneAddGame();
-
+                    currentMatch.resetAllPoint();
                     if(isSetFinished(currentSet.getPlayerOneGameCount(), currentSet.getPlayerSecondGameCount())){
-                        currentMatch.getMatchScore()
-                                    .getPlayersGameScore()
-                                    .resetPoint();
+                        currentMatch.resetAllPoint();
                         return;
                     }
+                    return;
                 }
-                currentMatch.getMatchScore()
-                            .getPlayersGameScore()
-                            .playerOneAddPoint();
-
-                log.info("Point игрока 1 = {}", currentMatch.getMatchScore()
-                                                            .getPlayersGameScore()
-                                                            .getPlayerOnePoint().getDisplayValue());
+                currentMatch.addPointToPlayer(PlayerSide.ONE);
             } else {
-                if (currentMatch.getMatchScore()
-                                .getPlayersGameScore()
-                                .getPlayerSecondPoint() == Point.ADVANTAGE) {
+                Point point = currentMatch.getPointPlayer(PlayerSide.TWO);
+                if (point == Point.ADVANTAGE) {
                     currentSet.setPlayerSecondAddGame();
+                    currentMatch.resetAllPoint();
                     if(isSetFinished(currentSet.getPlayerOneGameCount(), currentSet.getPlayerSecondGameCount())){
-                        currentMatch.getMatchScore()
-                                    .getPlayersGameScore()
-                                    .resetPoint();
+                        currentMatch.resetAllPoint();
                         return;
                     }
+                    return;
                 }
-                currentMatch.getMatchScore()
-                            .getPlayersGameScore()
-                            .playerSecondAddPoint();
+                currentMatch.addPointToPlayer(PlayerSide.TWO);
 
-                log.info("Point игрока 2 = {}", currentMatch.getMatchScore()
-                                                            .getPlayersGameScore()
-                                                            .getPlayerSecondPoint().getDisplayValue());
             }
         }
     }

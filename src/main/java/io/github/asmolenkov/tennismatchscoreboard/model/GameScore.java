@@ -19,7 +19,7 @@ public class GameScore {
 
         playerSecondPoint = addPoint(playerSecondPoint);
     }
-    public void resetPoint(){
+    public void resetAllPoint(){
         this.playerOnePoint = Point.ZERO;
         this.playerSecondPoint = Point.ZERO;
     }
