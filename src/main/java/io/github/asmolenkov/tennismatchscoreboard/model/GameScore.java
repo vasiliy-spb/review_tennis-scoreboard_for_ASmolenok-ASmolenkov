@@ -24,6 +24,14 @@ public class GameScore {
         this.playerSecondPoint = Point.ZERO;
     }
 
+    public void resetAdvantagePlayerOne(){
+        this.playerOnePoint = Point.FORTY;
+    }
+
+    public void resetAdvantagePlayerSecond(){
+        this.playerSecondPoint = Point.FORTY;
+    }
+
     private Point addPoint(Point current) {
         return switch (current) {
             case ZERO -> Point.FIFTEEN;
@@ -33,5 +41,7 @@ public class GameScore {
             case ADVANTAGE -> Point.ZERO;
         };
     }
+
+
 
 }

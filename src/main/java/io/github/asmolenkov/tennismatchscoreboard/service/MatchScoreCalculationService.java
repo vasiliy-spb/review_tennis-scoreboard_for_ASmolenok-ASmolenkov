@@ -17,6 +17,16 @@ public class MatchScoreCalculationService {
             log.info("ID игрока 1 = {}, а playerId = {}", playerOne.id(), playerId);
             if (playerId == playerOne.id()) {
                 Point point = currentMatch.getPointPlayer(PlayerSide.ONE);
+                if(currentMatch.getPointPlayer(PlayerSide.ONE) == Point.FORTY && currentMatch.getPointPlayer(PlayerSide.TWO) != Point.FORTY &&
+                        currentMatch.getPointPlayer(PlayerSide.TWO) != Point.ADVANTAGE){
+                    currentSet.setPlayerOneAddGame();
+                    currentMatch.resetAllPoint();
+                    return;
+                }
+                if(currentMatch.getPointPlayer(PlayerSide.ONE) == Point.FORTY && currentMatch.getPointPlayer(PlayerSide.TWO) == Point.ADVANTAGE){
+                    currentMatch.resetAdvantage(PlayerSide.TWO);
+                    return;
+                }
                 if (point == Point.ADVANTAGE) {
                     currentSet.setPlayerOneAddGame();
                     currentMatch.resetAllPoint();
@@ -29,6 +39,18 @@ public class MatchScoreCalculationService {
                 currentMatch.addPointToPlayer(PlayerSide.ONE);
             } else {
                 Point point = currentMatch.getPointPlayer(PlayerSide.TWO);
+                if(currentMatch.getPointPlayer(PlayerSide.TWO) == Point.FORTY && currentMatch.getPointPlayer(PlayerSide.ONE) != Point.FORTY &&
+                        currentMatch.getPointPlayer(PlayerSide.ONE) != Point.ADVANTAGE){
+                    currentSet.setPlayerSecondAddGame();
+                    currentMatch.resetAllPoint();
+                    return;
+                }
+
+                if(currentMatch.getPointPlayer(PlayerSide.TWO) == Point.FORTY && currentMatch.getPointPlayer(PlayerSide.ONE) == Point.ADVANTAGE){
+                    currentMatch.resetAdvantage(PlayerSide.ONE);
+                    return;
+                }
+
                 if (point == Point.ADVANTAGE) {
                     currentSet.setPlayerSecondAddGame();
                     currentMatch.resetAllPoint();

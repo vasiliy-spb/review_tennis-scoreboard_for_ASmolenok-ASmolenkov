@@ -37,5 +37,13 @@ public class CurrentMatch {
         matchScore.getPlayersGameScore().resetAllPoint();
     }
 
+    public void resetAdvantage (PlayerSide side){
+        GameScore gameScore = matchScore.getPlayersGameScore();
+        switch (side){
+            case ONE -> gameScore.resetAdvantagePlayerOne();
+            case TWO -> gameScore.resetAdvantagePlayerSecond();
+        }
+    }
+
 
 }
