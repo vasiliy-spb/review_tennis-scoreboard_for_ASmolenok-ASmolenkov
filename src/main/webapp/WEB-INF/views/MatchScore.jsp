@@ -30,7 +30,20 @@
         <td>${currentMatch.matchScore.setOneScore.playerOneGameCount}</td> <!-- Set 1 !-->
         <td>${currentMatch.matchScore.setTwoScore.playerOneGameCount}</td> <!-- Set 2 !-->
         <td>${currentMatch.matchScore.setThreeScore.playerOneGameCount}</td> <!-- Set 3 !-->
-        <td>${currentMatch.matchScore.playersGameScore.playerOnePoint.getDisplayValue()}</td> <!-- Game  !-->
+
+        <td class="game-cell">
+            <c:choose>
+
+                <c:when test="${currentMatch.matchScore.tieBreakActive}">
+                    <span class="tb-badge">TB</span>
+                    <span class="tb-score">${currentMatch.matchScore.tieBreakScore.playerOnePoint}</span>
+                </c:when>
+
+                <c:otherwise>
+                    ${currentMatch.matchScore.playersGameScore.playerOnePoint.displayValue}
+                </c:otherwise>
+            </c:choose>
+        </td> <!-- Game  !-->
         <td><form action="${pageContext.request.contextPath}/match-score" method="post">
             <input type="hidden" name="uuid" value="${currentMatch.uuid}">
             <input type="hidden" name="playerId" value="${currentMatch.playerOne.id}">
@@ -44,7 +57,17 @@
         <td>${currentMatch.matchScore.setOneScore.playerSecondGameCount}</td> <!-- Set 1 !-->
         <td>${currentMatch.matchScore.setTwoScore.playerSecondGameCount}</td><!-- Set 2 !-->
         <td>${currentMatch.matchScore.setThreeScore.playerSecondGameCount}</td> <!-- Set 3 !-->
-        <td>${currentMatch.matchScore.playersGameScore.playerSecondPoint.getDisplayValue()}</td> <!-- Game  !-->
+        <td class="game-cell">
+            <c:choose>
+                <c:when test="${currentMatch.matchScore.tieBreakActive}">
+                    <span class="tb-badge">TB</span>
+                    <span class="tb-score">${currentMatch.matchScore.tieBreakScore.playerSecondPoint}</span>
+                </c:when>
+                <c:otherwise>
+                    ${currentMatch.matchScore.playersGameScore.playerSecondPoint.displayValue}
+                </c:otherwise>
+            </c:choose>
+        </td> <!-- Game  !-->
         <td><form action="${pageContext.request.contextPath}/match-score" method="post">
             <input type="hidden" name="uuid" value="${currentMatch.uuid}">
             <input type="hidden" name="playerId" value="${currentMatch.playerSecond.id}">

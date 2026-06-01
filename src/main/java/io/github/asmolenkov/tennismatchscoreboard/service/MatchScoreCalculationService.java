@@ -12,6 +12,7 @@ public class MatchScoreCalculationService {
             //TODO Реализовать завершение матча
         }
         PlayerSide side = resolvePlayerSide(currentMatch, playerId); //TODO добавить обработку если метод вернул null
+
         processPointUpdate(currentMatch, side);
 
     }
@@ -28,9 +29,15 @@ public class MatchScoreCalculationService {
         PlayerSide opponent = getOpponent(playerSide);
         int setNumber = determineActiveSetNumber(currentMatch);
         SetScore currentSet = getCurrentSet(currentMatch, setNumber);
+        MatchScore matchScore = currentMatch.getMatchScore();
 
         Point currentPoint = currentMatch.getPointPlayer(playerSide);
         Point opponentPoint = currentMatch.getPointPlayer(opponent);
+
+        if(isTieBreakActive(matchScore)){
+            tieBreakPointUpdate(matchScore, currentSet , playerSide);
+            return;
+        }
 
         if (isStandardGameWin(currentPoint, opponentPoint)) {
             awardGameToPlayer(currentSet, playerSide);
@@ -49,7 +56,36 @@ public class MatchScoreCalculationService {
             checkAndHandleSetCompletion(currentMatch, currentSet, setNumber);
             return;
         }
+        if(isSetFinished(currentSet.getPlayerOneGameCount(), currentSet.getPlayerSecondGameCount())){
+            currentSet.fishedSet();
+        }
         currentMatch.addPointToPlayer(playerSide);
+
+        if(isStartTieBreak(currentSet.getPlayerOneGameCount(), currentSet.getPlayerSecondGameCount())){
+            matchScore.activateTieBreak();
+        }
+    }
+
+    private void tieBreakPointUpdate(MatchScore matchScore, SetScore setScore, PlayerSide current) {
+        PlayerSide opponent = getOpponent(current);
+
+        TieBreakScore tieBreakScore = matchScore.getTieBreakScore();
+
+        tieBreakScore.addTieBreakPoint(current);
+
+        if(isTieBreakWon(tieBreakScore, current, opponent)){
+            PlayerSide winner = (tieBreakScore.getPlayerOnePoint() > tieBreakScore.getPlayerSecondPoint() ? PlayerSide.ONE : PlayerSide.TWO);
+            awardGameToPlayer(setScore,winner);
+            matchScore.deactivateTieBreak();
+            setScore.fishedSet();
+
+
+            tieBreakScore.resetPoint();
+            matchScore.getPlayersGameScore().resetAllPoint();
+
+            log.info("✅ Тай-брейк завершён. Победитель сета: {}", winner);
+        }
+
     }
 
     private PlayerSide getOpponent(PlayerSide side) {
@@ -60,14 +96,10 @@ public class MatchScoreCalculationService {
         MatchScore matchScore = currentMatch.getMatchScore();
         SetScore setOne = matchScore.getSetOneScore();
         SetScore setTwo = matchScore.getSetTwoScore();
-        int p1Set1 = setOne.getPlayerOneGameCount();
-        int p2Set1 = setOne.getPlayerSecondGameCount();
-        int p1Set2 = setTwo.getPlayerOneGameCount();
-        int p2Set2 = setTwo.getPlayerSecondGameCount();
 
-        if (!isSetFinished(p1Set1, p2Set1)) {
+        if (setOne.isSetActive()) {
             return 1;
-        } else if (!isSetFinished(p1Set2, p2Set2)) {
+        } else if (setTwo.isSetActive()) {
             return 2;
         } else {
             return 3;
@@ -116,9 +148,22 @@ public class MatchScoreCalculationService {
 
 
     private boolean isSetFinished(int playerOneGames, int playerTwoGames) {
-        return (playerOneGames >= 6 && playerOneGames - playerTwoGames >= 1) ||
-                (playerTwoGames >= 6 && playerTwoGames - playerOneGames >= 1);
+        return  (playerOneGames >= 6 && playerOneGames - playerTwoGames >= 2) ||
+                (playerTwoGames >= 6 && playerTwoGames - playerOneGames >= 2);
+
     }
 
+    private boolean isTieBreakActive(MatchScore matchScore){
+        return matchScore.isTieBreakActive();
+    }
 
+    private boolean isStartTieBreak(int playerOneGames, int playerTwoGames){
+        return playerOneGames == 6 && playerTwoGames == 6;
+    }
+
+    private boolean isTieBreakWon(TieBreakScore tieBreakScore, PlayerSide current, PlayerSide opponent){
+        int currentPoint = tieBreakScore.getPointPlayer(current);
+        int opponentPoint = tieBreakScore.getPointPlayer(opponent);
+        return (currentPoint >= 7 && currentPoint - opponentPoint >= 2) || (opponentPoint >= 7 && opponentPoint - currentPoint >= 2);
+    }
 }

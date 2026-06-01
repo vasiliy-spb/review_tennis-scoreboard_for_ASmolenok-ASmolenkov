@@ -6,6 +6,7 @@ import lombok.Getter;
 public class SetScore {
     private int playerOneGameCount;
     private int playerSecondGameCount;
+    private boolean setActive = true;
 
 
     public void setPlayerOneAddGame(){
@@ -14,5 +15,9 @@ public class SetScore {
 
     public void setPlayerSecondAddGame(){
         this.playerSecondGameCount++;
+    }
+
+    public void fishedSet(){
+        this.setActive = false;
     }
 }

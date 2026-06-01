@@ -5,7 +5,6 @@ import lombok.Getter;
 @Getter
 public class GameScore {
 
-
     private Point playerOnePoint = Point.ZERO;
     private Point playerSecondPoint = Point.ZERO;
 
@@ -19,16 +18,17 @@ public class GameScore {
 
         playerSecondPoint = addPoint(playerSecondPoint);
     }
-    public void resetAllPoint(){
+
+    public void resetAllPoint() {
         this.playerOnePoint = Point.ZERO;
         this.playerSecondPoint = Point.ZERO;
     }
 
-    public void resetAdvantagePlayerOne(){
+    public void resetAdvantagePlayerOne() {
         this.playerOnePoint = Point.FORTY;
     }
 
-    public void resetAdvantagePlayerSecond(){
+    public void resetAdvantagePlayerSecond() {
         this.playerSecondPoint = Point.FORTY;
     }
 
@@ -41,7 +41,6 @@ public class GameScore {
             case ADVANTAGE -> Point.ZERO;
         };
     }
-
 
 
 }
