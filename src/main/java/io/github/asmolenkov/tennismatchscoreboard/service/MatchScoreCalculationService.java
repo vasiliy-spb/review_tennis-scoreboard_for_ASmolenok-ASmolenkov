@@ -34,14 +34,23 @@ public class MatchScoreCalculationService {
         Point currentPoint = currentMatch.getPointPlayer(playerSide);
         Point opponentPoint = currentMatch.getPointPlayer(opponent);
 
+
         if(isTieBreakActive(matchScore)){
             tieBreakPointUpdate(matchScore, currentSet , playerSide);
             return;
         }
 
         if (isStandardGameWin(currentPoint, opponentPoint)) {
+            log.info("Гейм завершен");
             awardGameToPlayer(currentSet, playerSide);
             currentMatch.resetAllPoint();
+            log.info("Очки сброшены");
+            if(isStartTieBreak(currentSet.getPlayerOneGameCount(), currentSet.getPlayerSecondGameCount())){
+                matchScore.activateTieBreak();
+            }
+            if(isSetFinished(currentSet.getPlayerOneGameCount(), currentSet.getPlayerSecondGameCount())){
+                currentSet.fishedSet();
+            }
             checkAndHandleSetCompletion(currentMatch, currentSet, setNumber); //TODO принять решение о необходимости этого метода
             return;
         }
@@ -61,9 +70,7 @@ public class MatchScoreCalculationService {
         }
         currentMatch.addPointToPlayer(playerSide);
 
-        if(isStartTieBreak(currentSet.getPlayerOneGameCount(), currentSet.getPlayerSecondGameCount())){
-            matchScore.activateTieBreak();
-        }
+
     }
 
     private void tieBreakPointUpdate(MatchScore matchScore, SetScore setScore, PlayerSide current) {
@@ -133,7 +140,7 @@ public class MatchScoreCalculationService {
 
     private void checkAndHandleSetCompletion(CurrentMatch match, SetScore set, int setNumber) {
         if (isSetFinished(set.getPlayerOneGameCount(), set.getPlayerSecondGameCount())) {
-            log.info("Сет {} завершён", setNumber);
+            log.info("Сет {} завершён {}", setNumber, set.isSetActive());
         }
     }
 
@@ -154,6 +161,7 @@ public class MatchScoreCalculationService {
     }
 
     private boolean isTieBreakActive(MatchScore matchScore){
+
         return matchScore.isTieBreakActive();
     }
 

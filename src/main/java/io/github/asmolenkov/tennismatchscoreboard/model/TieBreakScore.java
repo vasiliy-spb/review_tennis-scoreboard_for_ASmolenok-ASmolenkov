@@ -1,8 +1,12 @@
 package io.github.asmolenkov.tennismatchscoreboard.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class TieBreakScore {
     private int playerOnePoint;
     private int playerSecondPoint;

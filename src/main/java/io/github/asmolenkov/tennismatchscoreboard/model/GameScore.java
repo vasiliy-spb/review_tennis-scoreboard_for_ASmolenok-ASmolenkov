@@ -1,8 +1,12 @@
 package io.github.asmolenkov.tennismatchscoreboard.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class GameScore {
 
     private Point playerOnePoint = Point.ZERO;
