@@ -1,160 +1,419 @@
-2026-06-08 18:23:04 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:23:04 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 18:23:04 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:23:04 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 18:23:04 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:23:04 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 18:23:04 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:23:04 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 18:23:04 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:23:04 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 18:23:04 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:23:04 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 18:23:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:23:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 18:23:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:23:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 18:23:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:23:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 18:23:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:23:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 18:23:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:23:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 18:23:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:23:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 18:28:19 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:28:19 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 18:28:19 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:28:19 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 18:28:19 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:28:19 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 18:28:19 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:28:19 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 18:28:19 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:28:19 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 18:28:19 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:28:19 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 18:59:35 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:59:35 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 18:59:35 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 18:59:35 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 19:03:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 19:03:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 19:03:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 19:03:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 19:06:41 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 19:06:41 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 19:06:41 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 19:06:41 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 19:06:41 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 19:06:41 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 19:06:41 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 19:06:41 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 19:06:41 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 1 завершён
-2026-06-08 19:17:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 19:17:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 19:17:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 19:17:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 19:23:02 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 19:23:02 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 19:23:02 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 19:23:02 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 19:24:01 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 19:24:01 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 19:24:01 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 19:24:01 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 19:26:41 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 19:26:41 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 19:26:41 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 19:26:41 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 19:27:24 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 19:27:24 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 19:27:24 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 19:27:24 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 19:31:49 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 19:31:49 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 19:31:49 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 19:31:49 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 20:28:32 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: ONE
-2026-06-08 20:28:32 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: TWO
-2026-06-08 20:28:32 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: ONE
-2026-06-08 20:28:32 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: TWO
-2026-06-08 20:31:58 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: ONE
-2026-06-08 20:31:58 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: TWO
-2026-06-08 20:31:58 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: ONE
-2026-06-08 20:31:58 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: TWO
-2026-06-08 20:33:11 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: ONE
-2026-06-08 20:33:11 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: TWO
-2026-06-08 20:33:11 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: ONE
-2026-06-08 20:33:11 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: TWO
-2026-06-08 20:33:56 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: ONE
-2026-06-08 20:33:56 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: TWO
-2026-06-08 20:33:56 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: ONE
-2026-06-08 20:33:56 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: TWO
-2026-06-08 20:34:24 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: ONE
-2026-06-08 20:34:24 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: TWO
-2026-06-08 20:34:24 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: ONE
-2026-06-08 20:34:24 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: TWO
-2026-06-08 20:35:47 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: ONE
-2026-06-08 20:35:47 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: TWO
-2026-06-08 20:35:47 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: ONE
-2026-06-08 20:35:47 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: TWO
-2026-06-08 21:01:11 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:01:11 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:01:11 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 1 завершён
-2026-06-08 21:01:11 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:01:11 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:01:11 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 1 завершён
-2026-06-08 21:03:34 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:03:34 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:03:34 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 1 завершён
-2026-06-08 21:03:34 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:03:34 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:03:34 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 1 завершён
-2026-06-08 21:07:35 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:07:35 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:07:35 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 1 завершён true
-2026-06-08 21:07:35 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:07:35 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:07:35 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 1 завершён true
-2026-06-08 21:09:24 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:09:24 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:09:24 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 1 завершён false
-2026-06-08 21:09:24 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:09:24 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:09:24 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 1 завершён false
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: ONE
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: TWO
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: ONE
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: TWO
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 1 завершён false
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 1 завершён false
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
-2026-06-08 21:12:45 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 1 завершён false
+2026-06-10 18:29:14 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 18:29:14 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 18:31:48 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 18:31:48 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 18:31:48 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 18:32:09 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 18:32:09 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 18:32:09 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 18:32:09 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 18:32:09 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №2 - завершен
+2026-06-10 18:32:09 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 2 завершён false
+2026-06-10 18:38:17 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 18:38:17 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 18:38:17 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 18:38:17 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 18:38:17 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №2 - завершен
+2026-06-10 18:38:17 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 2 завершён false
+2026-06-10 18:40:49 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 18:40:49 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 18:40:49 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 18:40:49 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 18:40:49 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №2 - завершен
+2026-06-10 18:40:49 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 2 завершён false
+2026-06-10 18:54:44 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 18:54:44 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 18:54:44 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 18:54:44 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 18:54:44 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №2 - завершен
+2026-06-10 18:54:44 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 2 завершён false
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ADVANTAGE
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Сброс очков
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ADVANTAGE
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Сброс очков
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №2 - завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 2 завершён false
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = THIRTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = THIRTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: ONE
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: TWO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: ONE
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: TWO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Начинается Тай-брейк
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Начинается Тай-брейк
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FIFTEEN
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FIFTEEN
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = THIRTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = THIRTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = THIRTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = THIRTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №1 - завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 1 завершён false
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №1 - завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 1 завершён false
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №1 - завершен
+2026-06-10 19:03:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 1 завершён false
+2026-06-10 19:05:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:05:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:05:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:05:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:05:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №2 - завершен
+2026-06-10 19:05:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-06-10 19:05:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-06-10 19:05:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет 2 завершён false
+2026-06-10 19:10:38 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:10:38 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:10:38 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:10:38 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:10:38 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №3 - завершен
+2026-06-10 19:10:38 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-06-10 19:10:38 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-06-10 19:16:14 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:16:14 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:16:14 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:16:14 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:16:14 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №2 - завершен
+2026-06-10 19:16:14 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-06-10 19:16:14 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-06-10 19:16:14 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FIFTEEN
+2026-06-10 19:16:14 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FORTY
+2026-06-10 19:35:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:35:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:35:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:35:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:35:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №2 - завершен
+2026-06-10 19:35:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-06-10 19:35:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-06-10 19:35:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:35:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:35:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:35:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:35:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №2 - завершен
+2026-06-10 19:35:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-06-10 19:35:36 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - TWO
+2026-06-10 19:39:12 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:39:12 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:39:12 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:39:12 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:39:12 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №2 - завершен
+2026-06-10 19:39:12 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-06-10 19:39:12 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-06-10 19:39:12 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:39:12 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:39:12 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:39:12 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:39:12 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №2 - завершен
+2026-06-10 19:39:12 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-06-10 19:39:12 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - TWO
+2026-06-10 19:59:26 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:59:26 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:59:26 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:59:26 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:59:26 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №2 - завершен
+2026-06-10 19:59:26 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-06-10 19:59:26 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-06-10 19:59:26 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 19:59:26 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 19:59:26 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 19:59:26 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 19:59:26 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №2 - завершен
+2026-06-10 19:59:26 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-06-10 19:59:26 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - TWO
+2026-06-10 20:01:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:01:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:01:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:01:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:01:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №2 - завершен
+2026-06-10 20:01:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-06-10 20:01:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-06-10 20:01:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:01:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:01:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:01:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:01:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №2 - завершен
+2026-06-10 20:01:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-06-10 20:01:05 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - TWO
+2026-06-10 20:21:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:21:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:21:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:21:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:21:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №3 - завершен
+2026-06-10 20:21:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-06-10 20:21:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-06-10 20:21:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:21:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:21:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:21:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:21:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №3 - завершен
+2026-06-10 20:21:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-06-10 20:21:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - TWO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ADVANTAGE
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Сброс очков
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ADVANTAGE
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Сброс очков
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №3 - завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №3 - завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - TWO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = THIRTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = THIRTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: ONE
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: TWO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: ONE
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - ✅ Тай-брейк завершён. Победитель сета: TWO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Идет Тай-брейк
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Начинается Тай-брейк
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Начинается Тай-брейк
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = ZERO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FIFTEEN
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FIFTEEN
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = THIRTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = THIRTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = THIRTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = THIRTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №2 - завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №2 - завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - TWO
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №1 - завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №1 - завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 1 = FORTY
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки Игрок 2 = FIFTEEN
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Очки сброшены
+2026-06-10 20:24:15 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет №1 - завершен
+2026-06-10 20:24:16 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 7.0.4.Final
+2026-06-10 20:24:16 WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-06-10 20:24:16 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-10 20:24:16 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:test_tennis_db;DB_CLOSE_DELAY=-1]
+	Database driver: org.h2.Driver
+	Database version: 2.4.240
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Pool: DriverManagerConnectionProviderImpl
+	Minimum pool size: 1
+	Maximum pool size: 20
+2026-06-10 20:24:17 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-10 20:24:17 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@13f2d42c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-10 20:24:17 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3f3a6091] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-06-10 20:24:17 INFO  i.g.a.t.service.PlayerService - Игрок Иван сохранен в БД!
+2026-06-10 20:24:17 INFO  i.g.a.t.service.PlayerService - Игрок Мария сохранен в БД!
+2026-06-10 20:24:17 INFO  i.g.a.t.service.PlayerService - Игрок Мария уже существует в БД!
+2026-06-10 20:24:17 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6a9a6a0c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.

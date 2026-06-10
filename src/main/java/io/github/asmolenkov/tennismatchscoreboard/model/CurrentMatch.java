@@ -16,6 +16,7 @@ public class CurrentMatch {
     private final PlayerDto playerSecond;
     private final MatchScore matchScore;
     private boolean matchFinished = false;
+    private PlayerDto winner;
 
     public void addPointToPlayer(PlayerSide side) {
         GameScore gameScore = matchScore.getPlayersGameScore();
@@ -43,6 +44,11 @@ public class CurrentMatch {
             case ONE -> gameScore.resetAdvantagePlayerOne();
             case TWO -> gameScore.resetAdvantagePlayerSecond();
         }
+    }
+
+    public void finishTheMatch(PlayerDto winner){
+        this.matchFinished = true;
+        this.winner = winner;
     }
 
 

@@ -1,5 +1,6 @@
 package io.github.asmolenkov.tennismatchscoreboard.service;
 
+import io.github.asmolenkov.tennismatchscoreboard.dto.PlayerDto;
 import io.github.asmolenkov.tennismatchscoreboard.model.*;
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,6 +18,27 @@ public class MatchScoreCalculationService {
 
     }
 
+    public boolean isMatchFinished (CurrentMatch math) {
+        MatchScore matchScore = math.getMatchScore();
+
+        SetScore oneSet = matchScore.getSetOneScore();
+        SetScore twoSet = matchScore.getSetTwoScore();
+        SetScore threeSet = matchScore.getSetThreeScore();
+
+        int oneSetScoreP1 = matchScore.getSetOneScore().getPlayerOneGameCount();
+        int oneSetScoreP2 = matchScore.getSetOneScore().getPlayerSecondGameCount();
+
+        int twoSetScoreP1 = matchScore.getSetTwoScore().getPlayerOneGameCount();
+        int twoSetScoreP2 = matchScore.getSetTwoScore().getPlayerSecondGameCount();
+
+        if((!oneSet.isSetActive() && !twoSet.isSetActive() && oneSetScoreP1 > oneSetScoreP2 && twoSetScoreP1 > twoSetScoreP2) ||
+                (!oneSet.isSetActive() && !twoSet.isSetActive() && oneSetScoreP2 > oneSetScoreP1 && twoSetScoreP2 > twoSetScoreP1)){
+            return true;
+        }
+
+        return !oneSet.isSetActive() && !twoSet.isSetActive() && !threeSet.isSetActive();
+    }
+
     private PlayerSide resolvePlayerSide(CurrentMatch currentMatch, long playerId) {
         if (currentMatch.getPlayerOne()
                         .id() == playerId) return PlayerSide.ONE;
@@ -32,10 +54,13 @@ public class MatchScoreCalculationService {
         MatchScore matchScore = currentMatch.getMatchScore();
 
         Point currentPoint = currentMatch.getPointPlayer(playerSide);
+        log.info("Очки Игрок 1 = {}", currentPoint);
         Point opponentPoint = currentMatch.getPointPlayer(opponent);
+        log.info("Очки Игрок 2 = {}", opponentPoint);
 
 
         if(isTieBreakActive(matchScore)){
+            log.info("Идет Тай-брейк");
             tieBreakPointUpdate(matchScore, currentSet , playerSide);
             return;
         }
@@ -46,30 +71,45 @@ public class MatchScoreCalculationService {
             currentMatch.resetAllPoint();
             log.info("Очки сброшены");
             if(isStartTieBreak(currentSet.getPlayerOneGameCount(), currentSet.getPlayerSecondGameCount())){
+                log.info("Начинается Тай-брейк");
                 matchScore.activateTieBreak();
             }
             if(isSetFinished(currentSet.getPlayerOneGameCount(), currentSet.getPlayerSecondGameCount())){
+                log.info("Сет №{} - завершен", setNumber);
                 currentSet.fishedSet();
             }
-            checkAndHandleSetCompletion(currentMatch, currentSet, setNumber); //TODO принять решение о необходимости этого метода
+            if(isMatchFinished(currentMatch)){
+                log.info("Матч завершен");
+                log.info("Победитель - {}", playerSide);
+                finishedMatch(currentMatch,getWinner(currentMatch, playerSide));
+            }
             return;
         }
         if (isOpponentAtAdvantage(currentPoint, opponentPoint)) {
+            log.info("Сброс преимущества оппонента");
             currentMatch.resetAdvantage(opponent);
             return;
         }
 
         if (currentPoint == Point.ADVANTAGE) {
             awardGameToPlayer(currentSet, playerSide);
+            log.info("Гейм завершен");
+            log.info("Сброс очков");
             currentMatch.resetAllPoint();
             checkAndHandleSetCompletion(currentMatch, currentSet, setNumber);
             return;
         }
-        if(isSetFinished(currentSet.getPlayerOneGameCount(), currentSet.getPlayerSecondGameCount())){
+        currentMatch.addPointToPlayer(playerSide);
+        /*if(isSetFinished(currentSet.getPlayerOneGameCount(), currentSet.getPlayerSecondGameCount())){
+            log.info("Сет №{} - завершен", setNumber);
             currentSet.fishedSet();
         }
-        currentMatch.addPointToPlayer(playerSide);
 
+        if(isMatchFinished(currentMatch)){
+            log.info("Матч завершен");
+            log.info("Победитель - {}", playerSide);
+            finishedMatch(currentMatch,getWinner(currentMatch, playerSide));
+        }*/
 
     }
 
@@ -174,4 +214,17 @@ public class MatchScoreCalculationService {
         int opponentPoint = tieBreakScore.getPointPlayer(opponent);
         return (currentPoint >= 7 && currentPoint - opponentPoint >= 2) || (opponentPoint >= 7 && opponentPoint - currentPoint >= 2);
     }
+
+    private void finishedMatch(CurrentMatch match, PlayerDto winner){
+        match.finishTheMatch(winner);
+    }
+
+    private PlayerDto getWinner(CurrentMatch currentMatch, PlayerSide side){
+        if(side == PlayerSide.ONE){
+            return currentMatch.getPlayerOne();
+        }else {
+            return currentMatch.getPlayerSecond();
+        }
+    }
+
 }
