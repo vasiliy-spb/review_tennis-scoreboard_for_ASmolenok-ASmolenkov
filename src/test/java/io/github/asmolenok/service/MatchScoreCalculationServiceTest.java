@@ -3,6 +3,7 @@ package io.github.asmolenok.service;
 import io.github.asmolenkov.tennismatchscoreboard.model.*;
 import io.github.asmolenkov.tennismatchscoreboard.service.MatchScoreCalculationService;
 import io.github.asmolenok.record.ThreeSetMatchScenario;
+import io.github.asmolenok.record.TieBreakMatchScenario;
 import io.github.asmolenok.record.TwoSetsMatchScenario;
 import io.github.asmolenok.utils.TestUtils;
 import org.junit.jupiter.api.Assertions;
@@ -24,7 +25,7 @@ public class MatchScoreCalculationServiceTest {
     })
     @DisplayName("Прогрессия очков в обычном гейме для обоих игроков")
     void pointProgression_ShouldAdvanceCorrectly_ForBothPlayers(long playerId, Point startScore, Point expectedScore) {
-        CurrentMatch math = TestUtils.createMatch(1L, 2L, startScore, startScore);
+        CurrentMatch math = TestUtils.createMatch(startScore, startScore);
 
         scoreCalculation.addPointToPlayer(math, playerId);
 
@@ -49,7 +50,7 @@ public class MatchScoreCalculationServiceTest {
     @CsvSource({"1, ZERO", "1, FIFTEEN", "1, THIRTY", "2, ZERO", "2, FIFTEEN", "2, THIRTY"})
     @DisplayName("Сброс очков после окончания гейма")
     void pointProgression_GameWin(long playerId, Point opponentScore) {
-        CurrentMatch match = TestUtils.createMatch(1L, 2L, (playerId == 1L) ? Point.FORTY : opponentScore, (playerId == 2L) ? Point.FORTY : opponentScore);
+        CurrentMatch match = TestUtils.createMatch((playerId == 1L) ? Point.FORTY : opponentScore, (playerId == 2L) ? Point.FORTY : opponentScore);
 
         scoreCalculation.addPointToPlayer(match, playerId);
 
@@ -65,7 +66,7 @@ public class MatchScoreCalculationServiceTest {
     @CsvSource({"FORTY, FORTY, ADVANTAGE, FORTY , 1", "FORTY, FORTY, FORTY, ADVANTAGE, 2", "ADVANTAGE, FORTY, ZERO, ZERO, 1", "FORTY, ADVANTAGE, ZERO, ZERO, 2",})
     @DisplayName("Начисление преимущества и сброс очков после окончания гейма")
     void AdProgression_ShouldAdvanceCorrectly_ForBothPlayers(Point startScoreOnePlayer, Point startScoreSecondPlayer, Point expectedScoreOnePlayer, Point expectedScoreSecondPlayer, long playerId) {
-        CurrentMatch match = TestUtils.createMatch(1L, 2L, startScoreOnePlayer, startScoreSecondPlayer);
+        CurrentMatch match = TestUtils.createMatch(startScoreOnePlayer, startScoreSecondPlayer);
         scoreCalculation.addPointToPlayer(match, playerId);
 
         Point actualTarget = (playerId == 1L) ? match.getMatchScore()
@@ -310,6 +311,28 @@ public class MatchScoreCalculationServiceTest {
         scoreCalculation.addPointToPlayer(match, scenario.scoringPlayerId());
 
         Assertions.assertTrue(scoreCalculation.isMatchFinished(match));
+    }
+
+
+    @ParameterizedTest(name = "[{index}] {0}")
+    @MethodSource({
+            "provideMatchPointScenariosTieBreak"
+    })
+    @DisplayName("Завершение матча после победного очка в тай брейке")
+    void MatchCompletion_FinalTieBreakPointScored_ShouldFinishMatch(TieBreakMatchScenario scenario){
+            CurrentMatch match = TestUtils.CreateMatchOnePointTieBreakFromWin(scenario.set1P1(), scenario.set1P2(),
+                    scenario.set2P1(), scenario.set2P2(),scenario.tieBreakPointP1(), scenario.tieBreakPointP2());
+
+            scoreCalculation.addPointToPlayer(match, scenario.scoringPlayerId());
+
+            Assertions.assertTrue(scoreCalculation.isMatchFinished(match));
+    }
+
+    private static Stream<TieBreakMatchScenario> provideMatchPointScenariosTieBreak() {
+        return Stream.of(
+                new TieBreakMatchScenario(1L, 6, 4, 6, 6, 6, 5),
+                new TieBreakMatchScenario(2L, 4, 6, 6, 6, 5, 6)
+        );
     }
 
 }

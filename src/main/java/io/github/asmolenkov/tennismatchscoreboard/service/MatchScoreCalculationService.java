@@ -58,58 +58,28 @@ public class MatchScoreCalculationService {
         Point opponentPoint = currentMatch.getPointPlayer(opponent);
         log.info("Очки Игрок 2 = {}", opponentPoint);
 
-
         if(isTieBreakActive(matchScore)){
             log.info("Идет Тай-брейк");
             tieBreakPointUpdate(matchScore, currentSet , playerSide);
-            return;
-        }
+        }else {
+            log.info("Идет Гейм");
+            classicUpdatePoint(currentMatch, playerSide);
 
-        if (isStandardGameWin(currentPoint, opponentPoint)) {
-            log.info("Гейм завершен");
-            awardGameToPlayer(currentSet, playerSide);
-            currentMatch.resetAllPoint();
-            log.info("Очки сброшены");
             if(isStartTieBreak(currentSet.getPlayerOneGameCount(), currentSet.getPlayerSecondGameCount())){
                 log.info("Начинается Тай-брейк");
                 matchScore.activateTieBreak();
             }
-            if(isSetFinished(currentSet.getPlayerOneGameCount(), currentSet.getPlayerSecondGameCount())){
-                log.info("Сет №{} - завершен", setNumber);
-                currentSet.fishedSet();
-            }
-            if(isMatchFinished(currentMatch)){
-                log.info("Матч завершен");
-                log.info("Победитель - {}", playerSide);
-                finishedMatch(currentMatch,getWinner(currentMatch, playerSide));
-            }
-            return;
-        }
-        if (isOpponentAtAdvantage(currentPoint, opponentPoint)) {
-            log.info("Сброс преимущества оппонента");
-            currentMatch.resetAdvantage(opponent);
-            return;
         }
 
-        if (currentPoint == Point.ADVANTAGE) {
-            awardGameToPlayer(currentSet, playerSide);
-            log.info("Гейм завершен");
-            log.info("Сброс очков");
-            currentMatch.resetAllPoint();
-            checkAndHandleSetCompletion(currentMatch, currentSet, setNumber);
-            return;
-        }
-        currentMatch.addPointToPlayer(playerSide);
-        /*if(isSetFinished(currentSet.getPlayerOneGameCount(), currentSet.getPlayerSecondGameCount())){
+        if(isSetFinished(currentSet.getPlayerOneGameCount(), currentSet.getPlayerSecondGameCount())){
             log.info("Сет №{} - завершен", setNumber);
             currentSet.fishedSet();
         }
-
         if(isMatchFinished(currentMatch)){
             log.info("Матч завершен");
             log.info("Победитель - {}", playerSide);
             finishedMatch(currentMatch,getWinner(currentMatch, playerSide));
-        }*/
+        }
 
     }
 
@@ -125,11 +95,8 @@ public class MatchScoreCalculationService {
             awardGameToPlayer(setScore,winner);
             matchScore.deactivateTieBreak();
             setScore.fishedSet();
-
-
             tieBreakScore.resetPoint();
             matchScore.getPlayersGameScore().resetAllPoint();
-
             log.info("✅ Тай-брейк завершён. Победитель сета: {}", winner);
         }
 
@@ -225,6 +192,40 @@ public class MatchScoreCalculationService {
         }else {
             return currentMatch.getPlayerSecond();
         }
+    }
+
+    private void classicUpdatePoint(CurrentMatch currentMatch, PlayerSide playerSide){
+
+        PlayerSide opponent = getOpponent(playerSide);
+        int setNumber = determineActiveSetNumber(currentMatch);
+        SetScore currentSet = getCurrentSet(currentMatch, setNumber);
+        MatchScore matchScore = currentMatch.getMatchScore();
+
+        Point currentPoint = currentMatch.getPointPlayer(playerSide);
+        Point opponentPoint = currentMatch.getPointPlayer(opponent);
+
+        if (isStandardGameWin(currentPoint, opponentPoint)) {
+            log.info("Гейм завершен");
+            awardGameToPlayer(currentSet, playerSide);
+            currentMatch.resetAllPoint();
+            log.info("Очки сброшены");
+            return;
+        }
+        if (isOpponentAtAdvantage(currentPoint, opponentPoint)) {
+            log.info("Сброс преимущества оппонента");
+            currentMatch.resetAdvantage(opponent);
+            return;
+        }
+
+        if (currentPoint == Point.ADVANTAGE) {
+            awardGameToPlayer(currentSet, playerSide);
+            log.info("Гейм завершен");
+            log.info("Сброс очков");
+            currentMatch.resetAllPoint();
+            checkAndHandleSetCompletion(currentMatch, currentSet, setNumber);
+            return;
+        }
+        currentMatch.addPointToPlayer(playerSide);
     }
 
 }

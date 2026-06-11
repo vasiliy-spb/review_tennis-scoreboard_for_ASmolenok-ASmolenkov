@@ -1,6 +1,7 @@
 package io.github.asmolenkov.tennismatchscoreboard.model;
 
 import io.github.asmolenkov.tennismatchscoreboard.dto.PlayerDto;
+import io.github.asmolenkov.tennismatchscoreboard.exception.NominateWinnerException;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -50,6 +51,5 @@ public class CurrentMatch {
         this.matchFinished = true;
         this.winner = winner;
     }
-
 
 }
