@@ -62,5 +62,15 @@ public class MatchScore {
         return (currentPoint >= 7 && currentPoint - opponentPoint >= 2) || (opponentPoint >= 7 && opponentPoint - currentPoint >= 2);
     }
 
+    public int determineActiveSetNumber(){
+        if (setOneScore.isSetActive()) {
+            return 1;
+        } else if (setTwoScore.isSetActive()) {
+            return 2;
+        } else {
+            return 3;
+        }
+    }
+
 
 }

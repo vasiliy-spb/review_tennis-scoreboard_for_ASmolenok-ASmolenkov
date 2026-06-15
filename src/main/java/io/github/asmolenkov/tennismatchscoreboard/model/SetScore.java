@@ -18,6 +18,7 @@ public class SetScore {
     }
 
     public void setPlayerSecondAddGame(){
+
         this.playerSecondGameCount++;
     }
 

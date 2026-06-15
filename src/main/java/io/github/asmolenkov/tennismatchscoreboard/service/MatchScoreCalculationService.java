@@ -10,7 +10,6 @@ public class MatchScoreCalculationService {
     public void addPointToPlayer(CurrentMatch currentMatch, long playerId) {
         if (currentMatch.isMatchFinished()) {
             return;
-            //TODO Реализовать завершение матча
         }
         PlayerSide side = resolvePlayerSide(currentMatch, playerId); //TODO добавить обработку если метод вернул null
 
@@ -28,9 +27,9 @@ public class MatchScoreCalculationService {
 
     private void processPointUpdate(CurrentMatch currentMatch, PlayerSide playerSide) {
         PlayerSide opponent = getOpponent(playerSide);
-        int setNumber = determineActiveSetNumber(currentMatch);
-        SetScore currentSet = getCurrentSet(currentMatch, setNumber);
         MatchScore matchScore = currentMatch.getMatchScore();
+        int setNumber = matchScore.determineActiveSetNumber();
+        SetScore currentSet = getCurrentSet(currentMatch, setNumber);
 
         Point currentPoint = currentMatch.getPointPlayer(playerSide);
         log.info("Очки Игрок 1 = {}", currentPoint);
@@ -85,19 +84,6 @@ public class MatchScoreCalculationService {
         return side == PlayerSide.ONE ? PlayerSide.TWO : PlayerSide.ONE;
     }
 
-    private int determineActiveSetNumber(CurrentMatch currentMatch) {
-        MatchScore matchScore = currentMatch.getMatchScore();
-        SetScore setOne = matchScore.getSetOneScore();
-        SetScore setTwo = matchScore.getSetTwoScore();
-
-        if (setOne.isSetActive()) {
-            return 1;
-        } else if (setTwo.isSetActive()) {
-            return 2;
-        } else {
-            return 3;
-        }
-    }
 
     private SetScore getCurrentSet(CurrentMatch currentMatch, int setNumber) {
         return switch (setNumber) {
@@ -131,29 +117,7 @@ public class MatchScoreCalculationService {
     }
 
 
-    /*private boolean matchIsFinished(CurrentMatch currentMatch) {
-        return currentMatch.isMatchFinished();
-    }*/
-
-
-    /*private boolean isSetFinished(int playerOneGames, int playerTwoGames) {
-        return  (playerOneGames >= 6 && playerOneGames - playerTwoGames >= 2) ||
-                (playerTwoGames >= 6 && playerTwoGames - playerOneGames >= 2);
-
-    }*/
-
-
-    /*private boolean isStartTieBreak(int playerOneGames, int playerTwoGames){
-        return playerOneGames == 6 && playerTwoGames == 6;
-    }*/
-
-    /*private boolean isTieBreakWon(TieBreakScore tieBreakScore, PlayerSide current, PlayerSide opponent){
-        int currentPoint = tieBreakScore.getPointPlayer(current);
-        int opponentPoint = tieBreakScore.getPointPlayer(opponent);
-        return (currentPoint >= 7 && currentPoint - opponentPoint >= 2) || (opponentPoint >= 7 && opponentPoint - currentPoint >= 2);
-    }*/
-
-    private void finishedMatch(CurrentMatch match, PlayerDto winner){
+    public void finishedMatch(CurrentMatch match, PlayerDto winner){
         match.finishTheMatch(winner);
     }
 
@@ -166,11 +130,9 @@ public class MatchScoreCalculationService {
     }
 
     private void classicUpdatePoint(CurrentMatch currentMatch, PlayerSide playerSide){
-
         PlayerSide opponent = getOpponent(playerSide);
-        int setNumber = determineActiveSetNumber(currentMatch);
+        int setNumber = currentMatch.getMatchScore().determineActiveSetNumber();
         SetScore currentSet = getCurrentSet(currentMatch, setNumber);
-       // MatchScore matchScore = currentMatch.getMatchScore();
 
         Point currentPoint = currentMatch.getPointPlayer(playerSide);
         Point opponentPoint = currentMatch.getPointPlayer(opponent);

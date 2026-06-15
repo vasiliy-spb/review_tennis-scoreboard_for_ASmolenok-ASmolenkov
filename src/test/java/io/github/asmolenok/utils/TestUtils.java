@@ -12,7 +12,7 @@ public class TestUtils {
     private static final long PLAYER_ONE_ID = 1L;
     private static final long PLAYER_TWO_ID = 2L;
 
-    public static CurrentMatch createMatch(Point pointOnePlayer, Point pointSecondPlayer) {
+    public static CurrentMatch buildMatch(Point pointOnePlayer, Point pointSecondPlayer) {
         MatchScore build = MatchScore.builder()
                                      .setOneScore(new SetScore())
                                      .setTwoScore(new SetScore())
@@ -21,7 +21,7 @@ public class TestUtils {
                                      .tieBreakScore(new TieBreakScore())
                                      .tieBreakActive(false)
                                      .build();
-        return createMatch(build);
+        return buildMatch(build);
     }
 
     public static CurrentMatch createMatchWithGameScore(long playerOneId, long playerSecondId, int setCountOnePlayer, int setCountSecondPlayer, Point pointOnePlayer, Point pointSecondPlayer) {
@@ -33,7 +33,7 @@ public class TestUtils {
                                      .tieBreakScore(new TieBreakScore())
                                      .tieBreakActive(false)
                                      .build();
-        return createMatch(build);
+        return buildMatch(build);
     }
 
     public static CurrentMatch createMatchWithTieBreakScore(long playerOneId, long playerSecondId, int tieBreakPointOnePlayer, int tieBreakPointSecondPlayer) {
@@ -45,7 +45,7 @@ public class TestUtils {
                                      .tieBreakScore(new TieBreakScore(tieBreakPointOnePlayer, tieBreakPointSecondPlayer))
                                      .tieBreakActive(true)
                                      .build();
-        return createMatch(build);
+        return buildMatch(build);
     }
 
     public static CurrentMatch CreateMatchOnePointFromWinThreeSets(int gameCountSet1P1, int gameCountSet1P2, int gameCountSet2P1,
@@ -60,7 +60,7 @@ public class TestUtils {
                                      .tieBreakActive(false)
 
                                      .build();
-        return createMatch(build);
+        return buildMatch(build);
     }
 
     public static CurrentMatch CreateMatchOnePointFromWin(int gameCountSet1P1,
@@ -75,7 +75,7 @@ public class TestUtils {
                                      .tieBreakActive(false)
 
                                      .build();
-        return createMatch(build);
+        return buildMatch(build);
     }
 
     public static CurrentMatch CreateMatchOnePointTieBreakFromWin(int gameCountSet1P1,
@@ -89,10 +89,23 @@ public class TestUtils {
                                      .tieBreakScore(new TieBreakScore(tieBreakPointP1, tieBreakPointP2))
                                      .tieBreakActive(true)
                                      .build();
-        return createMatch(build);
+        return buildMatch(build);
     }
 
-    private static CurrentMatch createMatch(MatchScore matchScore) {
+    public static CurrentMatch createCompletedMatch(){
+        MatchScore build = MatchScore.builder()
+                                     .setOneScore(new SetScore())
+                                     .setTwoScore(new SetScore())
+                                     .setThreeScore(new SetScore())
+                                     .playersGameScore(new GameScore())
+                                     .tieBreakScore(new TieBreakScore())
+                                     .tieBreakActive(true)
+                                     .build();
+
+        return buildMatchWithWinner(build);
+    }
+
+    private static CurrentMatch buildMatch(MatchScore matchScore) {
         return CurrentMatch.builder()
                            .uuid(UUID.randomUUID())
                            .playerOne(new PlayerDto(PLAYER_ONE_ID, PLAYER_ONE_NAME))
@@ -102,6 +115,15 @@ public class TestUtils {
                            .build();
     }
 
+    private static CurrentMatch buildMatchWithWinner(MatchScore matchScore) {
+        return CurrentMatch.builder()
+                           .uuid(UUID.randomUUID())
+                           .playerOne(new PlayerDto(PLAYER_ONE_ID, PLAYER_ONE_NAME))
+                           .playerSecond(new PlayerDto(PLAYER_TWO_ID, PLAYER_TWO_NAME))
+                           .matchScore(matchScore)
+                           .matchFinished(true)
+                           .build();
+    }
 
 }
 
