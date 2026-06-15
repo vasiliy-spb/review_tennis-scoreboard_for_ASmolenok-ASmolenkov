@@ -62,7 +62,7 @@ public class MatchScoreController extends HttpServlet {
             log.info("ID игрока для начисления очка = {}", id);
             matchScoreCalculationService.addPointToPlayer(currentMatch, id);
 
-            if(matchScoreCalculationService.isMatchFinished(currentMatch)){
+            if(currentMatch.getMatchScore().isMatchFinished()){
                 // Код для редиректа на страницу с результатами
 
             }else {
