@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.Optional;
+
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,6 +31,21 @@ public class TieBreakScore {
     public void resetPoint(){
         playerOnePoint = 0;
         playerSecondPoint = 0;
+    }
+
+    public Optional<PlayerSide> getWinner() {
+        int p1 = this.playerOnePoint;
+        int p2 = this.playerSecondPoint;
+
+        if (p1 >= 7 && p1 - p2 >= 2) {
+            return Optional.of(PlayerSide.ONE);
+        }
+
+        if (p2 >= 7 && p2 - p1 >= 2) {
+            return Optional.of(PlayerSide.TWO);
+        }
+
+        return Optional.empty();
     }
 
     private void addPointPlayerOne(){

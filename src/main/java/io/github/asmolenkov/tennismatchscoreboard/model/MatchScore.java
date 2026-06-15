@@ -31,23 +31,18 @@ public class MatchScore {
     }
 
     public boolean isMatchFinished() {
+        int setsWonP1 = countSetWon(PlayerSide.ONE);
+        int setsWonP2 = countSetWon(PlayerSide.TWO);
 
-        int oneSetScoreP1 = setOneScore.getPlayerOneGameCount();
-        int oneSetScoreP2 = setOneScore.getPlayerSecondGameCount();
-
-        int twoSetScoreP1 = setTwoScore.getPlayerOneGameCount();
-        int twoSetScoreP2 = setTwoScore.getPlayerSecondGameCount();
-
-        if ((!setOneScore.isSetActive() && !setTwoScore.isSetActive() && oneSetScoreP1 > oneSetScoreP2 && twoSetScoreP1 > twoSetScoreP2) ||
-                (!setOneScore.isSetActive() && !setTwoScore.isSetActive() && oneSetScoreP2 > oneSetScoreP1 && twoSetScoreP2 > twoSetScoreP1)) {
-            return true;
-        }
-
-        return !setOneScore.isSetActive() && !setTwoScore.isSetActive() && !setThreeScore.isSetActive();
+        return setsWonP1 >=2 || setsWonP2 >=2;
     }
 
     public boolean isStartTieBreak(int playerOneGames, int playerTwoGames){
         return playerOneGames == 6 && playerTwoGames == 6;
+    }
+
+    public boolean isStartTieBreak(SetScore set){
+        return isStartTieBreak(set.getPlayerOneGameCount(), set.getPlayerSecondGameCount());
     }
 
     public boolean isSetFinished(int playerOneGames, int playerTwoGames) {
@@ -56,10 +51,8 @@ public class MatchScore {
 
     }
 
-    public boolean isTieBreakWon(PlayerSide current, PlayerSide opponent){
-        int currentPoint = tieBreakScore.getPointPlayer(current);
-        int opponentPoint = tieBreakScore.getPointPlayer(opponent);
-        return (currentPoint >= 7 && currentPoint - opponentPoint >= 2) || (opponentPoint >= 7 && opponentPoint - currentPoint >= 2);
+    public boolean isSetFinished(SetScore set){
+        return isSetFinished(set.getPlayerOneGameCount(), set.getPlayerSecondGameCount());
     }
 
     public int determineActiveSetNumber(){
@@ -70,6 +63,30 @@ public class MatchScore {
         } else {
             return 3;
         }
+    }
+
+    private int countSetWon(PlayerSide side){
+        int count = 0;
+        if(isSetWon(setOneScore, side)){
+            count ++;
+        }
+        if(isSetWon(setTwoScore, side)){
+            count++;
+        }
+        if (isSetWon(setThreeScore, side)){
+            count++;
+        }
+        return count;
+    }
+
+    private boolean isSetWon(SetScore set, PlayerSide side){
+        if(set.isSetActive()){
+            return false;
+        }
+        int p1 = set.getPlayerOneGameCount();
+        int p2 = set.getPlayerSecondGameCount();
+
+        return side == PlayerSide.ONE ? p1 > p2 : p2 > p1;
     }
 
 

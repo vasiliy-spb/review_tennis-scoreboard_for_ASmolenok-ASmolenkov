@@ -43,13 +43,13 @@ public class MatchScoreCalculationService {
             log.info("Идет Гейм");
             classicUpdatePoint(currentMatch, playerSide);
 
-            if(matchScore.isStartTieBreak(currentSet.getPlayerOneGameCount(), currentSet.getPlayerSecondGameCount())){
+            if(matchScore.isStartTieBreak(currentSet)){
                 log.info("Начинается Тай-брейк");
                 matchScore.activateTieBreak();
             }
         }
 
-        if(matchScore.isSetFinished(currentSet.getPlayerOneGameCount(), currentSet.getPlayerSecondGameCount())){
+        if(matchScore.isSetFinished(currentSet)){
             log.info("Сет №{} - завершен", setNumber);
             currentSet.fishedSet();
         }
@@ -62,21 +62,20 @@ public class MatchScoreCalculationService {
     }
 
     private void tieBreakPointUpdate(MatchScore matchScore, SetScore setScore, PlayerSide current) {
-        PlayerSide opponent = getOpponent(current);
 
         TieBreakScore tieBreakScore = matchScore.getTieBreakScore();
 
         tieBreakScore.addTieBreakPoint(current);
 
-        if(matchScore.isTieBreakWon(current, opponent)){
-            PlayerSide winner = (tieBreakScore.getPlayerOnePoint() > tieBreakScore.getPlayerSecondPoint() ? PlayerSide.ONE : PlayerSide.TWO);
+        matchScore.getTieBreakScore().getWinner().ifPresent(winner ->{
             awardGameToPlayer(setScore,winner);
             matchScore.deactivateTieBreak();
             setScore.fishedSet();
             tieBreakScore.resetPoint();
             matchScore.getPlayersGameScore().resetAllPoint();
             log.info("✅ Тай-брейк завершён. Победитель сета: {}", winner);
-        }
+        });
+
 
     }
 
