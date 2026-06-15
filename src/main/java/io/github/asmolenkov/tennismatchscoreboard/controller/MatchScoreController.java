@@ -1,12 +1,11 @@
 package io.github.asmolenkov.tennismatchscoreboard.controller;
 
 import io.github.asmolenkov.tennismatchscoreboard.exception.FindMatchException;
-import io.github.asmolenkov.tennismatchscoreboard.exception.NominateWinnerException;
+import io.github.asmolenkov.tennismatchscoreboard.exception.PlayerSideException;
 import io.github.asmolenkov.tennismatchscoreboard.listener.AppContextListener;
 import io.github.asmolenkov.tennismatchscoreboard.model.CurrentMatch;
 import io.github.asmolenkov.tennismatchscoreboard.service.MatchScoreCalculationService;
 import io.github.asmolenkov.tennismatchscoreboard.service.OngoingMatchesService;
-import io.github.asmolenkov.tennismatchscoreboard.service.PlayerService;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,11 +13,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
-
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
+
 @Slf4j
 @WebServlet("/match-score")
 public class MatchScoreController extends HttpServlet {
@@ -43,7 +40,7 @@ public class MatchScoreController extends HttpServlet {
            req.setAttribute("currentMatch", currentMatch);
            log.info("Идет форвард на /WEB-INF/views/MatchScore.jsp");
            req.getRequestDispatcher("/WEB-INF/views/MatchScore.jsp").forward(req, resp);
-       }catch (FindMatchException e){
+       }catch (FindMatchException | PlayerSideException e){
            //TODO Реализовать централизацию обработки исключений.
        }
     }

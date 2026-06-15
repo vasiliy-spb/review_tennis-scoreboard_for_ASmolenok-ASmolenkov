@@ -1,6 +1,7 @@
 package io.github.asmolenkov.tennismatchscoreboard.service;
 
 import io.github.asmolenkov.tennismatchscoreboard.dto.PlayerDto;
+import io.github.asmolenkov.tennismatchscoreboard.exception.PlayerSideException;
 import io.github.asmolenkov.tennismatchscoreboard.model.*;
 import lombok.extern.slf4j.Slf4j;
 
@@ -11,7 +12,7 @@ public class MatchScoreCalculationService {
         if (currentMatch.isMatchFinished()) {
             return;
         }
-        PlayerSide side = resolvePlayerSide(currentMatch, playerId); //TODO добавить обработку если метод вернул null
+        PlayerSide side = resolvePlayerSide(currentMatch, playerId);
 
         processPointUpdate(currentMatch, side);
 
@@ -22,7 +23,7 @@ public class MatchScoreCalculationService {
                         .id() == playerId) return PlayerSide.ONE;
         if (currentMatch.getPlayerSecond()
                         .id() == playerId) return PlayerSide.TWO;
-        return null; //TODO не возвращать нулл (Optional или Exception)
+        throw new PlayerSideException("Игрок ID %s not found in match".formatted(playerId));
     }
 
     private void processPointUpdate(CurrentMatch currentMatch, PlayerSide playerSide) {
