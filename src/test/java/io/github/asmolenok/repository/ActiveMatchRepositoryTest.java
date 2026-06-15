@@ -3,7 +3,7 @@ package io.github.asmolenok.repository;
 import io.github.asmolenkov.tennismatchscoreboard.dto.PlayerDto;
 import io.github.asmolenkov.tennismatchscoreboard.model.CurrentMatch;
 import io.github.asmolenkov.tennismatchscoreboard.model.MatchScore;
-import io.github.asmolenkov.tennismatchscoreboard.repository.MatchRepository;
+import io.github.asmolenkov.tennismatchscoreboard.repository.ActiveMatchRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,12 +14,12 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class MatchRepositoryTest {
-    private MatchRepository matchRepository;
+public class ActiveMatchRepositoryTest {
+    private ActiveMatchRepository activeMatchRepository;
 
     @BeforeEach
     void setUp() {
-        matchRepository = new MatchRepository();
+        activeMatchRepository = new ActiveMatchRepository();
     }
 
     @Test
@@ -36,8 +36,8 @@ public class MatchRepositoryTest {
                                                  .build();
 
 
-        matchRepository.save(expectedMatch);
-        Optional<CurrentMatch> actualMatch = matchRepository.find(testUuid);
+        activeMatchRepository.save(expectedMatch);
+        Optional<CurrentMatch> actualMatch = activeMatchRepository.find(testUuid);
 
 
         assertTrue(actualMatch.isPresent(), "Матч должен быть найден после сохранения");
@@ -53,7 +53,7 @@ public class MatchRepositoryTest {
         UUID fakeUuid = UUID.randomUUID();
 
 
-        Optional<CurrentMatch> result = matchRepository.find(fakeUuid);
+        Optional<CurrentMatch> result = activeMatchRepository.find(fakeUuid);
 
 
         assertTrue(result.isEmpty(), "Для несуществующего UUID должен вернуться пустой Optional");

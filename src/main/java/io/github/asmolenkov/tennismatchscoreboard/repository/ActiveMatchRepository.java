@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class MatchRepository {
+public class ActiveMatchRepository {
     private final Map<UUID, CurrentMatch> activeMatches = new ConcurrentHashMap<>();
 
     public void save(CurrentMatch currentMatch){

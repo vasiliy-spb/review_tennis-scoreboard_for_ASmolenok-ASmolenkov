@@ -3,7 +3,7 @@ package io.github.asmolenok.service;
 import io.github.asmolenkov.tennismatchscoreboard.dto.PlayerDto;
 import io.github.asmolenkov.tennismatchscoreboard.exception.FindMatchException;
 import io.github.asmolenkov.tennismatchscoreboard.model.CurrentMatch;
-import io.github.asmolenkov.tennismatchscoreboard.repository.MatchRepository;
+import io.github.asmolenkov.tennismatchscoreboard.repository.ActiveMatchRepository;
 import io.github.asmolenkov.tennismatchscoreboard.service.OngoingMatchesService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 public class OngoingMatchesServiceTest {
     @Mock
-    private MatchRepository matchRepository;
+    private ActiveMatchRepository activeMatchRepository;
     @InjectMocks
     private OngoingMatchesService matchService;
 
@@ -38,7 +38,7 @@ public class OngoingMatchesServiceTest {
 
 
         ArgumentCaptor<CurrentMatch> captor = ArgumentCaptor.forClass(CurrentMatch.class);
-        verify(matchRepository, times(1)).save(captor.capture());
+        verify(activeMatchRepository, times(1)).save(captor.capture());
 
         CurrentMatch savedMatch = captor.getValue();
         assertNotNull(savedMatch.getUuid(), "UUID должен быть сгенерирован");
@@ -60,7 +60,7 @@ public class OngoingMatchesServiceTest {
                                              .playerSecond(playerSecondDto)
                                              .build();
 
-        when(matchRepository.find(testUuid)).thenReturn(Optional.of(fakeMatch));
+        when(activeMatchRepository.find(testUuid)).thenReturn(Optional.of(fakeMatch));
 
 
         CurrentMatch result = matchService.findMatchByUuid(testUuid);
@@ -68,7 +68,7 @@ public class OngoingMatchesServiceTest {
 
         assertEquals(testUuid, result.getUuid());
         assertEquals(10L, result.getPlayerOne().id());
-        verify(matchRepository, times(1)).find(testUuid);
+        verify(activeMatchRepository, times(1)).find(testUuid);
     }
 
     @Test
@@ -76,7 +76,7 @@ public class OngoingMatchesServiceTest {
     void findMatchByUuid_notFound_throwsException() {
 
         UUID missingUuid = UUID.randomUUID();
-        when(matchRepository.find(missingUuid)).thenReturn(Optional.empty());
+        when(activeMatchRepository.find(missingUuid)).thenReturn(Optional.empty());
 
         assertThrows(FindMatchException.class, () -> matchService.findMatchByUuid(missingUuid));
     }

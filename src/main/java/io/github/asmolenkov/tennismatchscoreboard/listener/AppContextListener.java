@@ -1,6 +1,6 @@
 package io.github.asmolenkov.tennismatchscoreboard.listener;
 
-import io.github.asmolenkov.tennismatchscoreboard.repository.MatchRepository;
+import io.github.asmolenkov.tennismatchscoreboard.repository.ActiveMatchRepository;
 import io.github.asmolenkov.tennismatchscoreboard.repository.PlayerRepository;
 import io.github.asmolenkov.tennismatchscoreboard.service.MatchScoreCalculationService;
 import io.github.asmolenkov.tennismatchscoreboard.service.OngoingMatchesService;
@@ -28,12 +28,12 @@ public class AppContextListener implements ServletContextListener {
         PlayerRepository playerRepository = new PlayerRepository();
         SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
         PlayerService playerService = new PlayerService(playerRepository, sessionFactory);
-        MatchRepository matchRepository = new MatchRepository();
-        OngoingMatchesService ongoingMatchesService = new OngoingMatchesService(matchRepository);
+        ActiveMatchRepository activeMatchRepository = new ActiveMatchRepository();
+        OngoingMatchesService ongoingMatchesService = new OngoingMatchesService(activeMatchRepository);
         MatchScoreCalculationService matchScoreCalculationService = new MatchScoreCalculationService();
         context.setAttribute(PLAYER_SERVICE_KEY, playerService);
         context.setAttribute(PLAYER_REPOSITORY_KEY, playerRepository);
-        context.setAttribute(MATH_REPOSITORY_KEY, matchRepository);
+        context.setAttribute(MATH_REPOSITORY_KEY, activeMatchRepository);
         context.setAttribute(ONGOING_MATH_SERVICE_KEY, ongoingMatchesService);
         context.setAttribute(MATCH_SCORE_CALCULATION_SERVICE_KEY, matchScoreCalculationService);
     }

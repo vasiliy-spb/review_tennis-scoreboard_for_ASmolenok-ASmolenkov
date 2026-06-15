@@ -4,16 +4,16 @@ import io.github.asmolenkov.tennismatchscoreboard.dto.PlayerDto;
 import io.github.asmolenkov.tennismatchscoreboard.exception.FindMatchException;
 import io.github.asmolenkov.tennismatchscoreboard.model.CurrentMatch;
 import io.github.asmolenkov.tennismatchscoreboard.model.MatchScore;
-import io.github.asmolenkov.tennismatchscoreboard.repository.MatchRepository;
+import io.github.asmolenkov.tennismatchscoreboard.repository.ActiveMatchRepository;
 
 import java.util.Optional;
 import java.util.UUID;
 
 public class OngoingMatchesService {
-    private final MatchRepository matchRepository;
+    private final ActiveMatchRepository activeMatchRepository;
 
-    public OngoingMatchesService(MatchRepository matchRepository) {
-        this.matchRepository = matchRepository;
+    public OngoingMatchesService(ActiveMatchRepository activeMatchRepository) {
+        this.activeMatchRepository = activeMatchRepository;
     }
 
     public CurrentMatch createMatch(PlayerDto playerOne, PlayerDto playerSecond){
@@ -21,12 +21,12 @@ public class OngoingMatchesService {
         MatchScore matchScore = MatchScore.builder().build();
         CurrentMatch currentMatch = CurrentMatch.builder()
                 .uuid(uuid).playerOne(playerOne).playerSecond(playerSecond).matchScore(matchScore).build();
-        matchRepository.save(currentMatch);
+        activeMatchRepository.save(currentMatch);
         return currentMatch;
     }
 
     public CurrentMatch findMatchByUuid(UUID uuid){
-        Optional<CurrentMatch> currentMatch = matchRepository.find(uuid);
+        Optional<CurrentMatch> currentMatch = activeMatchRepository.find(uuid);
         if(currentMatch.isPresent()){
             return currentMatch.get();
         }else {
@@ -35,6 +35,6 @@ public class OngoingMatchesService {
     }
 
     public void updateMath(CurrentMatch currentMatch) {
-        matchRepository.update(currentMatch);
+        activeMatchRepository.update(currentMatch);
     }
 }
