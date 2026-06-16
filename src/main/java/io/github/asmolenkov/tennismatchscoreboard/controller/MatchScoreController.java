@@ -4,6 +4,7 @@ import io.github.asmolenkov.tennismatchscoreboard.exception.FindMatchException;
 import io.github.asmolenkov.tennismatchscoreboard.exception.PlayerSideException;
 import io.github.asmolenkov.tennismatchscoreboard.listener.AppContextListener;
 import io.github.asmolenkov.tennismatchscoreboard.model.CurrentMatch;
+import io.github.asmolenkov.tennismatchscoreboard.service.FinishedMatchesPersistenceService;
 import io.github.asmolenkov.tennismatchscoreboard.service.MatchScoreCalculationService;
 import io.github.asmolenkov.tennismatchscoreboard.service.OngoingMatchesService;
 import jakarta.servlet.ServletContext;
@@ -21,6 +22,7 @@ import java.util.UUID;
 public class MatchScoreController extends HttpServlet {
     private OngoingMatchesService ongoingMatchesService;
     private MatchScoreCalculationService matchScoreCalculationService;
+    private FinishedMatchesPersistenceService finishedMatches;
 
 
 
@@ -29,6 +31,7 @@ public class MatchScoreController extends HttpServlet {
         ServletContext context = getServletContext();
         this.ongoingMatchesService = (OngoingMatchesService) context.getAttribute(AppContextListener.ONGOING_MATH_SERVICE_KEY);
         this.matchScoreCalculationService = (MatchScoreCalculationService) context.getAttribute(AppContextListener.MATCH_SCORE_CALCULATION_SERVICE_KEY);
+        this.finishedMatches = (FinishedMatchesPersistenceService) context.getAttribute(AppContextListener.FINISHED_MATCHES_PERSISTENCE_SERVICE_SERVICE_KEY);
     }
 
     @Override

@@ -3,6 +3,7 @@ package io.github.asmolenkov.tennismatchscoreboard.service;
 import io.github.asmolenkov.tennismatchscoreboard.dto.PlayerDto;
 import io.github.asmolenkov.tennismatchscoreboard.entity.Player;
 import io.github.asmolenkov.tennismatchscoreboard.exception.PlayerCreationException;
+import io.github.asmolenkov.tennismatchscoreboard.mapper.PlayerMapper;
 import io.github.asmolenkov.tennismatchscoreboard.repository.PlayerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
@@ -32,8 +33,7 @@ public class PlayerService {
                 return existingPlayer.map(player -> {
                                          transaction.rollback();
                                          log.info("Игрок {} уже существует в БД!", name);
-                                         return new PlayerDto(player.getId(), player
-                                                 .getName());
+                                         return PlayerMapper.toDto(player);
                                      })
                                      .orElseGet(() -> {
                                          Player newPlayer = Player.builder()
@@ -41,9 +41,8 @@ public class PlayerService {
                                                                   .build();
                                          playerRepository.save(newPlayer, session);
                                          log.info("Игрок {} сохранен в БД!", name);
-                                         PlayerDto newPlayerDto = new PlayerDto(newPlayer.getId(), newPlayer.getName());
                                          transaction.commit();
-                                         return newPlayerDto;
+                                         return PlayerMapper.toDto(newPlayer);
                                      });
             } catch (Exception e) {
                 transaction.rollback();

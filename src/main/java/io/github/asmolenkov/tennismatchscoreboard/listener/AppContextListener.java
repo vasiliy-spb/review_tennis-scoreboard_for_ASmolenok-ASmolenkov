@@ -1,7 +1,9 @@
 package io.github.asmolenkov.tennismatchscoreboard.listener;
 
 import io.github.asmolenkov.tennismatchscoreboard.repository.ActiveMatchRepository;
+import io.github.asmolenkov.tennismatchscoreboard.repository.FinishedMatchRepository;
 import io.github.asmolenkov.tennismatchscoreboard.repository.PlayerRepository;
+import io.github.asmolenkov.tennismatchscoreboard.service.FinishedMatchesPersistenceService;
 import io.github.asmolenkov.tennismatchscoreboard.service.MatchScoreCalculationService;
 import io.github.asmolenkov.tennismatchscoreboard.service.OngoingMatchesService;
 import io.github.asmolenkov.tennismatchscoreboard.service.PlayerService;
@@ -19,6 +21,8 @@ public class AppContextListener implements ServletContextListener {
     public static final String MATH_REPOSITORY_KEY = "mathRepository";
     public static final String ONGOING_MATH_SERVICE_KEY = "mathRepository";
     public static final String MATCH_SCORE_CALCULATION_SERVICE_KEY = "matchScoreCalculation";
+    public static final String FINISHED_MATCH_REPOSITORY_SERVICE_KEY = "finishedMatchRepository";
+    public static final String FINISHED_MATCHES_PERSISTENCE_SERVICE_SERVICE_KEY = "finishedMatchesPersistenceService";
 
 
 
@@ -31,10 +35,14 @@ public class AppContextListener implements ServletContextListener {
         ActiveMatchRepository activeMatchRepository = new ActiveMatchRepository();
         OngoingMatchesService ongoingMatchesService = new OngoingMatchesService(activeMatchRepository);
         MatchScoreCalculationService matchScoreCalculationService = new MatchScoreCalculationService();
+        FinishedMatchRepository finishedMatchRepository = new FinishedMatchRepository();
+        FinishedMatchesPersistenceService finishedMatchesPersistenceService = new FinishedMatchesPersistenceService(sessionFactory, finishedMatchRepository);
         context.setAttribute(PLAYER_SERVICE_KEY, playerService);
         context.setAttribute(PLAYER_REPOSITORY_KEY, playerRepository);
         context.setAttribute(MATH_REPOSITORY_KEY, activeMatchRepository);
         context.setAttribute(ONGOING_MATH_SERVICE_KEY, ongoingMatchesService);
         context.setAttribute(MATCH_SCORE_CALCULATION_SERVICE_KEY, matchScoreCalculationService);
+        context.setAttribute(FINISHED_MATCH_REPOSITORY_SERVICE_KEY, finishedMatchRepository);
+        context.setAttribute(FINISHED_MATCHES_PERSISTENCE_SERVICE_SERVICE_KEY, finishedMatchesPersistenceService);
     }
 }

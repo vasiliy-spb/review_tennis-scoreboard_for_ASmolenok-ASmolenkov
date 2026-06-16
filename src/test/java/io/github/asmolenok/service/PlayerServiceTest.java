@@ -42,7 +42,7 @@ public class PlayerServiceTest {
     }
 
     @Test
-    @DisplayName("✅ Успешное создание игрока")
+    @DisplayName("Успешное создание игрока")
     void createPlayer_success() {
 
         playerService.createPlayer("Иван");
