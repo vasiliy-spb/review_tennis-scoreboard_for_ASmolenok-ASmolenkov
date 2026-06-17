@@ -11,7 +11,49 @@
     <div class="vs-badge">VS</div>
     <div class="player-name">${currentMatch.playerSecond.name}</div>
 </div>
+<c:choose>
 
+<c:when test="${currentMatch.isMatchFinished()}">
+    <div class="finished-match"><h1>  Матч завершен!</h1>
+
+    </div>
+    <div class="winner"><h2> Победитель - ${currentMatch.getWinner().name()}</h2></div>
+
+    <table class="players-table">
+        <thead>
+        <tr>
+            <th>Имя игрока</th>
+            <th>Set 1</th>
+            <th>Set 2</th>
+            <th>Set 3</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>${currentMatch.playerOne.name}</td>
+            <td>${currentMatch.matchScore.setOneScore.playerOneGameCount}</td> <!-- Set 1 !-->
+            <td>${currentMatch.matchScore.setTwoScore.playerOneGameCount}</td> <!-- Set 2 !-->
+            <td>${currentMatch.matchScore.setThreeScore.playerOneGameCount}</td> <!-- Set 3 !-->
+
+
+        </tr>
+        <tr>
+            <td>${currentMatch.playerSecond.name}</td>
+            <td>${currentMatch.matchScore.setOneScore.playerSecondGameCount}</td> <!-- Set 1 !-->
+            <td>${currentMatch.matchScore.setTwoScore.playerSecondGameCount}</td><!-- Set 2 !-->
+            <td>${currentMatch.matchScore.setThreeScore.playerSecondGameCount}</td> <!-- Set 3 !-->
+        </tr>
+
+        </tbody>
+    </table>
+
+    <form action="${pageContext.request.contextPath}/matches" method="get">
+        <button type="submit" class="all-matches">Перейти ко всем матчам</button>
+    </form>
+</c:when>
+
+    <c:otherwise>
 <table class="players-table">
     <thead>
     <tr>
@@ -77,10 +119,8 @@
     </tr>
 
     </tbody>
-    <tfoot>
-    </tfoot>
-
-
 </table>
+    </c:otherwise>
+</c:choose>
 </body>
 </html>

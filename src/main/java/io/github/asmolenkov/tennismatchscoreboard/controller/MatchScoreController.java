@@ -62,14 +62,11 @@ public class MatchScoreController extends HttpServlet {
             log.info("ID игрока для начисления очка = {}", id);
             matchScoreCalculationService.addPointToPlayer(currentMatch, id);
 
-            if(currentMatch.getMatchScore().isMatchFinished()){
-                // Код для редиректа на страницу с результатами
 
-            }else {
                 req.setAttribute("currentMatch", currentMatch);
                 log.info("Идет редирект после обновления счета на /WEB-INF/views/MatchScore.jsp");
                 resp.sendRedirect(req.getContextPath() + "/match-score?uuid=" + uuid);
-            }
+
 
 
 

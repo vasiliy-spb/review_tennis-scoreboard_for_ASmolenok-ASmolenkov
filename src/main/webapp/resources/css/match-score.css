@@ -210,3 +210,28 @@ tr:has(.tb-badge) .game-cell {
     .tb-score { font-size: 1.3rem; }
     .game-cell { min-width: 60px; }
 }
+
+.finished-match{
+    display: inline-flex;       /* Сжимается под контент */
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;             /* Центрирует блок по горизонтали */
+    padding: 12px 24px;
+    background: #f0fdf4;
+    color: #166534;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.winner{
+    display: inline-flex;       /* Сжимается под контент */
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;             /* Центрирует блок по горизонтали */
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #1a5f3a 0%, #4CAF50 100%);
+    color: whitesmoke;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
