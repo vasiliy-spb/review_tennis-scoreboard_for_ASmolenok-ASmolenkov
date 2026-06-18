@@ -17,14 +17,14 @@
         <p class="subtitle">Создайте новый матч</p>
     </div>
 
-    <!-- Изображение -->
+
     <div class="image-wrapper">
         <img src="${pageContext.request.contextPath}/resources/image/Tennis.jpg"
              alt="Tennis player"
              class="tennis-image">
     </div>
 
-    <!-- Сообщения об ошибках -->
+
     <c:if test="${not empty error}">
         <div class="alert alert-error">
             <span class="alert-icon">⚠️</span>
@@ -34,9 +34,11 @@
         </div>
     </c:if>
 
+
+
     <!-- Форма -->
     <div class="form-card">
-        <form action="${pageContext.request.contextPath}/new-math" method="post" class="match-form">
+        <form action="${pageContext.request.contextPath}/new-match" method="post" class="match-form">
             <div class="form-group">
                 <label for="name1">
                     <span class="player-indicator player-one">🎾</span>

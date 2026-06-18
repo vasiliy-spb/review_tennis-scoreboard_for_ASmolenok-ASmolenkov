@@ -46,10 +46,8 @@ public class PlayerService {
                                      });
             } catch (Exception e) {
                 transaction.rollback();
-                throw new PlayerCreationException("Ошибка создания игрока");
+                throw new PlayerCreationException("Ошибка создания игрока", e);
             }
         }
     }
-
-
 }

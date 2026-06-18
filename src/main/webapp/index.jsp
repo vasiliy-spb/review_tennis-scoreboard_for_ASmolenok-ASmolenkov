@@ -31,7 +31,7 @@
         </div>
 
         <div class="menu-buttons">
-            <a href="${pageContext.request.contextPath}/new-math" class="menu-btn btn-primary">
+            <a href="${pageContext.request.contextPath}/new-match" class="menu-btn btn-primary">
                 <span class="btn-icon">▶️</span>
                 <div class="btn-text">
                     <strong>Начать новый матч</strong>
@@ -41,3 +41,7 @@
 
             <a href="${pageContext.request.contextPath}/matches" class="menu-btn btn-secondary">
                 <span class="btn-icon">📊</span>
+            </a>
+        </div>
+    </div>
+</div>
