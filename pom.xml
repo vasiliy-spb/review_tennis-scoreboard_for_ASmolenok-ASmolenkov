@@ -100,7 +100,24 @@
     </dependencies>
 
     <build>
+        <resources>
+            <!-- Основные ресурсы (всегда копируются) -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>dev/**</exclude>  <!-- Исключаем dev-папку из основного classpath -->
+                </excludes>
+            </resource>
+
+            <!-- Dev-ресурсы (только для WAR, не для тестов) -->
+            <resource>
+                <directory>src/main/resources/dev</directory>
+                <targetPath>dev</targetPath>  <!-- Копируем в подпапку, чтобы Hibernate не нашёл -->
+            </resource>
+        </resources>
         <plugins>
+
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>

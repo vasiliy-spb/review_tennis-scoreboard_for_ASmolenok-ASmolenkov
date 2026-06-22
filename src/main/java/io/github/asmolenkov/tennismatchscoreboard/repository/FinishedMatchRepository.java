@@ -19,4 +19,12 @@ public class FinishedMatchRepository {
 
         return findMatches.isEmpty() ? Optional.empty() : Optional.of(findMatches.getFirst());
     }
+
+    public Optional <Match> find(String playerName, Session session){
+        String jpql = "FROM Match m WHERE LOWER(m.playerOne.name) LIKE LOWER(CONCAT('%', :name, '%')) OR LOWER(m.playerSecond.name) LIKE LOWER(CONCAT('%', :name, '%'))";
+
+        List<Match> findMatches = session.createQuery(jpql, Match.class).setParameter("name", playerName).getResultList();
+
+        return findMatches.isEmpty() ? Optional.empty() : Optional.of(findMatches.getFirst());
+    }
 }

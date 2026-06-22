@@ -1,5 +1,6 @@
 package io.github.asmolenkov.tennismatchscoreboard.mapper;
 
+import io.github.asmolenkov.tennismatchscoreboard.dto.MatchDto;
 import io.github.asmolenkov.tennismatchscoreboard.entity.Match;
 import io.github.asmolenkov.tennismatchscoreboard.model.CurrentMatch;
 
@@ -14,5 +15,13 @@ public class MatchMapper {
                     .playerSecond(PlayerMapper.toEntity(model.getPlayerSecond()))
                     .winner(PlayerMapper.toEntity(model.getWinner()))
                     .build();
+    }
+
+    public static MatchDto toDto(Match match){
+        if (match == null) {
+            return null;
+        }
+
+        return new MatchDto(match.getPlayerOne().getName(), match.getPlayerSecond().getName(), match.getWinner().getName());
     }
 }
