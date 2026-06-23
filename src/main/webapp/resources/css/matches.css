@@ -1,0 +1,270 @@
+:root {
+    /* Цвета */
+    --color-primary: #2e7d32;        /* Теннисный зелёный — для кнопок, акцентов */
+    --color-primary-hover: #1b5e20;  /* Тёмнее при наведении */
+    --color-text: #212121;           /* Основной текст */
+    --color-text-secondary: #757575; /* Второстепенный текст (placeholder, подсказки) */
+    --color-bg: #f5f5f5;             /* Фон страницы */
+    --color-surface: #ffffff;        /* Фон карточек, таблицы */
+    --color-border: #e0e0e0;         /* Границы, разделители */
+    --color-error: #d32f2f;          /* Ошибки */
+    --color-error-bg: #ffebee;       /* Фон блока ошибки */
+
+    /* Отступы и размеры */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* Скругления и тени */
+    --border-radius: 8px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+
+    /* Шрифты */
+    --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-size-base: 16px;
+    --line-height: 1.5;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;  /* Отступы и границы включаются в ширину элемента */
+    margin: 0;               /* Убираем дефолтные отступы браузера */
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    min-height: 100vh;       /* Страница занимает минимум всю высоту экрана */
+    padding: var(--spacing-md);
+}
+
+h1 {
+    text-align: center;           /* Центрируем текст */
+    color: var(--color-primary);  /* Теннисный зелёный */
+    font-size: 2rem;              /* 32px (в 2 раза больше базового) */
+    font-weight: 700;             /* Жирный */
+    margin-bottom: var(--spacing-lg);  /* Отступ снизу 24px */
+    text-transform: uppercase;    /* Все буквы заглавные */
+    letter-spacing: 1px;          /* Чуть разреженные буквы */
+}
+
+/* ===== ОБЩИЙ КОНТЕЙНЕР (опционально, для центрирования) ===== */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;  /* Центрируем всю страницу по горизонтали */
+}
+
+.filter {
+    width: 100%;
+    max-width: 600px;           /* Ограничиваем ширину формы */
+    margin: 0 auto var(--spacing-lg);  /* Центрируем + отступ снизу */
+    padding: var(--spacing-md);
+}
+
+/* ===== ФОРМА ПОИСКА (flex-контейнер) ===== */
+.search-player {
+    display: flex;              /* Элементы в одну строку */
+    gap: var(--spacing-sm);     /* Отступ между полем и кнопкой: 8px */
+    align-items: stretch;       /* Одинаковая высота у поля и кнопки */
+}
+
+/* ===== ОБЁРТКА ПОЛЯ ВВОДА ===== */
+.name-player {
+    flex: 1;                    /* Поле занимает всё доступное место */
+    min-width: 0;               /* Предотвращает переполнение flex-контейнера */
+}
+
+/* ===== ПОЛЕ ВВОДА ===== */
+.name-player input[type="text"] {
+    width: 100%;                /* Растягиваем на всю ширину родителя */
+    padding: var(--spacing-sm) var(--spacing-md);  /* 8px сверху/снизу, 16px слева/справа */
+    font-size: 1rem;            /* 16px */
+    font-family: var(--font-family);
+    color: var(--color-text);
+    background-color: var(--color-surface);
+    border: 2px solid var(--color-border);  /* Серая граница */
+    border-radius: var(--border-radius);    /* Скругление 8px */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;  /* Плавная анимация */
+}
+
+/* Эффект при фокусе (когда пользователь кликнул в поле) */
+.name-player input[type="text"]:focus {
+    outline: none;              /* Убираем стандартную синюю рамку браузера */
+    border-color: var(--color-primary);  /* Зелёная граница */
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);  /* Мягкое зелёное свечение */
+}
+
+/* Placeholder (подсказка) */
+.name-player input[type="text"]::placeholder {
+    color: var(--color-text-secondary);
+    opacity: 1;                 /* Firefox fix */
+}
+
+/* ===== КНОПКА ПОИСКА ===== */
+.btn-search {
+    padding: var(--spacing-sm) var(--spacing-lg);  /* 8px вертикально, 24px горизонтально */
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: var(--font-family);
+    color: #ffffff;             /* Белый текст */
+    background-color: var(--color-primary);  /* Зелёный фон */
+    border: none;               /* Убираем стандартную границу */
+    border-radius: var(--border-radius);
+    cursor: pointer;            /* Курсор-рука при наведении */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    white-space: nowrap;        /* Текст кнопки не переносится */
+}
+
+/* Эффект при наведении на кнопку */
+.btn-search:hover {
+    background-color: var(--color-primary-hover);  /* Темнее зелёный */
+}
+
+/* Эффект при нажатии (клик) */
+.btn-search:active {
+    transform: scale(0.98);     /* Чуть уменьшаем кнопку — тактильный отклик */
+}
+
+/* Кнопка неактивна (если нужно) */
+.btn-search:disabled {
+    background-color: var(--color-border);
+    cursor: not-allowed;
+    transform: none;
+}
+
+.matches-table {
+    width: 100%;                /* Растягиваем на всю ширину контейнера */
+    max-width: 800px;           /* Но не шире 800px */
+    margin: 0 auto var(--spacing-lg); /* Центрируем + отступ снизу */
+    border-collapse: collapse;  /* Убираем двойные границы между ячейками */
+    background-color: var(--color-surface); /* Белый фон таблицы */
+    border-radius: var(--border-radius);    /* Скругляем углы */
+    overflow: hidden;           /* Чтобы углы таблицы не обрезали скругление */
+    box-shadow: var(--shadow-md); /* Тень для эффекта "карточки" */
+}
+
+/* ===== ЗАГОЛОВОК ТАБЛИЦЫ (THEAD) ===== */
+.matches-table thead th {
+    background-color: var(--color-primary);  /* Зелёный фон шапки */
+    color: #ffffff;                           /* Белый текст */
+    padding: var(--spacing-md);
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;  /* Заголовки капсом */
+    font-size: 0.85rem;         /* Чуть меньше основного текста */
+    letter-spacing: 0.5px;
+}
+
+/* ===== СТРОКИ ТЕЛА ТАБЛИЦЫ (TBODY TR) ===== */
+.matches-table tbody tr {
+    border-bottom: 1px solid var(--color-border); /* Линия-разделитель снизу */
+    transition: background-color 0.2s ease;       /* Плавная смена цвета при наведении */
+}
+
+/* Убираем линию у последней строки, чтобы не было двойной границы с углом */
+.matches-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+/* ===== ЯЧЕЙКИ (TD) ===== */
+.matches-table tbody td {
+    padding: var(--spacing-md);
+    color: var(--color-text);
+    font-size: 0.95rem;
+}
+
+/* ===== ЭФФЕКТ "ЗЕБРЫ" (Чередование цветов строк) ===== */
+/* Каждая чётная строка (2, 4, 6...) получает лёгкий серый фон */
+.matches-table tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* ===== ЭФФЕКТ ПРИ НАВЕДЕНИИ НА СТРОКУ ===== */
+.matches-table tbody tr:hover {
+    background-color: rgba(46, 125, 50, 0.05); /* Лёгкий зелёный оттенок */
+}
+
+/* ===== СООБЩЕНИЕ "НЕ НАЙДЕНО" (КОГДА ТАБЛИЦА ПУСТАЯ) ===== */
+/* Стилизуем ячейку, которая содержит сообщение об отсутствии данных */
+.matches-table tbody td[colspan="3"] {
+    text-align: center;
+    color: var(--color-text-secondary);
+    padding: var(--spacing-xl);
+    font-style: italic;
+}
+
+.back-link {
+    display: inline-block;        /* Позволяет задавать padding и margin */
+    margin-top: var(--spacing-lg); /* Отступ от таблицы снизу */
+    padding: var(--spacing-sm) var(--spacing-md); /* 8px вертикально, 16px горизонтально */
+    color: var(--color-primary);  /* Зелёный текст */
+    font-weight: 500;
+    text-decoration: none;        /* Убираем стандартное подчёркивание */
+    border: 2px solid var(--color-primary); /* Тонкая рамка в цвет текста */
+    border-radius: var(--border-radius);
+    transition: all 0.2s ease;    /* Плавная анимация всех изменений */
+    background-color: transparent;
+}
+
+/* Эффект при наведении */
+.back-link:hover {
+    background-color: var(--color-primary);  /* Фон заполняется зелёным */
+    color: #ffffff;                          /* Текст становится белым */
+    transform: translateY(-2px);             /* Ссылка "всплывает" на 2px вверх */
+    box-shadow: 0 4px 8px rgba(46, 125, 50, 0.25); /* Мягкая зелёная тень */
+}
+
+/* Эффект при клике (нажатии) */
+.back-link:active {
+    transform: translateY(0);     /* Возвращается на исходную позицию */
+    box-shadow: none;             /* Тень исчезает (эффект "нажатия") */
+}
+
+.winner{
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+
+    /* 1. Уменьшаем заголовок, чтобы влезал */
+    h1 {
+        font-size: 1.5rem; /* 24px вместо 32px */
+    }
+
+    /* 2. Форма поиска: перестраиваем в колонку */
+    .search-player {
+        flex-direction: column; /* Поле сверху, кнопка снизу */
+        gap: var(--spacing-sm);
+    }
+
+    /* Кнопка поиска на всю ширину (удобно нажимать пальцем) */
+    .btn-search {
+        width: 100%;
+        padding: var(--spacing-md);
+    }
+
+    /* 3. Таблица: разрешаем горизонтальную прокрутку */
+    /* Это самый надежный способ без изменения JSP-кода */
+    .matches-table {
+        display: block;
+        overflow-x: auto;       /* Включает скролл влево-вправо */
+        white-space: nowrap;    /* Запрещает перенос текста в ячейках */
+        -webkit-overflow-scrolling: touch; /* Плавный скролл на iOS */
+    }
+
+    /* Чуть уменьшаем шрифт и отступы в таблице для экономии места */
+    .matches-table thead th,
+    .matches-table tbody td {
+        padding: var(--spacing-sm);
+        font-size: 0.9rem;
+    }
+}

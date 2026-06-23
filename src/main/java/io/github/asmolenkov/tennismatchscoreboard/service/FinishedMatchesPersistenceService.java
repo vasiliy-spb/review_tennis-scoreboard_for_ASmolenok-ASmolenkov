@@ -62,13 +62,10 @@ public class FinishedMatchesPersistenceService {
         try(Session session = sessionFactory.openSession()) {
             Transaction tr = session.beginTransaction();
             try {
-                Optional<Match> matches = repository.find(playerName, session);
-                if(matches.isEmpty()){
-                    log.info("Матч с Игроком - \"{}\" не найден",playerName);
-                    return new ArrayList<>();
-                }
+                List<Match> matches = repository.find(playerName, session);
+                log.info("Найдено матчей с игроком '{}': {}", playerName, matches.size());
                 tr.commit();
-                return List.of(MatchMapper.toDto(matches.get()));
+                return MatchMapper.toDtoList(matches);
             } catch (Exception e) {
                 tr.rollback();
                 log.error("Неизвестная ошибка поиска матча!", e);
@@ -77,4 +74,19 @@ public class FinishedMatchesPersistenceService {
         }
     }
 
+    public List<MatchDto> findAll() {
+        try(Session session = sessionFactory.openSession()) {
+            Transaction tr = session.beginTransaction();
+            try {
+                List<Match> matches = repository.find(session);
+                log.info("Найдено матчей : {}", matches.size());
+                tr.commit();
+                return MatchMapper.toDtoList(matches);
+            } catch (Exception e) {
+                tr.rollback();
+                log.error("Неизвестная ошибка поиска матча!", e);
+                throw new FindMatchException("Ошибка поиска матча", e);
+            }
+        }
+    }
 }

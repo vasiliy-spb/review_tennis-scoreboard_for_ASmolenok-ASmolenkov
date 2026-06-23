@@ -12,10 +12,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.util.List;
-
+@Slf4j
 @WebServlet("/matches")
 public class MatchesController extends HttpServlet {
     private FinishedMatchesPersistenceService finishedMatches;
@@ -29,7 +30,10 @@ public class MatchesController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String findPlayerName = req.getParameter("playerName");
+
         if(findPlayerName == null || findPlayerName.trim().isEmpty()){
+            List<MatchDto> allMatches = finishedMatches.findAll();
+            req.setAttribute("matches", allMatches);
             req.getRequestDispatcher("/WEB-INF/views/Matches.jsp").forward(req,resp);
         }
 

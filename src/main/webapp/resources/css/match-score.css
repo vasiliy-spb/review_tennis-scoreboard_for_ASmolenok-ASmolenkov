@@ -235,3 +235,39 @@ tr:has(.tb-badge) .game-cell {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
+
+.all-matches {
+    display: block;               /* Чтобы можно было центрировать через margin */
+    margin: 32px auto 0;          /* Отступ сверху 32px, центрирование по горизонтали */
+    padding: 14px 28px;           /* Просторные отступы для удобного клика/тапа */
+    font-size: 1rem;              /* Базовый размер шрифта (16px) */
+    font-weight: 600;             /* Полужирный шрифт для акцента */
+    font-family: 'Poppins', sans-serif; /* Шрифт как во всём приложении */
+    color: #ffffff;               /* Белый текст */
+    background-color: #2e7d32;    /* Теннисный зелёный */
+    border: none;                 /* Убираем стандартную рамку браузера */
+    border-radius: 8px;           /* Скругление углов */
+    cursor: pointer;              /* Курсор-указатель при наведении */
+    transition: all 0.2s ease;    /* Плавная анимация всех изменений */
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.25); /* Мягкая зелёная тень */
+    white-space: nowrap;          /* Текст не переносится на новую строку */
+}
+
+/* Эффект при наведении */
+.all-matches:hover {
+    background-color: #1b5e20;    /* Темнеет при наведении */
+    transform: translateY(-2px);  /* Слегка "всплывает" вверх */
+    box-shadow: 0 6px 16px rgba(46, 125, 50, 0.35); /* Тень становится глубже */
+}
+
+/* Эффект при нажатии (клике) */
+.all-matches:active {
+    transform: translateY(0);     /* Возвращается на место */
+    box-shadow: 0 2px 8px rgba(46, 125, 50, 0.2); /* Тень уменьшается (эффект нажатия) */
+}
+
+/* Фокус с клавиатуры (доступность) */
+.all-matches:focus-visible {
+    outline: 3px solid rgba(46, 125, 50, 0.5);
+    outline-offset: 2px;
+}

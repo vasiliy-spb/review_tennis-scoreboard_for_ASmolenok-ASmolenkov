@@ -49,6 +49,7 @@
     </table>
 
     <form action="${pageContext.request.contextPath}/matches" method="get">
+        <input type="hidden" name="playerName" value="">
         <button type="submit" class="all-matches">Перейти ко всем матчам</button>
     </form>
 </c:when>

@@ -39,9 +39,15 @@
                 </div>
             </a>
 
-            <a href="${pageContext.request.contextPath}/matches" class="menu-btn btn-secondary">
+
+            <form action="${pageContext.request.contextPath}/matches" method="get" class="menu-btn btn-secondary">
                 <span class="btn-icon">📊</span>
-            </a>
+                <div class="btn-text">
+                    <strong>Найти сыгранные матчи</strong>
+                </div>
+                <input type="hidden" name="playerName" value="">
+                <button type="submit" class="all-matches"></button>
+            </form>
         </div>
     </div>
 </div>

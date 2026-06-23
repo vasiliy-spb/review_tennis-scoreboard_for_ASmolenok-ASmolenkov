@@ -2,10 +2,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Matches</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/matches.css">
 </head>
 <body>
-<h1>Тут Будут все матчи!</h1>
+<h1>Сыгранные матчи</h1>
 
 
 <div class="filter">
@@ -38,17 +39,18 @@
 
     <tbody>
     <c:choose>
-        <c:when test="${not empty mathes}">
+        <c:when test="${not empty matches}">
             <c:forEach var="match" items="${matches}">
                 <tr>
-                    <td>${MatchDto.playerOneName}</td>
-                    <td>${MatchDto.playerSecondName}</td>
-                    <td>${MatchDto.winnerName}</td>
+                    <td>${match.playerOneName}</td>
+                    <td>${match.playerSecondName}</td>
+                    <td class="winner" >${match.winnerName}</td>
                 </tr>
             </c:forEach>
         </c:when>
         <c:otherwise>
             <tr>
+                <td colspan="3">
                 <c:choose>
                     <c:when test="${not empty param.playerName}">
                         Матч для игрока ${param.playerName} не найден
@@ -57,12 +59,15 @@
                         Введите имя игрока для поиска
                     </c:otherwise>
                 </c:choose>
+                </td>
             </tr>
         </c:otherwise>
     </c:choose>
     </tbody>
 </table>
 
-<a href="index.jsp">Вернуться к главной странице!</a>
+<a href="${pageContext.request.contextPath}/" class="back-link">
+    ← Вернуться к главной странице
+</a>
 </body>
 </html>
