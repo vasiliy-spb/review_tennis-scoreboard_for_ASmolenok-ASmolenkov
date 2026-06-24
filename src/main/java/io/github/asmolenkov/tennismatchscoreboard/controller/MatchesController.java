@@ -1,6 +1,7 @@
 package io.github.asmolenkov.tennismatchscoreboard.controller;
 
 import io.github.asmolenkov.tennismatchscoreboard.dto.MatchDto;
+import io.github.asmolenkov.tennismatchscoreboard.dto.MatchesPage;
 import io.github.asmolenkov.tennismatchscoreboard.listener.AppContextListener;
 import io.github.asmolenkov.tennismatchscoreboard.repository.FinishedMatchRepository;
 import io.github.asmolenkov.tennismatchscoreboard.service.FinishedMatchesPersistenceService;
@@ -29,17 +30,25 @@ public class MatchesController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String findPlayerName = req.getParameter("playerName");
+        String playerName = req.getParameter("playerName");
+        int page = parseIntParam(req.getParameter("page"), 1);
+        int size = parseIntParam(req.getParameter("size"), 3);
 
-        if(findPlayerName == null || findPlayerName.trim().isEmpty()){
-            List<MatchDto> allMatches = finishedMatches.findAll();
-            req.setAttribute("matches", allMatches);
-            req.getRequestDispatcher("/WEB-INF/views/Matches.jsp").forward(req,resp);
+        MatchesPage result = finishedMatches.getMatchesPage(playerName, page, size);
+
+        req.setAttribute("matches", result.getMatches());
+        req.setAttribute("pageInfo", result.getPageInfo());
+        req.setAttribute("currentSearch", playerName); // ⚠️ Важно для JSP!
+
+        req.getRequestDispatcher("/WEB-INF/views/Matches.jsp").forward(req, resp);
+    }
+
+    private int parseIntParam(String param, int defaultValue) {
+        if (param == null) return defaultValue;
+        try {
+            return Integer.parseInt(param);
+        } catch (NumberFormatException e) {
+            return defaultValue;
         }
-
-        List<MatchDto> matches = finishedMatches.findMatchesByName(findPlayerName);
-
-        req.setAttribute("matches", matches);
-        req.getRequestDispatcher("/WEB-INF/views/Matches.jsp").forward(req,resp);
     }
 }

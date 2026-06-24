@@ -66,6 +66,37 @@
     </tbody>
 </table>
 
+<c:if test="${pageInfo.totalPages > 1}">
+    <div class="pagination-wrapper">
+
+        <a href="${pageContext.request.contextPath}/matches?page=${pageInfo.previousPage}&size=${pageInfo.pageSize}&playerName=${currentSearch}"
+           class="page-link ${pageInfo.hasPrevious ? '' : 'disabled'}">
+            ← Назад
+        </a>
+
+
+        <div class="page-numbers">
+            <c:forEach var="i" begin="1" end="${pageInfo.totalPages}">
+                <c:choose>
+                    <c:when test="${i == pageInfo.currentPage}">
+                        <span class="page-link current">${i}</span>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="${pageContext.request.contextPath}/matches?page=${i}&size=${pageInfo.pageSize}&playerName=${currentSearch}"
+                           class="page-link">${i}</a>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+        </div>
+
+
+        <a href="${pageContext.request.contextPath}/matches?page=${pageInfo.nextPage}&size=${pageInfo.pageSize}&playerName=${currentSearch}"
+           class="page-link ${pageInfo.hasNext ? '' : 'disabled'}">
+            Вперёд →
+        </a>
+    </div>
+</c:if>
+
 <a href="${pageContext.request.contextPath}/" class="back-link">
     ← Вернуться к главной странице
 </a>

@@ -10,38 +10,93 @@ import java.util.Optional;
 @Slf4j
 public class FinishedMatchRepository {
 
-    public void save (Match match, Session session){
+    public void save(Match match, Session session) {
         session.persist(match);
     }
 
-    public Optional <Match> find(long id, Session session){
+    public Optional<Match> find(long id, Session session) {
         String jpql = "FROM Match m WHERE m.id = :id";
 
-        List<Match> findMatches = session.createQuery(jpql, Match.class).setParameter("id", id).getResultList();
+        List<Match> findMatches = session.createQuery(jpql, Match.class)
+                                         .setParameter("id", id)
+                                         .getResultList();
 
         return findMatches.isEmpty() ? Optional.empty() : Optional.of(findMatches.getFirst());
     }
 
-    public List <Match> find(String playerName, Session session){
+    public List<Match> find(String playerName, Session session) {
         String jpql = "FROM Match m WHERE LOWER(m.playerOne.name) LIKE LOWER(:name) OR LOWER(m.playerSecond.name) LIKE LOWER(:name)";
 
-        List<Match> findMatches = session.createQuery(jpql, Match.class).setParameter("name", playerName).getResultList();
+        List<Match> findMatches = session.createQuery(jpql, Match.class)
+                                         .setParameter("name", playerName)
+                                         .getResultList();
         log.info("Количество матчей с игроком {} = {}", playerName, findMatches.size());
 
         return findMatches;
     }
 
-    public List <Match> find(Session session){
+    public List<Match> find(Session session) {
+        String jpql = """
+                SELECT m FROM Match m 
+                JOIN FETCH m.playerOne 
+                JOIN FETCH m.playerSecond
+                JOIN FETCH m.winner
+                """;
+
+        List<Match> findMatches = session.createQuery(jpql, Match.class)
+                                         .getResultList();
+        log.info("Количество матчей = {}", findMatches.size());
+
+        return findMatches;
+    }
+
+    public List<Match> findWithPagination(Session session, int offset, int limit) {
+        String jpql = """
+                SELECT m FROM Match m 
+                JOIN FETCH m.playerOne 
+                JOIN FETCH m.playerSecond
+                LEFT JOIN FETCH m.winner
+                ORDER BY m.id DESC  /* Новые матчи сверху */
+                """;
+
+        return session.createQuery(jpql, Match.class)
+                      .setFirstResult(offset)  // 🔹 Пропустить N записей
+                      .setMaxResults(limit)    // 🔹 Взять не больше M записей
+                      .getResultList();
+    }
+
+    public long countTotal(Session session) {
+        String jpql = "SELECT COUNT(m) FROM Match m";
+        return session.createQuery(jpql, Long.class).getSingleResult();
+    }
+
+    public List<Match> findByNameWithPagination(Session session, String name, int offset, int limit) {
         String jpql = """
         SELECT m FROM Match m 
         JOIN FETCH m.playerOne 
         JOIN FETCH m.playerSecond
-        JOIN FETCH m.winner
+        LEFT JOIN FETCH m.winner
+        WHERE LOWER(m.playerOne.name) LIKE LOWER(:name) 
+           OR LOWER(m.playerSecond.name) LIKE LOWER(:name)
+        ORDER BY m.id DESC
         """;
 
-        List<Match> findMatches = session.createQuery(jpql, Match.class).getResultList();
-        log.info("Количество матчей = {}", findMatches.size());
+        return session.createQuery(jpql, Match.class)
+                      .setParameter("name", "%" + name + "%")  // LIKE с wildcard'ами
+                      .setFirstResult(offset)
+                      .setMaxResults(limit)
+                      .getResultList();
+    }
 
-        return findMatches;
+    public long countByName(Session session, String name) {
+        String jpql = """
+        SELECT COUNT(m) FROM Match m 
+        WHERE LOWER(m.playerOne.name) LIKE LOWER(:name) 
+           OR LOWER(m.playerSecond.name) LIKE LOWER(:name)
+        """;
+
+        return session.createQuery(jpql, Long.class)
+                      .setParameter("name", "%" + name + "%")
+                      .getSingleResult();
     }
 }
