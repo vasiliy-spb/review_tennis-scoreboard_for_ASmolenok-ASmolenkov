@@ -8,25 +8,37 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @UtilityClass
 public class ValidateUtil {
+
+    private static final int MAX_LENGTH_NAME = 30;
+
+    private static final String NAME_LONG_TEMPLATE = "Имя %s слишком длинное (Лимит 30 букв).";
+
+    private static final String REGULAR_EXPRESSION_SPECIAL_CHARACTERS = "^[\\p{L}\\s]+$";
+    private static final String NAME_CONTAINS_SPECIAL_CHARACTERS_TEMPLATE = "Имя %s не должно содержать спецсимволы или цифры.";
+    private static final String NAME_NULL = "Имя игрока отсутствует!";
+    private static final String NAME_EMPTY = "Имя игрока не может быть пустым.";
+    private static final String NAMES_SOME = "Имена игроков не могут быть одинаковыми";
+
+
     public void validateNamePlayer(String name){
         if(name == null ){
-            throw new NameIncorrectException("Имя игра отсутствует!");
+            throw new NameIncorrectException(NAME_NULL);
         }
         String result = name.trim();
         if(result.isEmpty()){
-            throw new NameIncorrectException("Имя игрока не может быть пустым.");
+            throw new NameIncorrectException(NAME_EMPTY);
         }
-        if(result.length() > 30){
-            throw new NameIncorrectException("Имя %s слишком длинное (Лимит 30 букв).".formatted(name));
+        if(result.length() > MAX_LENGTH_NAME){
+            throw new NameIncorrectException(NAME_LONG_TEMPLATE.formatted(name));
         }
-        if(!result.matches("^[\\p{L}\\s]+$")){
-            throw new NameIncorrectException("Имя %s не должно содержать спецсимволы или цифры.".formatted(name));
+        if(!result.matches(REGULAR_EXPRESSION_SPECIAL_CHARACTERS)){
+            throw new NameIncorrectException(NAME_CONTAINS_SPECIAL_CHARACTERS_TEMPLATE.formatted(name));
         }
     }
 
     public void validateNamesAreUnique (String nameOne, String nameSecond) {
         if(nameOne.equalsIgnoreCase(nameSecond)){
-            throw new DuplicateNameException("Имена игроков не могут быть одинаковыми");
+            throw new DuplicateNameException(NAMES_SOME);
         }
     }
 
