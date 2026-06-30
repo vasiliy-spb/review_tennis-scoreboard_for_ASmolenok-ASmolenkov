@@ -30,7 +30,7 @@ public class MatchesController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String playerName = req.getParameter("playerName");
+        String playerName = req.getParameter("filterByPlayerName");
         int page = parseIntParam(req.getParameter("page"), 1);
         int size = parseIntParam(req.getParameter("size"), 3);
 

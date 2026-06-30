@@ -13,10 +13,10 @@
     <form action="${pageContext.request.contextPath}/matches" method="get" class="search-player">
         <div class="name-player">
             <input type="text"
-                   name="playerName"
+                   name="filterByPlayerName"
                    required
-                   placeholder="Введите имя игрока"
-                   value="${param.playerName}">
+                   placeholder="Введите имя игрока для поиска"
+                   value="${param.filterByPlayerName}">
 
         </div>
 
@@ -52,8 +52,8 @@
             <tr>
                 <td colspan="3">
                 <c:choose>
-                    <c:when test="${not empty param.playerName}">
-                        Матч для игрока ${param.playerName} не найден
+                    <c:when test="${not empty param.filterByPlayerName}">
+                        Матч для игрока <strong>${param.filterByPlayerName}</strong> не найден
                     </c:when>
                     <c:otherwise>
                         Введите имя игрока для поиска
@@ -69,7 +69,7 @@
 <c:if test="${pageInfo.totalPages > 1}">
     <div class="pagination-wrapper">
 
-        <a href="${pageContext.request.contextPath}/matches?page=${pageInfo.previousPage}&size=${pageInfo.pageSize}&playerName=${currentSearch}"
+        <a href="${pageContext.request.contextPath}/matches?page=${pageInfo.previousPage}&size=${pageInfo.pageSize}&filterByPlayerName=${currentSearch}"
            class="page-link ${pageInfo.hasPrevious ? '' : 'disabled'}">
             ← Назад
         </a>
@@ -82,7 +82,7 @@
                         <span class="page-link current">${i}</span>
                     </c:when>
                     <c:otherwise>
-                        <a href="${pageContext.request.contextPath}/matches?page=${i}&size=${pageInfo.pageSize}&playerName=${currentSearch}"
+                        <a href="${pageContext.request.contextPath}/matches?page=${i}&size=${pageInfo.pageSize}&filterByPlayerName=${currentSearch}"
                            class="page-link">${i}</a>
                     </c:otherwise>
                 </c:choose>
@@ -90,7 +90,7 @@
         </div>
 
 
-        <a href="${pageContext.request.contextPath}/matches?page=${pageInfo.nextPage}&size=${pageInfo.pageSize}&playerName=${currentSearch}"
+        <a href="${pageContext.request.contextPath}/matches?page=${pageInfo.nextPage}&size=${pageInfo.pageSize}&filterByPlayerName=${currentSearch}"
            class="page-link ${pageInfo.hasNext ? '' : 'disabled'}">
             Вперёд →
         </a>
