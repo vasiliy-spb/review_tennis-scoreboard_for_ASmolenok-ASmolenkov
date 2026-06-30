@@ -8,25 +8,14 @@ import java.util.Optional;
 
 public class PlayerRepository {
 
+    private static final String JPQL_FIND_PLAYER = "FROM Player p WHERE p.name = :name";
+
     public void save(Player player, Session session) {
         session.persist(player);
     }
 
-    public boolean existsByName(String name, Session session) {
-
-        String jpql = "SELECT 1 FROM Player p WHERE p.name = :name";
-        long result = session.createQuery(jpql, Player.class)
-                             .setParameter("name", name)
-                             .setMaxResults(1)
-                             .getResultCount();
-
-        return result > 0;
-    }
-
     public Optional<Player> findPlayer(String name, Session session) {
-        String jpql = "FROM Player p WHERE p.name = :name";
-
-        List<Player> players = session.createQuery(jpql, Player.class)
+        List<Player> players = session.createQuery(JPQL_FIND_PLAYER, Player.class)
                                       .setParameter("name", name)
                                       .getResultList();
 
