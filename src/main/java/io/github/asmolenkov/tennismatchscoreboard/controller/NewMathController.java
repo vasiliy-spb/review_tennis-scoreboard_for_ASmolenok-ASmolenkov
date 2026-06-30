@@ -21,6 +21,10 @@ import java.util.List;
 @WebServlet("/new-match")
 public class NewMathController extends BaseServlet {
 
+    private static final String PAGE_PATH = "/WEB-INF/views/NewMatch.jsp";
+    private static final String REDIRECT_PATH_TEMPLATE = "/match-score?uuid=%s";
+    private static final String PAGE_NAME = "NewMatch";
+
     private PlayerService playerService;
     private OngoingMatchesService ongoingMatchesService;
 
@@ -28,7 +32,7 @@ public class NewMathController extends BaseServlet {
     }
 
     @Override
-    public void init()  {
+    public void init() {
         ServletContext context = getServletContext();
         this.playerService = (PlayerService) context.getAttribute(AppContextListener.PLAYER_SERVICE_KEY);
         this.ongoingMatchesService = (OngoingMatchesService) context.getAttribute(AppContextListener.ONGOING_MATH_SERVICE_KEY);
@@ -36,43 +40,34 @@ public class NewMathController extends BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/NewMatch.jsp")
+        req.getRequestDispatcher(PAGE_PATH)
            .forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String nameOnePlayer = req.getParameter("name1");
-        String nameSecondPlayer = req.getParameter("name2");
-        List<String> errorMessage = new ArrayList<>();
-
-            ValidateUtil.validateNamePlayer(nameOnePlayer);
-            ValidateUtil.validateNamePlayer(nameSecondPlayer);
-            ValidateUtil.validateNamesAreUnique(nameOnePlayer, nameSecondPlayer);
-
-            PlayerDto playerDtoOne = playerService.createPlayer(nameOnePlayer);
-            PlayerDto playerDtoSecond = playerService.createPlayer(nameSecondPlayer);
-            log.info("Игроки Сохранены в БД");
-            CurrentMatch currentMatch = ongoingMatchesService.createMatch(playerDtoOne, playerDtoSecond);
+        String nameOnePlayer = req.getParameter("playerOneName");
+        String nameSecondPlayer = req.getParameter("playerTwoName");
 
 
-            resp.sendRedirect("/match-score?uuid=%s".formatted(currentMatch.getUuid()));
+        ValidateUtil.validateNamePlayer(nameOnePlayer);
+        ValidateUtil.validateNamePlayer(nameSecondPlayer);
+        ValidateUtil.validateNamesAreUnique(nameOnePlayer, nameSecondPlayer);
+
+        PlayerDto playerDtoOne = playerService.createPlayer(nameOnePlayer.trim());
+        PlayerDto playerDtoSecond = playerService.createPlayer(nameSecondPlayer.trim());
+
+        CurrentMatch currentMatch = ongoingMatchesService.createMatch(playerDtoOne, playerDtoSecond);
+
+
+        resp.sendRedirect(REDIRECT_PATH_TEMPLATE.formatted(currentMatch.getUuid()));
 
 
     }
 
-    private void showErrorPage(HttpServletRequest req, HttpServletResponse resp, List<String> errors, int codeError)
-            throws ServletException, IOException {
-        req.setAttribute("error", errors);
-        req.setAttribute("name1", req.getParameter("name1"));
-        req.setAttribute("name2", req.getParameter("name2"));
-        resp.setStatus(codeError);
-        req.getRequestDispatcher("/WEB-INF/views/NewMatch.jsp")
-           .forward(req, resp);
-    }
 
     @Override
     protected String getErrorPath() {
-        return "NewMatch";
+        return PAGE_NAME;
     }
 }

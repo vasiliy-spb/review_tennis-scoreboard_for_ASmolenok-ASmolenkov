@@ -36,33 +36,33 @@
 
 
 
-    <!-- Форма -->
+
     <div class="form-card">
         <form action="${pageContext.request.contextPath}/new-match" method="post" class="match-form">
             <div class="form-group">
-                <label for="name1">
+                <label for="playerOneName">
                     <span class="player-indicator player-one">🎾</span>
                     Игрок 1
                 </label>
                 <input type="text"
-                       id="name1"
-                       name="name1"
+                       id="playerOneName"
+                       name="playerOneName"
                        required
                        placeholder="Введите имя первого игрока"
-                       value="${param.name1}">
+                       value="${param.playerOneName}">
             </div>
 
             <div class="form-group">
-                <label for="name2">
+                <label for="playerTwoName">
                     <span class="player-indicator player-two">🎾</span>
                     Игрок 2
                 </label>
                 <input type="text"
-                       id="name2"
-                       name="name2"
+                       id="playerTwoName"
+                       name="playerTwoName"
                        required
                        placeholder="Введите имя второго игрока"
-                       value="${param.name2}">
+                       value="${param.playerTwoName}">
             </div>
 
             <button type="submit" class="btn-start">
@@ -72,7 +72,7 @@
         </form>
     </div>
 
-    <!-- Ссылка назад -->
+
     <a href="index.jsp" class="back-link">
         <span>←</span> Вернуться к главной странице
     </a>
