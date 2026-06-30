@@ -4,16 +4,7 @@ CREATE TABLE if not exists PLAYERS
     name VARCHAR(128) UNIQUE NOT NULL
 );
 
-INSERT INTO PLAYERS (name)
-VALUES ('Алексей');
-INSERT INTO PLAYERS (name)
-VALUES ('Мария');
-INSERT INTO PLAYERS (name)
-VALUES ('Иван');
-INSERT INTO PLAYERS (name)
-VALUES ('Елена');
-INSERT INTO PLAYERS (name)
-VALUES ('Дмитрий');
+
 
 CREATE TABLE if not exists MATCHES
 (
@@ -26,14 +17,3 @@ CREATE TABLE if not exists MATCHES
     FOREIGN KEY (winner) REFERENCES PLAYERS (id)
 );
 
-INSERT INTO MATCHES (player1, player2, winner)
-VALUES (1, 2, 1),
-       (3, 4, 4),
-       (1, 5, 5),
-       (2, 3, 2),
-       (4, 5, 4),
-       (1, 3, 3),
-       (2, 5, 2),
-       (1, 4, 1),
-       (3, 5, 5),
-       (2, 4, 4);

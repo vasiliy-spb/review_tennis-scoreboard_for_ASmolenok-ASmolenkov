@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @Slf4j
 @WebServlet("/new-match")
@@ -49,13 +50,16 @@ public class NewMathController extends BaseServlet {
         String nameOnePlayer = req.getParameter("playerOneName");
         String nameSecondPlayer = req.getParameter("playerTwoName");
 
+        String normalizedNameOne = nameOnePlayer.trim().toLowerCase();
+        String normalizedNameSecond = nameSecondPlayer.trim().toLowerCase();
 
-        ValidateUtil.validateNamePlayer(nameOnePlayer);
-        ValidateUtil.validateNamePlayer(nameSecondPlayer);
-        ValidateUtil.validateNamesAreUnique(nameOnePlayer, nameSecondPlayer);
 
-        PlayerDto playerDtoOne = playerService.createPlayer(nameOnePlayer.trim());
-        PlayerDto playerDtoSecond = playerService.createPlayer(nameSecondPlayer.trim());
+        ValidateUtil.validateNamePlayer(normalizedNameOne);
+        ValidateUtil.validateNamePlayer(normalizedNameSecond);
+        ValidateUtil.validateNamesAreUnique(normalizedNameOne, normalizedNameSecond);
+
+        PlayerDto playerDtoOne = playerService.createPlayer(normalizedNameOne);
+        PlayerDto playerDtoSecond = playerService.createPlayer(normalizedNameSecond);
 
         CurrentMatch currentMatch = ongoingMatchesService.createMatch(playerDtoOne, playerDtoSecond);
 
@@ -70,4 +74,6 @@ public class NewMathController extends BaseServlet {
     protected String getErrorPath() {
         return PAGE_NAME;
     }
+
+
 }

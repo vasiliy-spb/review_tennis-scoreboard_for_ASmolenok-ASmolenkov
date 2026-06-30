@@ -1,16 +1,16 @@
--- Данные для PLAYERS
-INSERT INTO PLAYERS (name) VALUES ('Леша');
-INSERT INTO PLAYERS (name) VALUES ('Маша');
-INSERT INTO PLAYERS (name) VALUES ('Ваня');
-INSERT INTO PLAYERS (name) VALUES ('Лена');
-INSERT INTO PLAYERS (name) VALUES ('Дима');
-INSERT INTO PLAYERS (name) VALUES ('Олег');
-INSERT INTO PLAYERS (name) VALUES ('Катя');
-INSERT INTO PLAYERS (name) VALUES ('Сергей');
-INSERT INTO PLAYERS (name) VALUES ('Настя');
-INSERT INTO PLAYERS (name) VALUES ('Павел');
 
--- Данные для MATCHES
+INSERT INTO PLAYERS (name) VALUES ('леша');
+INSERT INTO PLAYERS (name) VALUES ('маша');
+INSERT INTO PLAYERS (name) VALUES ('ваня');
+INSERT INTO PLAYERS (name) VALUES ('лена');
+INSERT INTO PLAYERS (name) VALUES ('дима');
+INSERT INTO PLAYERS (name) VALUES ('олег');
+INSERT INTO PLAYERS (name) VALUES ('катя');
+INSERT INTO PLAYERS (name) VALUES ('сергей');
+INSERT INTO PLAYERS (name) VALUES ('настя');
+INSERT INTO PLAYERS (name) VALUES ('павел');
+
+
 INSERT INTO MATCHES (player1, player2, winner) VALUES (1, 2, 1);
 INSERT INTO MATCHES (player1, player2, winner) VALUES (3, 4, 4);
 INSERT INTO MATCHES (player1, player2, winner) VALUES (1, 5, 5);
