@@ -39,7 +39,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
     transition: all 0.2s ease;
-    word-break: break-word; /* Защита от длинных имён */
+    word-break: break-word;
 }
 
 .player-name:hover {
@@ -57,12 +57,12 @@ body {
     border-radius: 50px;
     box-shadow: 0 4px 12px rgba(26, 95, 58, 0.25);
     letter-spacing: 2px;
-    flex-shrink: 0; /* Запрещает сжиматься */
+    flex-shrink: 0;
     text-transform: uppercase;
     border: 2px solid #fff;
 }
 
-/* Адаптив для мобильных */
+
 @media (max-width: 650px) {
     .match-header {
         flex-direction: column;
@@ -70,7 +70,7 @@ body {
     }
 
     .vs-badge {
-        order: -1; /* Переносит VS наверх */
+        order: -1;
         transform: scale(0.9);
     }
 
@@ -91,6 +91,7 @@ body {
         max-width: 750px;
         font-family: Tahoma, fantasy;
         font-size: 1.4rem;
+        text-transform: capitalize
     }
 
     .players-table th {
@@ -122,7 +123,7 @@ body {
         background: #f1f5f1;
     }
 
-/* === КНОПКА ДОБАВЛЕНИЯ ОЧКА === */
+
 .btn-add-point {
     background: linear-gradient(135deg, #1a5f3a 0%, #4CAF50 100%);
     color: #ffffff;
@@ -147,7 +148,6 @@ body {
     transform: translateY(0);
 }
 
-/* Адаптация ячейки с кнопкой */
 .players-table th:last-child,
 .players-table td:last-child {
     text-align: center;
@@ -155,7 +155,7 @@ body {
     width: 120px;
 }
 
-/* На мобильных — скрываем заголовок колонки или уменьшаем */
+
 @media (max-width: 768px) {
     .btn-add-point {
         padding: 6px 12px;
@@ -176,7 +176,7 @@ body {
     text-align: center;
 }
 
-/* Бейдж "TB" */
+
 .tb-badge {
     display: inline-block;
     background: linear-gradient(135deg, #ff6b35 0%, #f7c948 100%);
@@ -190,7 +190,7 @@ body {
     box-shadow: 0 2px 6px rgba(255, 107, 53, 0.3);
 }
 
-/* Счёт тай-брейка */
+
 .tb-score {
     font-family: 'Courier New', monospace;
     color: #ff6b35;
@@ -198,13 +198,13 @@ body {
     font-size: 1.6rem;
 }
 
-/* Подсветка при активном тай-брейке */
+
 tr:has(.tb-badge) .game-cell {
     background: rgba(255, 107, 53, 0.08);
     border-radius: 6px;
 }
 
-/* Адаптив */
+
 @media (max-width: 768px) {
     .tb-badge { font-size: 0.6rem; padding: 1px 4px; }
     .tb-score { font-size: 1.3rem; }
@@ -212,10 +212,10 @@ tr:has(.tb-badge) .game-cell {
 }
 
 .finished-match{
-    display: inline-flex;       /* Сжимается под контент */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;             /* Центрирует блок по горизонтали */
+    margin: 0 auto;
     padding: 12px 24px;
     background: #f0fdf4;
     color: #166534;
@@ -224,10 +224,10 @@ tr:has(.tb-badge) .game-cell {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 .winner{
-    display: inline-flex;       /* Сжимается под контент */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;             /* Центрирует блок по горизонтали */
+    margin: 0 auto;
     padding: 12px 24px;
     background: linear-gradient(135deg, #1a5f3a 0%, #4CAF50 100%);
     color: whitesmoke;
@@ -237,36 +237,36 @@ tr:has(.tb-badge) .game-cell {
 }
 
 .all-matches {
-    display: block;               /* Чтобы можно было центрировать через margin */
-    margin: 32px auto 0;          /* Отступ сверху 32px, центрирование по горизонтали */
-    padding: 14px 28px;           /* Просторные отступы для удобного клика/тапа */
-    font-size: 1rem;              /* Базовый размер шрифта (16px) */
-    font-weight: 600;             /* Полужирный шрифт для акцента */
-    font-family: 'Poppins', sans-serif; /* Шрифт как во всём приложении */
-    color: #ffffff;               /* Белый текст */
-    background-color: #2e7d32;    /* Теннисный зелёный */
-    border: none;                 /* Убираем стандартную рамку браузера */
-    border-radius: 8px;           /* Скругление углов */
-    cursor: pointer;              /* Курсор-указатель при наведении */
-    transition: all 0.2s ease;    /* Плавная анимация всех изменений */
-    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.25); /* Мягкая зелёная тень */
-    white-space: nowrap;          /* Текст не переносится на новую строку */
+    display: block;
+    margin: 32px auto 0;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    background-color: #2e7d32;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.25);
+    white-space: nowrap;
 }
 
-/* Эффект при наведении */
+
 .all-matches:hover {
-    background-color: #1b5e20;    /* Темнеет при наведении */
-    transform: translateY(-2px);  /* Слегка "всплывает" вверх */
-    box-shadow: 0 6px 16px rgba(46, 125, 50, 0.35); /* Тень становится глубже */
+    background-color: #1b5e20;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(46, 125, 50, 0.35);
 }
 
-/* Эффект при нажатии (клике) */
+
 .all-matches:active {
-    transform: translateY(0);     /* Возвращается на место */
-    box-shadow: 0 2px 8px rgba(46, 125, 50, 0.2); /* Тень уменьшается (эффект нажатия) */
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(46, 125, 50, 0.2);
 }
 
-/* Фокус с клавиатуры (доступность) */
+
 .all-matches:focus-visible {
     outline: 3px solid rgba(46, 125, 50, 0.5);
     outline-offset: 2px;

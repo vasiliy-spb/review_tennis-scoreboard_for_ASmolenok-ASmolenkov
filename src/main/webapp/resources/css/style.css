@@ -1,6 +1,3 @@
-/* ========================================
-   TENNIS MATCH - CREATE PAGE
-   ======================================== */
 
 * {
     margin: 0;
@@ -24,7 +21,7 @@ body {
     animation: fadeInUp 0.6s ease-out;
 }
 
-/* Анимация появления */
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -36,7 +33,7 @@ body {
     }
 }
 
-/* === ЗАГОЛОВОК === */
+
 .header-section {
     text-align: center;
     margin-bottom: 30px;
@@ -70,7 +67,7 @@ h1 {
     font-weight: 300;
 }
 
-/* === ИЗОБРАЖЕНИЕ === */
+
 .image-wrapper {
     margin-bottom: 25px;
     border-radius: 16px;
@@ -93,7 +90,7 @@ h1 {
     transform: scale(1.02);
 }
 
-/* === СООБЩЕНИЯ ОБ ОШИБКАХ === */
+
 .alert {
     padding: 15px 20px;
     border-radius: 10px;
@@ -123,7 +120,7 @@ h1 {
     75% { transform: translateX(10px); }
 }
 
-/* === ФОРМА === */
+
 .form-card {
     background: #ffffff;
     border-radius: 20px;
@@ -188,7 +185,7 @@ input[type="text"]::placeholder {
     color: #aaa;
 }
 
-/* === КНОПКА === */
+
 .btn-start {
     background: linear-gradient(135deg, #1a5f3a 0%, #4CAF50 100%);
     color: #ffffff;
@@ -220,7 +217,7 @@ input[type="text"]::placeholder {
     font-size: 1.2rem;
 }
 
-/* === ССЫЛКА НАЗАД === */
+
 .back-link {
     display: inline-flex;
     align-items: center;
@@ -250,7 +247,7 @@ input[type="text"]::placeholder {
     transform: translateX(-3px);
 }
 
-/* === АДАПТИВНОСТЬ === */
+
 @media (max-width: 600px) {
     h1 {
         font-size: 2rem;
@@ -274,8 +271,7 @@ input[type="text"]::placeholder {
     }
 }
 
-/* === ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ === */
-/* Свечение при фокусе на форме */
+
 .form-card:focus-within {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25),
     0 0 60px rgba(26, 95, 58, 0.1);
@@ -348,7 +344,7 @@ input[type="text"]::placeholder {
     flex-shrink: 0;
 }
 
-/* Первая кнопка - основная */
+
 .btn-primary {
     background: linear-gradient(135deg, #1a5f3a 0%, #4CAF50 100%);
     color: #ffffff;
@@ -364,7 +360,7 @@ input[type="text"]::placeholder {
     color: rgba(255, 255, 255, 0.9);
 }
 
-/* Вторая кнопка - вторичная */
+
 .btn-secondary {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #ffffff;
@@ -380,7 +376,7 @@ input[type="text"]::placeholder {
     color: rgba(255, 255, 255, 0.9);
 }
 
-/* === ФУТЕР === */
+
 .footer {
     text-align: center;
     color: rgba(255, 255, 255, 0.7);
@@ -393,7 +389,7 @@ input[type="text"]::placeholder {
     margin: 0;
 }
 
-/* === АДАПТИВНОСТЬ === */
+
 @media (max-width: 600px) {
     .menu-card {
         padding: 25px 20px;
@@ -416,12 +412,12 @@ input[type="text"]::placeholder {
     }
 }
 
-/* === ЭФФЕКТЫ ПРИ НАВЕДЕНИИ === */
+
 .menu-btn:active {
     transform: translateY(-2px) scale(0.98);
 }
 
-/* Пульсация для привлечения внимания */
+
 @keyframes pulse {
     0%, 100% {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -438,13 +434,13 @@ input[type="text"]::placeholder {
 form.menu-btn {
     position: relative;
     cursor: pointer;
-    display: flex;           /* Важно: flex как у .menu-btn */
-    align-items: center;     /* Центрирование по вертикали */
-    gap: 15px;               /* Отступы как у .menu-btn */
-    padding: 20px 25px;      /* Отступы как у .menu-btn */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 25px;
 }
 
-/* Невидимая кнопка-слой поверх всей формы */
+
 form.menu-btn button[type="submit"] {
     position: absolute;
     top: 0;
@@ -457,5 +453,5 @@ form.menu-btn button[type="submit"] {
     margin: 0;
     cursor: pointer;
     opacity: 0;
-    z-index: 10;             /* Поверх всего контента */
+    z-index: 10;
 }
