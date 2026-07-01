@@ -1,9 +1,12 @@
 package io.github.asmolenkov.tennismatchscoreboard.utils;
 
 import io.github.asmolenkov.tennismatchscoreboard.exception.DuplicateNameException;
+import io.github.asmolenkov.tennismatchscoreboard.exception.FindMatchException;
 import io.github.asmolenkov.tennismatchscoreboard.exception.NameIncorrectException;
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.UUID;
 
 @Slf4j
 @UtilityClass
@@ -39,6 +42,17 @@ public class ValidateUtil {
     public void validateNamesAreUnique (String nameOne, String nameSecond) {
         if(nameOne.equalsIgnoreCase(nameSecond)){
             throw new DuplicateNameException(NAMES_SOME);
+        }
+    }
+
+    public UUID parseUuidOrThrow(String uuid){
+        if(uuid == null || uuid.trim().isEmpty()){
+            throw new FindMatchException("UUID матча не указан");
+        }
+        try {
+            return UUID.fromString(uuid);
+        }catch (IllegalArgumentException e){
+            throw new FindMatchException("Некорректный формат UUID: %s".formatted(uuid), e);
         }
     }
 
