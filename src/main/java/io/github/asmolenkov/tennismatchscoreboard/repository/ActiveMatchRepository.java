@@ -31,6 +31,7 @@ public class ActiveMatchRepository {
 
     public Optional<CurrentMatch> find(UUID uuidActiveMatch){
         if(uuidActiveMatch == null){
+            log.info("Матч не найден");
             return Optional.empty();
         }
         return Optional.ofNullable(activeMatches.get(uuidActiveMatch));
