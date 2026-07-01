@@ -33,6 +33,7 @@ public class OngoingMatchesService {
         if(currentMatch.isPresent()){
             return currentMatch.get();
         }else {
+            log.warn("Матч не найден");
             throw new FindMatchException(MATCH_NOT_FOUND);
         }
     }
