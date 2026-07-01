@@ -21,6 +21,8 @@ public class ValidateUtil {
     private static final String NAME_NULL = "Имя игрока отсутствует!";
     private static final String NAME_EMPTY = "Имя игрока не может быть пустым.";
     private static final String NAMES_SOME = "Имена игроков не могут быть одинаковыми";
+    private static final String UUID_NOT_SPECIFIED = "UUID матча не указан";
+    private static final String UUID_INCORRECT_FORMAT_TEMPLATE = "Некорректный формат UUID: %s";
 
 
     public void validateNamePlayer(String name){
@@ -47,12 +49,12 @@ public class ValidateUtil {
 
     public UUID parseUuidOrThrow(String uuid){
         if(uuid == null || uuid.trim().isEmpty()){
-            throw new FindMatchException("UUID матча не указан");
+            throw new FindMatchException(UUID_NOT_SPECIFIED);
         }
         try {
             return UUID.fromString(uuid);
         }catch (IllegalArgumentException e){
-            throw new FindMatchException("Некорректный формат UUID: %s".formatted(uuid), e);
+            throw new FindMatchException(UUID_INCORRECT_FORMAT_TEMPLATE.formatted(uuid), e);
         }
     }
 
