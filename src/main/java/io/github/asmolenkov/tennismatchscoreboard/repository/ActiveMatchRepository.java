@@ -29,8 +29,11 @@ public class ActiveMatchRepository {
         log.info(LOG_MATCH_SAVE_TEMPLATE,currentMatch.getPlayerOne().name(), currentMatch.getPlayerSecond().name());
     }
 
-    public Optional<CurrentMatch> find(UUID uuid){
-        return Optional.ofNullable(activeMatches.get(uuid));
+    public Optional<CurrentMatch> find(UUID uuidActiveMatch){
+        if(uuidActiveMatch == null){
+            return Optional.empty();
+        }
+        return Optional.ofNullable(activeMatches.get(uuidActiveMatch));
     }
 
     public void delete (UUID finishedMatch){
