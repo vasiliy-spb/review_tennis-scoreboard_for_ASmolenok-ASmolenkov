@@ -21,6 +21,11 @@ import java.util.UUID;
 @Slf4j
 @WebServlet("/match-score")
 public class MatchScoreController extends HttpServlet {
+    private static final String PATH_FORWARD = "/WEB-INF/views/MatchScore.jsp";
+    private static final String PATH_REDIRECT_TEMPLATE = "%s/match-score?uuid=%s";
+    private static final String ID_PLAYER_EMPTY = "Id игрока не может быть пустым";
+    private static final String ID_MUST_BE_NUMBER_TEMPLATE = "Id игрока быть только числом, получено %s";
+
     private OngoingMatchesService ongoingMatchesService;
     private MatchScoreCalculationService matchScoreCalculationService;
     private FinishedMatchesPersistenceService finishedMatches;
@@ -43,7 +48,7 @@ public class MatchScoreController extends HttpServlet {
         CurrentMatch currentMatch = ongoingMatchesService.findMatchByUuid(uuidMath);
         req.setAttribute("currentMatch", currentMatch);
 
-        req.getRequestDispatcher("/WEB-INF/views/MatchScore.jsp")
+        req.getRequestDispatcher(PATH_FORWARD)
            .forward(req, resp);
     }
 
@@ -58,24 +63,26 @@ public class MatchScoreController extends HttpServlet {
         CurrentMatch currentMatch = ongoingMatchesService.findMatchByUuid(uuidMap);
 
         matchScoreCalculationService.addPointToPlayer(currentMatch, id);
+
         if (currentMatch.isMatchFinished()) {
             finishedMatches.saveMatch(currentMatch);
         }
 
         req.setAttribute("currentMatch", currentMatch);
-        log.info("Идет редирект после обновления счета на /WEB-INF/views/MatchScore.jsp");
-        resp.sendRedirect(req.getContextPath() + "/match-score?uuid=" + uuid);
+
+        resp.sendRedirect(PATH_REDIRECT_TEMPLATE.formatted(req.getContextPath(), uuidMap));
 
     }
 
     private long parseLong(String playerId) {
-        if (playerId == null || playerId.trim().isEmpty()) {
-            throw new PlayerIdException("Id игрока не может быть пустым");
+        if (playerId == null || playerId.trim()
+                                        .isEmpty()) {
+            throw new PlayerIdException(ID_PLAYER_EMPTY);
         }
         try {
             return Long.parseLong(playerId);
         } catch (NumberFormatException e) {
-            throw new PlayerIdException("Id игрока быть только числом, получено %s".formatted(playerId), e);
+            throw new PlayerIdException(ID_MUST_BE_NUMBER_TEMPLATE.formatted(playerId), e);
         }
     }
 
