@@ -14,9 +14,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 
 @Slf4j
 @WebServlet("/new-match")
@@ -46,13 +43,12 @@ public class NewMathController extends BaseServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String nameOnePlayer = req.getParameter("playerOneName");
         String nameSecondPlayer = req.getParameter("playerTwoName");
 
         String normalizedNameOne = nameOnePlayer.trim().toLowerCase();
         String normalizedNameSecond = nameSecondPlayer.trim().toLowerCase();
-
 
         ValidateUtil.validateNamePlayer(normalizedNameOne);
         ValidateUtil.validateNamePlayer(normalizedNameSecond);
@@ -63,17 +59,12 @@ public class NewMathController extends BaseServlet {
 
         CurrentMatch currentMatch = ongoingMatchesService.createMatch(playerDtoOne, playerDtoSecond);
 
-
         resp.sendRedirect(REDIRECT_PATH_TEMPLATE.formatted(currentMatch.getUuid()));
-
-
     }
-
 
     @Override
     protected String getErrorPath() {
         return PAGE_NAME;
     }
-
 
 }
