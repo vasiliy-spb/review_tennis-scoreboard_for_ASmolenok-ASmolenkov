@@ -1,12 +1,12 @@
 package io.github.asmolenkov.tennismatchscoreboard.controller;
 
-import io.github.asmolenkov.tennismatchscoreboard.exception.FindMatchException;
-import io.github.asmolenkov.tennismatchscoreboard.exception.PlayerSideException;
+import io.github.asmolenkov.tennismatchscoreboard.exception.PlayerIdException;
 import io.github.asmolenkov.tennismatchscoreboard.listener.AppContextListener;
 import io.github.asmolenkov.tennismatchscoreboard.model.CurrentMatch;
 import io.github.asmolenkov.tennismatchscoreboard.service.FinishedMatchesPersistenceService;
 import io.github.asmolenkov.tennismatchscoreboard.service.MatchScoreCalculationService;
 import io.github.asmolenkov.tennismatchscoreboard.service.OngoingMatchesService;
+import io.github.asmolenkov.tennismatchscoreboard.utils.ValidateUtil;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -37,32 +37,28 @@ public class MatchScoreController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String uuid = req.getParameter("uuid");
-        UUID uuidMath = UUID.fromString(uuid);
-        try {
-            CurrentMatch currentMatch = ongoingMatchesService.findMatchByUuid(uuidMath);
-            req.setAttribute("currentMatch", currentMatch);
-            log.info("Идет форвард на /WEB-INF/views/MatchScore.jsp");
-            req.getRequestDispatcher("/WEB-INF/views/MatchScore.jsp")
-               .forward(req, resp);
-        } catch (FindMatchException | PlayerSideException e) {
-            //TODO Реализовать централизацию обработки исключений.
-        }
+
+        UUID uuidMath = ValidateUtil.parseUuidOrThrow(uuid);
+
+        CurrentMatch currentMatch = ongoingMatchesService.findMatchByUuid(uuidMath);
+        req.setAttribute("currentMatch", currentMatch);
+
+        req.getRequestDispatcher("/WEB-INF/views/MatchScore.jsp")
+           .forward(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String uuid = req.getParameter("uuid");
-        UUID uuidMap = UUID.fromString(uuid);
         String playerId = req.getParameter("playerId");
-        long id = Long.parseLong(playerId); //TODO добавить обработку NullPointException
+
+        UUID uuidMap = ValidateUtil.parseUuidOrThrow(uuid);
+        long id = parseLong(playerId);
 
         CurrentMatch currentMatch = ongoingMatchesService.findMatchByUuid(uuidMap);
 
-        log.info("ID игрока для начисления очка = {}", id);
         matchScoreCalculationService.addPointToPlayer(currentMatch, id);
-        if(currentMatch.isMatchFinished()){
+        if (currentMatch.isMatchFinished()) {
             finishedMatches.saveMatch(currentMatch);
         }
 
@@ -70,6 +66,17 @@ public class MatchScoreController extends HttpServlet {
         log.info("Идет редирект после обновления счета на /WEB-INF/views/MatchScore.jsp");
         resp.sendRedirect(req.getContextPath() + "/match-score?uuid=" + uuid);
 
-
     }
+
+    private long parseLong(String playerId) {
+        if (playerId == null || playerId.trim().isEmpty()) {
+            throw new PlayerIdException("Id игрока не может быть пустым");
+        }
+        try {
+            return Long.parseLong(playerId);
+        } catch (NumberFormatException e) {
+            throw new PlayerIdException("Id игрока быть только числом, получено %s".formatted(playerId), e);
+        }
+    }
+
 }
