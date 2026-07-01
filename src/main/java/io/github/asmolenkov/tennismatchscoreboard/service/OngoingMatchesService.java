@@ -36,4 +36,8 @@ public class OngoingMatchesService {
             throw new FindMatchException(MATCH_NOT_FOUND);
         }
     }
+
+    public void deleteMatchByUuid(UUID uuid){
+        activeMatchRepository.delete(uuid);
+    }
 }
