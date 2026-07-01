@@ -24,7 +24,7 @@ public abstract class BaseServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             super.service(req, resp);
-        } catch (NameIncorrectException | PlayerSideException e) {
+        } catch (NameIncorrectException | PlayerSideException | PlayerIdException e) {
             log.warn(LOG_VALIDATION_ERROR_TEMPLATE,
                     e.getClass()
                      .getSimpleName(),
