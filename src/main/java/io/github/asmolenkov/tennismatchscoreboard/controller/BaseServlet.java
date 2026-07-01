@@ -45,7 +45,7 @@ public abstract class BaseServlet extends HttpServlet {
                     req.getRequestURI(),
                     e.getMessage());
             handleError(req, resp, getErrorPath(), e.getMessage(), HttpServletResponse.SC_NOT_FOUND);
-        } catch (PlayerCreationException | SaveMatchException e) {
+        } catch (PlayerCreationException | SaveMatchException  | SaveActiveMatchException e) {
             log.error(LOG_ITERNAL_SERVER_ERROR_TEMPLATE,
                     e.getClass()
                      .getSimpleName(),
