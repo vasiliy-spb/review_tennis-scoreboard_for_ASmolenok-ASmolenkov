@@ -4,6 +4,7 @@ import io.github.asmolenkov.tennismatchscoreboard.dto.PlayerDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
@@ -15,6 +16,7 @@ public class CurrentMatch {
     private final PlayerDto playerOne;
     private final PlayerDto playerSecond;
     private final MatchScore matchScore;
+    @Builder.Default
     private boolean matchFinished = false;
     private PlayerDto winner;
 

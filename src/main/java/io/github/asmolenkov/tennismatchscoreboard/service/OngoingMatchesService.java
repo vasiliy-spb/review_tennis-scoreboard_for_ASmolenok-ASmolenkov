@@ -5,11 +5,14 @@ import io.github.asmolenkov.tennismatchscoreboard.exception.FindMatchException;
 import io.github.asmolenkov.tennismatchscoreboard.model.CurrentMatch;
 import io.github.asmolenkov.tennismatchscoreboard.model.MatchScore;
 import io.github.asmolenkov.tennismatchscoreboard.repository.ActiveMatchRepository;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Optional;
 import java.util.UUID;
-
+@Slf4j
 public class OngoingMatchesService {
+
+    private final static String MATCH_NOT_FOUND = "Такой матч не найден!";
     private final ActiveMatchRepository activeMatchRepository;
 
     public OngoingMatchesService(ActiveMatchRepository activeMatchRepository) {
@@ -30,11 +33,7 @@ public class OngoingMatchesService {
         if(currentMatch.isPresent()){
             return currentMatch.get();
         }else {
-            throw new FindMatchException("Такой матч не найден!");
+            throw new FindMatchException(MATCH_NOT_FOUND);
         }
-    }
-
-    public void updateMath(CurrentMatch currentMatch) {
-        activeMatchRepository.update(currentMatch);
     }
 }
