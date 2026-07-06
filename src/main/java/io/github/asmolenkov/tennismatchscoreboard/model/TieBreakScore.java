@@ -14,13 +14,6 @@ public class TieBreakScore {
     private int playerSecondPoint;
 
 
-    public int getPointPlayer(PlayerSide side) {
-        return switch (side) {
-            case ONE -> playerOnePoint;
-            case TWO -> playerSecondPoint;
-        };
-    }
-
     public void addTieBreakPoint(PlayerSide playerSide){
         switch (playerSide){
             case ONE -> addPointPlayerOne();

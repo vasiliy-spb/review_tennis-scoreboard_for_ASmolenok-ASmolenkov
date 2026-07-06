@@ -11,10 +11,9 @@ public class MatchScoreCalculationService {
     private static final String PLAYER_NOT_FOUND_IN_MATCH_TEMPLATE = "Игрок ID %s not found in match";
     private static final String LOG_START_TIE_BREAK = "Начинается Тай-брейк";
     private static final String LOG_FINISHED_TIE_BREAK_TEMPLATE = "Тай-брейк завершён. Победитель сета: {}";
-    private static final String LOG_SET_FINISHED_TEMPLATE = "Сет №{} - завершен";
+    private static final String LOG_SET_FINISHED = "Сет завершен";
     private static final String LOG_MATCH_FINISHED = "Матч завершен";
     private static final String LOG_WINNER_TEMPLATE = "Победитель - {}";
-    private static final String LOG_INCORRECT_SET_NUMBER_TEMPLATE = "Некорректный номер сета: %s";
     private static final String LOG_GAME_FINISHED = "Гейм завершен";
     private static final String LOG_RESET_ADVANTAGE_OPPONENT = "Сброс преимущества оппонента";
 
@@ -22,37 +21,31 @@ public class MatchScoreCalculationService {
         if (currentMatch.isMatchFinished()) {
             return;
         }
+
         PlayerSide side = resolvePlayerSide(currentMatch, playerId);
 
-        processPointUpdate(currentMatch, side);
+        pointUpdate(currentMatch, side);
 
     }
 
     private PlayerSide resolvePlayerSide(CurrentMatch currentMatch, long playerId) {
-        if (currentMatch.getPlayerOne()
-                        .id() == playerId) return PlayerSide.ONE;
-        if (currentMatch.getPlayerSecond()
-                        .id() == playerId) return PlayerSide.TWO;
+        if (currentMatch.getPlayerOne().id() == playerId) {
+            return PlayerSide.ONE;
+        }
+        if (currentMatch.getPlayerSecond().id() == playerId){
+            return PlayerSide.TWO;
+        }
         throw new PlayerSideException(PLAYER_NOT_FOUND_IN_MATCH_TEMPLATE.formatted(playerId));
     }
 
-    private void processPointUpdate(CurrentMatch currentMatch, PlayerSide playerSide) {
-        PlayerSide opponent = getOpponent(playerSide);
+    private void pointUpdate(CurrentMatch currentMatch, PlayerSide playerSide) {
         MatchScore matchScore = currentMatch.getMatchScore();
-        int setNumber = matchScore.determineActiveSetNumber();
-        SetScore currentSet = getCurrentSet(currentMatch, setNumber);
-
-        Point currentPoint = currentMatch.getPointPlayer(playerSide);
-
-        Point opponentPoint = currentMatch.getPointPlayer(opponent);
-
+        SetScore currentSet = currentMatch.getSet();
 
         if(matchScore.isTieBreakActive()){
             tieBreakPointUpdate(matchScore, currentSet , playerSide);
         }else {
-
-            classicUpdatePoint(currentMatch, playerSide);
-
+            classicUpdatePoint(currentMatch, playerSide, currentSet);
             if(matchScore.isStartTieBreak(currentSet)){
                 log.info(LOG_START_TIE_BREAK);
                 matchScore.activateTieBreak();
@@ -60,7 +53,7 @@ public class MatchScoreCalculationService {
         }
 
         if(matchScore.isSetFinished(currentSet)){
-            log.info(LOG_SET_FINISHED_TEMPLATE, setNumber);
+            log.info(LOG_SET_FINISHED);
             currentSet.fishedSet();
         }
         if(matchScore.isMatchFinished()){
@@ -71,59 +64,25 @@ public class MatchScoreCalculationService {
 
     }
 
-    private void tieBreakPointUpdate(MatchScore matchScore, SetScore setScore, PlayerSide current) {
-
+    private void tieBreakPointUpdate(MatchScore matchScore, SetScore setScore, PlayerSide playerSide) {
         TieBreakScore tieBreakScore = matchScore.getTieBreakScore();
 
-        tieBreakScore.addTieBreakPoint(current);
+        tieBreakScore.addTieBreakPoint(playerSide);
 
         matchScore.getTieBreakScore().getWinner().ifPresent(winner ->{
             awardGameToPlayer(setScore,winner);
             matchScore.deactivateTieBreak();
             setScore.fishedSet();
             tieBreakScore.resetPoint();
-            matchScore.getPlayersGameScore().resetAllPoint();
+            matchScore.getPlayersGameScore().resetPoint();
             log.info(LOG_FINISHED_TIE_BREAK_TEMPLATE, winner);
         });
 
 
     }
 
-    private PlayerSide getOpponent(PlayerSide side) {
-
-        return side == PlayerSide.ONE ? PlayerSide.TWO : PlayerSide.ONE;
-    }
-
-
-    private SetScore getCurrentSet(CurrentMatch currentMatch, int setNumber) {
-        return switch (setNumber) {
-            case 1 -> currentMatch.getMatchScore()
-                                  .getSetOneScore();
-            case 2 -> currentMatch.getMatchScore()
-                                  .getSetTwoScore();
-            case 3 -> currentMatch.getMatchScore()
-                                  .getSetThreeScore();
-            default -> throw new IllegalStateException(LOG_INCORRECT_SET_NUMBER_TEMPLATE.formatted(setNumber));
-        };
-    }
-
-    private boolean isStandardGameWin(Point winner, Point loser) {
-        return winner == Point.FORTY && loser != Point.FORTY &&
-                loser != Point.ADVANTAGE;
-    }
-
     private void awardGameToPlayer(SetScore setScore, PlayerSide playerSide) {
-        if (playerSide == PlayerSide.ONE) {
-            setScore.setPlayerOneAddGame();
-        } else {
-            setScore.setPlayerSecondAddGame();
-        }
-    }
-
-
-
-    private boolean isOpponentAtAdvantage(Point notAdvantage, Point advantage) {
-        return notAdvantage == Point.FORTY && advantage == Point.ADVANTAGE;
+        setScore.addPoint(playerSide);
     }
 
 
@@ -139,33 +98,27 @@ public class MatchScoreCalculationService {
         }
     }
 
-    private void classicUpdatePoint(CurrentMatch currentMatch, PlayerSide playerSide){
-        PlayerSide opponent = getOpponent(playerSide);
-        int setNumber = currentMatch.getMatchScore().determineActiveSetNumber();
-        SetScore currentSet = getCurrentSet(currentMatch, setNumber);
-
-        Point currentPoint = currentMatch.getPointPlayer(playerSide);
-        Point opponentPoint = currentMatch.getPointPlayer(opponent);
-
-        if (isStandardGameWin(currentPoint, opponentPoint)) {
+    private void classicUpdatePoint(CurrentMatch currentMatch, PlayerSide playerSide, SetScore currentSet){
+        GameScore gameScore = currentMatch.getMatchScore().getPlayersGameScore();
+        if (gameScore.isStandardGameWon(playerSide)) {
             log.info(LOG_GAME_FINISHED);
             awardGameToPlayer(currentSet, playerSide);
-            currentMatch.resetAllPoint();
+            currentMatch.resetAllPointGame();
             return;
         }
-        if (isOpponentAtAdvantage(currentPoint, opponentPoint)) {
+        if (gameScore.isOpponentAtAdvantage(playerSide)) {
             log.info(LOG_RESET_ADVANTAGE_OPPONENT);
-            currentMatch.resetAdvantage(opponent);
+            gameScore.resetAdvantage(playerSide);
             return;
         }
 
-        if (currentPoint == Point.ADVANTAGE) {
+        if (gameScore.isCurrentPlayerAtAdvantage(playerSide)) {
             awardGameToPlayer(currentSet, playerSide);
             log.info(LOG_GAME_FINISHED);
-            currentMatch.resetAllPoint();
+            currentMatch.resetAllPointGame();
             return;
         }
-        currentMatch.addPointToPlayer(playerSide);
+        gameScore.addPoint(playerSide);
     }
 
 }

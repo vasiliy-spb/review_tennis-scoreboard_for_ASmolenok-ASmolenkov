@@ -5,8 +5,8 @@ import lombok.Getter;
 
 @Getter
 public class PointScore {
-    private Point playerOnePoint = Point.ZERO;
-    private Point playerSecondPoint = Point.ZERO;
+    private final Point playerOnePoint = Point.ZERO;
+    private final Point playerSecondPoint = Point.ZERO;
 
 
 

@@ -65,8 +65,15 @@ public class MatchScoreCalculationServiceTest {
     }
 
     @ParameterizedTest(name = "Счет гейма {0} - {1} -> Счет матча {2} - {3} после начисления очка Игроку {4}")
-    @CsvSource({"FORTY, FORTY, ADVANTAGE, FORTY , 1", "FORTY, FORTY, FORTY, ADVANTAGE, 2", "ADVANTAGE, FORTY, ZERO, ZERO, 1", "FORTY, ADVANTAGE, ZERO, ZERO, 2",})
-    @DisplayName("Начисление преимущества и сброс очков после окончания гейма")
+    @CsvSource({"FORTY, FORTY, ADVANTAGE, FORTY , 1",
+            "FORTY, FORTY, FORTY, ADVANTAGE, 2",
+            "ADVANTAGE, FORTY, ZERO, ZERO, 1",
+            "FORTY, ADVANTAGE, ZERO, ZERO, 2",
+            "FORTY, ADVANTAGE, FORTY , FORTY , 1",
+            "ADVANTAGE,  FORTY, FORTY , FORTY , 2"
+
+    })
+    @DisplayName("Начисление и сброс преимущества и сброс очков после окончания гейма")
     void AdProgression_ShouldAdvanceCorrectly_ForBothPlayers(Point startScoreOnePlayer, Point startScoreSecondPlayer, Point expectedScoreOnePlayer, Point expectedScoreSecondPlayer, long playerId) {
         CurrentMatch match = TestUtils.buildMatch(startScoreOnePlayer, startScoreSecondPlayer);
         scoreCalculation.addPointToPlayer(match, playerId);

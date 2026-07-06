@@ -13,11 +13,20 @@ public class SetScore {
     private boolean setActive = true;
 
 
-    public void setPlayerOneAddGame(){
+    public void addPoint(PlayerSide playerSide){
+        if(playerSide == PlayerSide.ONE){
+            setPlayerOneAddGame();
+        }else {
+            setPlayerSecondAddGame();
+        }
+    }
+
+
+    private void setPlayerOneAddGame(){
         this.playerOneGameCount++;
     }
 
-    public void setPlayerSecondAddGame(){
+    private void setPlayerSecondAddGame(){
 
         this.playerSecondGameCount++;
     }

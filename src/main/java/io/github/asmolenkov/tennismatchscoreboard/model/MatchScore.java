@@ -26,7 +26,6 @@ public class MatchScore {
     }
 
     public void deactivateTieBreak() {
-
         this.tieBreakActive = false;
     }
 
@@ -87,6 +86,16 @@ public class MatchScore {
         int p2 = set.getPlayerSecondGameCount();
 
         return side == PlayerSide.ONE ? p1 > p2 : p2 > p1;
+    }
+
+    public SetScore getCurrentSet() {
+        if (setOneScore.isSetActive()) {
+            return setOneScore;
+        } else if (setTwoScore.isSetActive()) {
+            return setTwoScore;
+        } else {
+            return setThreeScore;
+        }
     }
 
 
