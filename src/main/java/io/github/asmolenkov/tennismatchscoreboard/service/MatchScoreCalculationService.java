@@ -1,12 +1,19 @@
 package io.github.asmolenkov.tennismatchscoreboard.service;
 
-import io.github.asmolenkov.tennismatchscoreboard.dto.PlayerDto;
+
 import io.github.asmolenkov.tennismatchscoreboard.exception.PlayerSideException;
 import io.github.asmolenkov.tennismatchscoreboard.model.*;
+import io.github.asmolenkov.tennismatchscoreboard.repository.ActiveMatchRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class MatchScoreCalculationService {
+
+    private final ActiveMatchRepository activeMatchRepository;
+
+    public MatchScoreCalculationService(ActiveMatchRepository activeMatchRepository) {
+        this.activeMatchRepository = activeMatchRepository;
+    }
 
     private static final String PLAYER_NOT_FOUND_IN_MATCH_TEMPLATE = "Игрок ID %s not found in match";
     private static final String LOG_START_TIE_BREAK = "Начинается Тай-брейк";
@@ -21,7 +28,6 @@ public class MatchScoreCalculationService {
         if (currentMatch.isMatchFinished()) {
             return;
         }
-
         PlayerSide side = resolvePlayerSide(currentMatch, playerId);
 
         pointUpdate(currentMatch, side);
@@ -59,7 +65,8 @@ public class MatchScoreCalculationService {
         if(matchScore.isMatchFinished()){
             log.info(LOG_MATCH_FINISHED);
             log.info(LOG_WINNER_TEMPLATE, playerSide);
-            finishedMatch(currentMatch,getWinner(currentMatch, playerSide));
+            activeMatchRepository.delete(currentMatch.getUuid());
+            currentMatch.finishTheMatch(playerSide);
         }
 
     }
@@ -86,17 +93,10 @@ public class MatchScoreCalculationService {
     }
 
 
-    public void finishedMatch(CurrentMatch match, PlayerDto winner){
-        match.finishTheMatch(winner);
+    public void finishedMatch(CurrentMatch match,PlayerSide playerSide){
+        match.finishTheMatch(playerSide);
     }
 
-    private PlayerDto getWinner(CurrentMatch currentMatch, PlayerSide side){
-        if(side == PlayerSide.ONE){
-            return currentMatch.getPlayerOne();
-        }else {
-            return currentMatch.getPlayerSecond();
-        }
-    }
 
     private void classicUpdatePoint(CurrentMatch currentMatch, PlayerSide playerSide, SetScore currentSet){
         GameScore gameScore = currentMatch.getMatchScore().getPlayersGameScore();

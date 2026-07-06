@@ -1639,3 +1639,270 @@
 2026-07-06 20:47:51 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
 2026-07-06 20:47:51 INFO  i.g.a.t.s.MatchScoreCalculationService - Сброс преимущества оппонента
 2026-07-06 20:47:51 INFO  i.g.a.t.s.MatchScoreCalculationService - Сброс преимущества оппонента
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Тай-брейк завершён. Победитель сета: ONE
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Тай-брейк завершён. Победитель сета: TWO
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - TWO
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Сброс преимущества оппонента
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Сброс преимущества оппонента
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - TWO
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Тай-брейк завершён. Победитель сета: ONE
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Тай-брейк завершён. Победитель сета: TWO
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Тай-брейк завершён. Победитель сета: ONE
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Тай-брейк завершён. Победитель сета: TWO
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Начинается Тай-брейк
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Начинается Тай-брейк
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - TWO
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:08 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:12:08 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 7.0.4.Final
+2026-07-06 21:12:09 WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-07-06 21:12:09 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-06 21:12:09 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:test_tennis_db;DB_CLOSE_DELAY=-1]
+	Database driver: org.h2.Driver
+	Database version: 2.4.240
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Pool: DriverManagerConnectionProviderImpl
+	Minimum pool size: 1
+	Maximum pool size: 20
+2026-07-06 21:12:09 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-06 21:12:09 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@65259c53] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-07-06 21:12:09 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@44e08a7a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-07-06 21:12:10 INFO  i.g.a.t.service.PlayerService - Игрок Иван сохранен в БД!
+2026-07-06 21:12:10 INFO  i.g.a.t.service.PlayerService - Игрок Мария сохранен в БД!
+2026-07-06 21:12:10 INFO  i.g.a.t.service.PlayerService - Игрок Мария уже существует в БД!
+2026-07-06 21:12:10 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7e5c8c80] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-07-06 21:12:10 INFO  i.g.a.t.r.ActiveMatchRepository - Матч Sasha - Masha сохранен
+2026-07-06 21:12:10 WARN  i.g.a.t.s.OngoingMatchesService - Такой матч не найден!
+2026-07-06 21:12:10 WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-07-06 21:12:10 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-06 21:12:10 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:test_tennis_db;DB_CLOSE_DELAY=-1]
+	Database driver: org.h2.Driver
+	Database version: 2.4.240
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Pool: DriverManagerConnectionProviderImpl
+	Minimum pool size: 1
+	Maximum pool size: 20
+2026-07-06 21:12:10 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-06 21:12:10 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@64821706] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-07-06 21:12:10 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@8aa3013] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-07-06 21:12:10 INFO  i.g.a.t.service.PlayerService - Игрок Sasha сохранен в БД!
+2026-07-06 21:12:10 INFO  i.g.a.t.service.PlayerService - Игрок Masha сохранен в БД!
+2026-07-06 21:12:10 INFO  i.g.a.t.s.FinishedMatchesPersistenceService - Матч 521f6e6c-2a8f-4c27-8709-f92214fbe6cb сохранен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Тай-брейк завершён. Победитель сета: ONE
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Тай-брейк завершён. Победитель сета: TWO
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - TWO
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Сброс преимущества оппонента
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Сброс преимущества оппонента
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - TWO
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Тай-брейк завершён. Победитель сета: ONE
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Тай-брейк завершён. Победитель сета: TWO
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Тай-брейк завершён. Победитель сета: ONE
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Тай-брейк завершён. Победитель сета: TWO
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Начинается Тай-брейк
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Начинается Тай-брейк
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - TWO
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:12:47 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:12:47 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 7.0.4.Final
+2026-07-06 21:12:47 WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-07-06 21:12:47 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-06 21:12:47 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:test_tennis_db;DB_CLOSE_DELAY=-1]
+	Database driver: org.h2.Driver
+	Database version: 2.4.240
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Pool: DriverManagerConnectionProviderImpl
+	Minimum pool size: 1
+	Maximum pool size: 20
+2026-07-06 21:12:48 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-06 21:12:48 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5e95b0ab] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-07-06 21:12:48 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@17ae13d5] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-07-06 21:12:48 INFO  i.g.a.t.service.PlayerService - Игрок Иван сохранен в БД!
+2026-07-06 21:12:48 INFO  i.g.a.t.service.PlayerService - Игрок Мария сохранен в БД!
+2026-07-06 21:12:48 INFO  i.g.a.t.service.PlayerService - Игрок Мария уже существует в БД!
+2026-07-06 21:12:48 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4b5ceb5d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-07-06 21:12:48 INFO  i.g.a.t.r.ActiveMatchRepository - Матч Sasha - Masha сохранен
+2026-07-06 21:12:48 WARN  i.g.a.t.s.OngoingMatchesService - Такой матч не найден!
+2026-07-06 21:12:48 WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-07-06 21:12:48 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-06 21:12:48 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:test_tennis_db;DB_CLOSE_DELAY=-1]
+	Database driver: org.h2.Driver
+	Database version: 2.4.240
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Pool: DriverManagerConnectionProviderImpl
+	Minimum pool size: 1
+	Maximum pool size: 20
+2026-07-06 21:12:48 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-06 21:12:48 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@8aa3013] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-07-06 21:12:48 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@627ad446] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-07-06 21:12:48 INFO  i.g.a.t.service.PlayerService - Игрок Sasha сохранен в БД!
+2026-07-06 21:12:48 INFO  i.g.a.t.service.PlayerService - Игрок Masha сохранен в БД!
+2026-07-06 21:12:48 INFO  i.g.a.t.s.FinishedMatchesPersistenceService - Матч ea665e01-22ad-4f6a-a4fe-e1863db17fbd сохранен
+2026-07-06 21:18:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Тай-брейк завершён. Победитель сета: ONE
+2026-07-06 21:18:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-07-06 21:18:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-07-06 21:18:53 INFO  i.g.a.t.r.ActiveMatchRepository - Матч с UUID - f692cfc7-16ba-45a3-8d25-17c1cf377d4f удален
+2026-07-06 21:18:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Тай-брейк завершён. Победитель сета: TWO
+2026-07-06 21:18:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-07-06 21:18:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - TWO
+2026-07-06 21:18:53 INFO  i.g.a.t.r.ActiveMatchRepository - Матч с UUID - 9955b613-95e8-4335-a7d5-89c5b5e4fed0 удален
+2026-07-06 21:18:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Сброс преимущества оппонента
+2026-07-06 21:18:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Сброс преимущества оппонента
+2026-07-06 21:18:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:18:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-07-06 21:18:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-07-06 21:18:53 INFO  i.g.a.t.r.ActiveMatchRepository - Матч с UUID - b2691ae5-fca8-4e9c-949d-1ff09b5f34be удален
+2026-07-06 21:18:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:18:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-07-06 21:18:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - TWO
+2026-07-06 21:18:53 INFO  i.g.a.t.r.ActiveMatchRepository - Матч с UUID - 54d600c4-8b55-4c7e-b95a-7747347ecd32 удален
+2026-07-06 21:18:53 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Тай-брейк завершён. Победитель сета: ONE
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Тай-брейк завершён. Победитель сета: TWO
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Тай-брейк завершён. Победитель сета: ONE
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Тай-брейк завершён. Победитель сета: TWO
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Начинается Тай-брейк
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Начинается Тай-брейк
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - ONE
+2026-07-06 21:18:54 INFO  i.g.a.t.r.ActiveMatchRepository - Матч с UUID - c684a886-f749-4b4d-9f58-7ff715c724c4 удален
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Матч завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Победитель - TWO
+2026-07-06 21:18:54 INFO  i.g.a.t.r.ActiveMatchRepository - Матч с UUID - af725210-15af-4d43-bc1c-4531f4064edc удален
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Гейм завершен
+2026-07-06 21:18:54 INFO  i.g.a.t.s.MatchScoreCalculationService - Сет завершен
+2026-07-06 21:18:54 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 7.0.4.Final
+2026-07-06 21:18:54 WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-07-06 21:18:54 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-06 21:18:54 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:test_tennis_db;DB_CLOSE_DELAY=-1]
+	Database driver: org.h2.Driver
+	Database version: 2.4.240
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Pool: DriverManagerConnectionProviderImpl
+	Minimum pool size: 1
+	Maximum pool size: 20
+2026-07-06 21:18:54 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-06 21:18:54 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6bdedbbd] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-07-06 21:18:54 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@25e95af1] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-07-06 21:18:55 INFO  i.g.a.t.service.PlayerService - Игрок Иван сохранен в БД!
+2026-07-06 21:18:55 INFO  i.g.a.t.service.PlayerService - Игрок Мария сохранен в БД!
+2026-07-06 21:18:55 INFO  i.g.a.t.service.PlayerService - Игрок Мария уже существует в БД!
+2026-07-06 21:18:55 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78e59b04] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-07-06 21:18:55 INFO  i.g.a.t.r.ActiveMatchRepository - Матч Sasha - Masha сохранен
+2026-07-06 21:18:55 WARN  i.g.a.t.s.OngoingMatchesService - Такой матч не найден!
+2026-07-06 21:18:55 WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-07-06 21:18:55 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-06 21:18:55 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:test_tennis_db;DB_CLOSE_DELAY=-1]
+	Database driver: org.h2.Driver
+	Database version: 2.4.240
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Pool: DriverManagerConnectionProviderImpl
+	Minimum pool size: 1
+	Maximum pool size: 20
+2026-07-06 21:18:55 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-06 21:18:55 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4f239a76] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-07-06 21:18:55 INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1ac30be4] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-07-06 21:18:55 INFO  i.g.a.t.service.PlayerService - Игрок Sasha сохранен в БД!
+2026-07-06 21:18:55 INFO  i.g.a.t.service.PlayerService - Игрок Masha сохранен в БД!
+2026-07-06 21:18:55 INFO  i.g.a.t.s.FinishedMatchesPersistenceService - Матч 25378401-88e6-4ddb-a92d-ca6c8ed103f5 сохранен

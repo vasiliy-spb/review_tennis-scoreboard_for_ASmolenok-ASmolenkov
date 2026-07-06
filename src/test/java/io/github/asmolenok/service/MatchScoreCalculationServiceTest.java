@@ -1,7 +1,7 @@
 package io.github.asmolenok.service;
 
-import io.github.asmolenkov.tennismatchscoreboard.dto.PlayerDto;
 import io.github.asmolenkov.tennismatchscoreboard.model.*;
+import io.github.asmolenkov.tennismatchscoreboard.repository.ActiveMatchRepository;
 import io.github.asmolenkov.tennismatchscoreboard.service.MatchScoreCalculationService;
 import io.github.asmolenok.record.ThreeSetMatchScenario;
 import io.github.asmolenok.record.TieBreakMatchScenario;
@@ -9,7 +9,6 @@ import io.github.asmolenok.record.TwoSetsMatchScenario;
 import io.github.asmolenok.utils.TestUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -17,8 +16,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 public class MatchScoreCalculationServiceTest {
-
-    private final MatchScoreCalculationService scoreCalculation = new MatchScoreCalculationService();
+    private final ActiveMatchRepository activeMatchRepository = new ActiveMatchRepository();
+    private final MatchScoreCalculationService scoreCalculation = new MatchScoreCalculationService(activeMatchRepository);
 
 
     @ParameterizedTest(name = "Игрок {0}: счёт {1} → {2} после начисления очка")
@@ -350,17 +349,15 @@ public class MatchScoreCalculationServiceTest {
         );
     }
 
-    @ParameterizedTest(name = "Матч завершен. Победитель - {0} {1}")
+    @ParameterizedTest(name = "Матч завершен. Победитель - {0} {1} {2}")
     @CsvSource({
-            "1, Sasha",
-            "2, Masha"
+            "1, ONE, Sasha",
+            "2, TWO, Masha"
     })
     @DisplayName("Корректный победитель")
-    void MatchIsOver_correctWinnerHasBeenDetermined(long winnerId, String nameWinner){
-            PlayerDto winner = new PlayerDto(winnerId, nameWinner);
+    void MatchIsOver_correctWinnerHasBeenDetermined(long winnerId,PlayerSide side, String nameWinner){
             CurrentMatch match = TestUtils.createCompletedMatch();
-
-            scoreCalculation.finishedMatch(match, winner);
+            scoreCalculation.finishedMatch(match, side);
             Assertions.assertEquals(winnerId,match.getWinner().id());
             Assertions.assertEquals(nameWinner,match.getWinner().name());
     }

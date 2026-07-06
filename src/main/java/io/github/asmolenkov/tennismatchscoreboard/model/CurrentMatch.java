@@ -25,9 +25,14 @@ public class CurrentMatch {
     }
 
 
-    public void finishTheMatch(PlayerDto winner){
+    public void finishTheMatch(PlayerSide playerSide){
         this.matchFinished = true;
-        this.winner = winner;
+        if(playerSide == PlayerSide.ONE){
+            this.winner = playerOne;
+        }
+        else {
+            this.winner = playerSecond;
+        }
     }
 
     public SetScore getSet (){
