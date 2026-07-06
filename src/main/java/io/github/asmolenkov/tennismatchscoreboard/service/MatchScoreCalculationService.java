@@ -8,6 +8,16 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class MatchScoreCalculationService {
 
+    private static final String PLAYER_NOT_FOUND_IN_MATCH_TEMPLATE = "Игрок ID %s not found in match";
+    private static final String LOG_START_TIE_BREAK = "Начинается Тай-брейк";
+    private static final String LOG_FINISHED_TIE_BREAK_TEMPLATE = "Тай-брейк завершён. Победитель сета: {}";
+    private static final String LOG_SET_FINISHED_TEMPLATE = "Сет №{} - завершен";
+    private static final String LOG_MATCH_FINISHED = "Матч завершен";
+    private static final String LOG_WINNER_TEMPLATE = "Победитель - {}";
+    private static final String LOG_INCORRECT_SET_NUMBER_TEMPLATE = "Некорректный номер сета: %s";
+    private static final String LOG_GAME_FINISHED = "Гейм завершен";
+    private static final String LOG_RESET_ADVANTAGE_OPPONENT = "Сброс преимущества оппонента";
+
     public void addPointToPlayer(CurrentMatch currentMatch, long playerId) {
         if (currentMatch.isMatchFinished()) {
             return;
@@ -23,7 +33,7 @@ public class MatchScoreCalculationService {
                         .id() == playerId) return PlayerSide.ONE;
         if (currentMatch.getPlayerSecond()
                         .id() == playerId) return PlayerSide.TWO;
-        throw new PlayerSideException("Игрок ID %s not found in match".formatted(playerId));
+        throw new PlayerSideException(PLAYER_NOT_FOUND_IN_MATCH_TEMPLATE.formatted(playerId));
     }
 
     private void processPointUpdate(CurrentMatch currentMatch, PlayerSide playerSide) {
@@ -33,30 +43,29 @@ public class MatchScoreCalculationService {
         SetScore currentSet = getCurrentSet(currentMatch, setNumber);
 
         Point currentPoint = currentMatch.getPointPlayer(playerSide);
-        log.info("Очки Игрок 1 = {}", currentPoint);
+
         Point opponentPoint = currentMatch.getPointPlayer(opponent);
-        log.info("Очки Игрок 2 = {}", opponentPoint);
+
 
         if(matchScore.isTieBreakActive()){
-            log.info("Идет Тай-брейк");
             tieBreakPointUpdate(matchScore, currentSet , playerSide);
         }else {
-            log.info("Идет Гейм");
+
             classicUpdatePoint(currentMatch, playerSide);
 
             if(matchScore.isStartTieBreak(currentSet)){
-                log.info("Начинается Тай-брейк");
+                log.info(LOG_START_TIE_BREAK);
                 matchScore.activateTieBreak();
             }
         }
 
         if(matchScore.isSetFinished(currentSet)){
-            log.info("Сет №{} - завершен", setNumber);
+            log.info(LOG_SET_FINISHED_TEMPLATE, setNumber);
             currentSet.fishedSet();
         }
         if(matchScore.isMatchFinished()){
-            log.info("Матч завершен");
-            log.info("Победитель - {}", playerSide);
+            log.info(LOG_MATCH_FINISHED);
+            log.info(LOG_WINNER_TEMPLATE, playerSide);
             finishedMatch(currentMatch,getWinner(currentMatch, playerSide));
         }
 
@@ -74,13 +83,14 @@ public class MatchScoreCalculationService {
             setScore.fishedSet();
             tieBreakScore.resetPoint();
             matchScore.getPlayersGameScore().resetAllPoint();
-            log.info("✅ Тай-брейк завершён. Победитель сета: {}", winner);
+            log.info(LOG_FINISHED_TIE_BREAK_TEMPLATE, winner);
         });
 
 
     }
 
     private PlayerSide getOpponent(PlayerSide side) {
+
         return side == PlayerSide.ONE ? PlayerSide.TWO : PlayerSide.ONE;
     }
 
@@ -93,7 +103,7 @@ public class MatchScoreCalculationService {
                                   .getSetTwoScore();
             case 3 -> currentMatch.getMatchScore()
                                   .getSetThreeScore();
-            default -> throw new IllegalStateException("Unexpected value: " + setNumber);
+            default -> throw new IllegalStateException(LOG_INCORRECT_SET_NUMBER_TEMPLATE.formatted(setNumber));
         };
     }
 
@@ -138,22 +148,20 @@ public class MatchScoreCalculationService {
         Point opponentPoint = currentMatch.getPointPlayer(opponent);
 
         if (isStandardGameWin(currentPoint, opponentPoint)) {
-            log.info("Гейм завершен");
+            log.info(LOG_GAME_FINISHED);
             awardGameToPlayer(currentSet, playerSide);
             currentMatch.resetAllPoint();
-            log.info("Очки сброшены");
             return;
         }
         if (isOpponentAtAdvantage(currentPoint, opponentPoint)) {
-            log.info("Сброс преимущества оппонента");
+            log.info(LOG_RESET_ADVANTAGE_OPPONENT);
             currentMatch.resetAdvantage(opponent);
             return;
         }
 
         if (currentPoint == Point.ADVANTAGE) {
             awardGameToPlayer(currentSet, playerSide);
-            log.info("Гейм завершен");
-            log.info("Сброс очков");
+            log.info(LOG_GAME_FINISHED);
             currentMatch.resetAllPoint();
             return;
         }
