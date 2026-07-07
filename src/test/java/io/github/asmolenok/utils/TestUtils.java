@@ -24,7 +24,7 @@ public class TestUtils {
         return buildMatch(build);
     }
 
-    public static CurrentMatch createMatchWithGameScore(long playerOneId, long playerSecondId, int setCountOnePlayer, int setCountSecondPlayer, Point pointOnePlayer, Point pointSecondPlayer) {
+    public static CurrentMatch createMatchWithGameScore(int setCountOnePlayer, int setCountSecondPlayer, Point pointOnePlayer, Point pointSecondPlayer) {
         MatchScore build = MatchScore.builder()
                                      .setOneScore(new SetScore(setCountOnePlayer, setCountSecondPlayer, true))
                                      .setTwoScore(new SetScore())
@@ -36,7 +36,7 @@ public class TestUtils {
         return buildMatch(build);
     }
 
-    public static CurrentMatch createMatchWithTieBreakScore(long playerOneId, long playerSecondId, int tieBreakPointOnePlayer, int tieBreakPointSecondPlayer) {
+    public static CurrentMatch createMatchWithTieBreakScore(int tieBreakPointOnePlayer, int tieBreakPointSecondPlayer) {
         MatchScore build = MatchScore.builder()
                                      .setOneScore(new SetScore(6, 6, true))
                                      .setTwoScore(new SetScore())
@@ -79,8 +79,8 @@ public class TestUtils {
     }
 
     public static CurrentMatch CreateMatchOnePointTieBreakFromWin(int gameCountSet1P1,
-                                                          int gameCountSet1P2, int gameCountSet2P1,
-                                                          int gameCountSet2P2, int tieBreakPointP1, int tieBreakPointP2) {
+                                                                  int gameCountSet1P2, int gameCountSet2P1,
+                                                                  int gameCountSet2P2, int tieBreakPointP1, int tieBreakPointP2) {
         MatchScore build = MatchScore.builder()
                                      .setOneScore(new SetScore(gameCountSet1P1, gameCountSet1P2, false))
                                      .setTwoScore(new SetScore(gameCountSet2P1, gameCountSet2P2, true))
@@ -92,7 +92,7 @@ public class TestUtils {
         return buildMatch(build);
     }
 
-    public static CurrentMatch createCompletedMatch(){
+    public static CurrentMatch createCompletedMatch() {
         MatchScore build = MatchScore.builder()
                                      .setOneScore(new SetScore())
                                      .setTwoScore(new SetScore())
@@ -111,17 +111,18 @@ public class TestUtils {
                            .playerOne(new PlayerDto(PLAYER_ONE_ID, PLAYER_ONE_NAME))
                            .playerSecond(new PlayerDto(PLAYER_TWO_ID, PLAYER_TWO_NAME))
                            .matchScore(matchScore)
-                           .matchFinished(false)
                            .build();
     }
 
     private static CurrentMatch buildMatchWithWinner(MatchScore matchScore) {
+        PlayerDto playerOne = new PlayerDto(PLAYER_ONE_ID, PLAYER_ONE_NAME);
+        PlayerDto playerSecond = new PlayerDto(PLAYER_TWO_ID, PLAYER_TWO_NAME);
         return CurrentMatch.builder()
                            .uuid(UUID.randomUUID())
-                           .playerOne(new PlayerDto(PLAYER_ONE_ID, PLAYER_ONE_NAME))
-                           .playerSecond(new PlayerDto(PLAYER_TWO_ID, PLAYER_TWO_NAME))
+                           .playerOne(playerOne)
+                           .playerSecond(playerSecond)
+                           .winner(playerOne)
                            .matchScore(matchScore)
-                           .matchFinished(true)
                            .build();
     }
 

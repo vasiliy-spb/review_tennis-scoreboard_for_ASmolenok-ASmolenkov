@@ -1,15 +1,12 @@
 package io.github.asmolenkov.tennismatchscoreboard.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "MATCHES")
-@Data
 @Builder
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Match {
@@ -18,14 +15,14 @@ public class Match {
     private long id;
 
     @ManyToOne()
-    @JoinColumn(name = "PLAYER1", referencedColumnName = "ID")
+    @JoinColumn(name = "PLAYER1", referencedColumnName = "ID", nullable = false)
     private Player playerOne;
 
     @ManyToOne
-    @JoinColumn(name = "PLAYER2", referencedColumnName = "ID")
+    @JoinColumn(name = "PLAYER2", referencedColumnName = "ID", nullable = false)
     private Player playerSecond;
 
     @ManyToOne
-    @JoinColumn(name = "WINNER", referencedColumnName = "ID")
+    @JoinColumn(name = "WINNER", referencedColumnName = "ID", nullable = false)
     private Player winner;
 }

@@ -114,7 +114,7 @@ public class MatchScoreCalculationServiceTest {
         Point playerOnePoints = (winnerId == 1L) ? winnerPoints : loserPoints;
         Point playerTwoPoints = (winnerId == 2L) ? winnerPoints : loserPoints;
 
-        CurrentMatch match = TestUtils.createMatchWithGameScore(1L, 2L, startP1,
+        CurrentMatch match = TestUtils.createMatchWithGameScore(startP1,
                 startP2, playerOnePoints, playerTwoPoints);
 
         scoreCalculation.addPointToPlayer(match, winnerId);
@@ -146,7 +146,7 @@ public class MatchScoreCalculationServiceTest {
         Point playerOnePoints = (scorerId == 1L) ? winnerPoints : loserPoints;
         Point playerTwoPoints = (scorerId == 2L) ? winnerPoints : loserPoints;
 
-        CurrentMatch currentMatch = TestUtils.createMatchWithGameScore(1L, 2L, gamePointP1,
+        CurrentMatch currentMatch = TestUtils.createMatchWithGameScore(gamePointP1,
                 gamePointP2, playerOnePoints, playerTwoPoints);
 
         scoreCalculation.addPointToPlayer(currentMatch, scorerId);
@@ -178,7 +178,7 @@ public class MatchScoreCalculationServiceTest {
         Point playerOnePoints = (winnerId == 1L) ? winnerPoints : loserPoints;
         Point playerTwoPoints = (winnerId == 2L) ? winnerPoints : loserPoints;
 
-        CurrentMatch match = TestUtils.createMatchWithGameScore(1L, 2L, startP1,
+        CurrentMatch match = TestUtils.createMatchWithGameScore(startP1,
                 startP2, playerOnePoints, playerTwoPoints);
 
         scoreCalculation.addPointToPlayer(match, winnerId);
@@ -204,7 +204,7 @@ public class MatchScoreCalculationServiceTest {
     @DisplayName("Продвижение счета в тай брейке")
     void TieBreakProgression_ShouldAdvanceCorrectly_ForBothPlayers(int startP1, int startP2, long winnerId) {
 
-        CurrentMatch currentMatch = TestUtils.createMatchWithTieBreakScore(1L, 2L, startP1, startP2);
+        CurrentMatch currentMatch = TestUtils.createMatchWithTieBreakScore(startP1, startP2);
         scoreCalculation.addPointToPlayer(currentMatch, winnerId);
 
         int expectedTbPointP1 = (winnerId == 1L) ? startP1 + 1 : startP1;
@@ -229,7 +229,7 @@ public class MatchScoreCalculationServiceTest {
     @DisplayName("Победа в тай брейке")
     void TieBreakFinished_ShouldFinishedCorrectly_ForBothPlayers(int tbP1, int tbP2, long scoredId,
                                                                  boolean tieBreakActive, int winnerId) {
-        CurrentMatch currentMatch = TestUtils.createMatchWithTieBreakScore(1L, 2L, tbP1, tbP2);
+        CurrentMatch currentMatch = TestUtils.createMatchWithTieBreakScore(tbP1, tbP2);
         scoreCalculation.addPointToPlayer(currentMatch, scoredId);
 
 
@@ -258,7 +258,7 @@ public class MatchScoreCalculationServiceTest {
     @DisplayName("Продолжение тай брейка при счете 6-6")
     void TieBreakContinues_ForBothPlayers(int tbP1, int tbP2, long scoredId,
                                           boolean tieBreakActive, int winnerId) {
-        CurrentMatch currentMatch = TestUtils.createMatchWithTieBreakScore(1L, 2L, tbP1, tbP2);
+        CurrentMatch currentMatch = TestUtils.createMatchWithTieBreakScore(tbP1, tbP2);
         scoreCalculation.addPointToPlayer(currentMatch, scoredId);
 
 

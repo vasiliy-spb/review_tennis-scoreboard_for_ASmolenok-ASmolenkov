@@ -4,8 +4,11 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/match-score.css">
+
 </head>
 <body>
+
+
 <div class="match-header">
     <div class="player-name">${currentMatch.playerOne.name}</div>
     <div class="vs-badge">VS</div>
@@ -35,8 +38,6 @@
             <td>${currentMatch.matchScore.setOneScore.playerOneGameCount}</td> <!-- Set 1 !-->
             <td>${currentMatch.matchScore.setTwoScore.playerOneGameCount}</td> <!-- Set 2 !-->
             <td>${currentMatch.matchScore.setThreeScore.playerOneGameCount}</td> <!-- Set 3 !-->
-
-
         </tr>
         <tr>
             <td>${currentMatch.playerSecond.name}</td>

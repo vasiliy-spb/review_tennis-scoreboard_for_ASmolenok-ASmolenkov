@@ -44,24 +44,14 @@ public class MatchScore {
         return isStartTieBreak(set.getPlayerOneGameCount(), set.getPlayerSecondGameCount());
     }
 
-    public boolean isSetFinished(int playerOneGames, int playerTwoGames) {
-        return  (playerOneGames >= 6 && playerOneGames - playerTwoGames >= 2) ||
-                (playerTwoGames >= 6 && playerTwoGames - playerOneGames >= 2);
-
-    }
-
     public boolean isSetFinished(SetScore set){
         return isSetFinished(set.getPlayerOneGameCount(), set.getPlayerSecondGameCount());
     }
 
-    public int determineActiveSetNumber(){
-        if (setOneScore.isSetActive()) {
-            return 1;
-        } else if (setTwoScore.isSetActive()) {
-            return 2;
-        } else {
-            return 3;
-        }
+    private boolean isSetFinished(int playerOneGames, int playerTwoGames) {
+        return  (playerOneGames >= 6 && playerOneGames - playerTwoGames >= 2) ||
+                (playerTwoGames >= 6 && playerTwoGames - playerOneGames >= 2);
+
     }
 
     private int countSetWon(PlayerSide side){

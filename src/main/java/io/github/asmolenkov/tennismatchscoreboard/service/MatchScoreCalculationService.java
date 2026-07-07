@@ -25,7 +25,7 @@ public class MatchScoreCalculationService {
     private static final String LOG_RESET_ADVANTAGE_OPPONENT = "Сброс преимущества оппонента";
 
     public void addPointToPlayer(CurrentMatch currentMatch, long playerId) {
-        if (currentMatch.isMatchFinished()) {
+        if (currentMatch.getMatchScore().isMatchFinished()) {
             return;
         }
         PlayerSide side = resolvePlayerSide(currentMatch, playerId);

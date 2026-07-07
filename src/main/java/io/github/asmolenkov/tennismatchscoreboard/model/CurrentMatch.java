@@ -15,8 +15,6 @@ public class CurrentMatch {
     private final PlayerDto playerOne;
     private final PlayerDto playerSecond;
     private final MatchScore matchScore;
-    @Builder.Default
-    private boolean matchFinished = false;
     private PlayerDto winner;
 
 
@@ -24,9 +22,12 @@ public class CurrentMatch {
         matchScore.getPlayersGameScore().resetPoint();
     }
 
+    public boolean isMatchFinished(){
+        return matchScore.isMatchFinished();
+    }
+
 
     public void finishTheMatch(PlayerSide playerSide){
-        this.matchFinished = true;
         if(playerSide == PlayerSide.ONE){
             this.winner = playerOne;
         }

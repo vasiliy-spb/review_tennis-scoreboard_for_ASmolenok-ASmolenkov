@@ -1,7 +1,6 @@
 package io.github.asmolenok.service;
 
 import io.github.asmolenkov.tennismatchscoreboard.dto.PlayerDto;
-import io.github.asmolenkov.tennismatchscoreboard.exception.FindMatchException;
 import io.github.asmolenkov.tennismatchscoreboard.model.CurrentMatch;
 import io.github.asmolenkov.tennismatchscoreboard.repository.ActiveMatchRepository;
 import io.github.asmolenkov.tennismatchscoreboard.service.OngoingMatchesService;
@@ -63,21 +62,13 @@ public class OngoingMatchesServiceTest {
         when(activeMatchRepository.find(testUuid)).thenReturn(Optional.of(fakeMatch));
 
 
-        CurrentMatch result = matchService.findMatchByUuid(testUuid);
+        Optional<CurrentMatch> result = matchService.findMatchByUuid(testUuid);
 
 
-        assertEquals(testUuid, result.getUuid());
-        assertEquals(10L, result.getPlayerOne().id());
+        assertTrue(result.isPresent());
+        assertEquals(testUuid, result.get().getUuid());
+        assertEquals(10L, result.get().getPlayerOne().id());
         verify(activeMatchRepository, times(1)).find(testUuid);
     }
 
-    @Test
-    @DisplayName("Сервис выбрасывает исключение, если матч не найден")
-    void findMatchByUuid_notFound_throwsException() {
-
-        UUID missingUuid = UUID.randomUUID();
-        when(activeMatchRepository.find(missingUuid)).thenReturn(Optional.empty());
-
-        assertThrows(FindMatchException.class, () -> matchService.findMatchByUuid(missingUuid));
-    }
 }
