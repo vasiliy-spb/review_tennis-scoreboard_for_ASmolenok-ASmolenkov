@@ -14,6 +14,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -55,20 +56,14 @@ public class MatchScoreController extends BaseServlet {
 
         UUID uuidMath = ValidateUtil.parseUuidOrThrow(uuid);
 
-         Optional<CurrentMatch> findMatch = ongoingMatchesService.findMatchByUuid(uuidMath);
+        Optional<CurrentMatch> findMatch = ongoingMatchesService.findMatchByUuid(uuidMath);
 
-         CurrentMatch currentMatch = findMatch.orElseGet(()->{
-             CurrentMatch finished = (CurrentMatch) req.getSession().getAttribute(ATTRIBUTE_FINISHED_MATCH);
-             if(finished != null){
-                 req.getSession().removeAttribute(ATTRIBUTE_FINISHED_MATCH);
-             }
-             return finished;
-         });
-
+        CurrentMatch currentMatch = findMatch.orElseGet(() -> getFinishedMatchFromSession(req));
 
         req.setAttribute(ATTRIBUTE_CURRENT_MATCH, currentMatch);
 
-        req.getRequestDispatcher(PATH_FORWARD).forward(req, resp);
+        req.getRequestDispatcher(PATH_FORWARD)
+           .forward(req, resp);
     }
 
     @Override
@@ -81,22 +76,25 @@ public class MatchScoreController extends BaseServlet {
 
         Optional<CurrentMatch> findMatch = ongoingMatchesService.findMatchByUuid(uuidMap);
 
-        if(findMatch.isEmpty()){
+        if (findMatch.isPresent()) {
+            CurrentMatch currentMatch = findMatch.get();
+            matchScoreCalculationService.addPointToPlayer(currentMatch, id);
+            if (currentMatch.isMatchFinished()) {
+                finishedMatches.saveMatch(currentMatch);
+                req.getSession()
+                   .setAttribute(ATTRIBUTE_FINISHED_MATCH, currentMatch);
+            }
+            resp.sendRedirect(PATH_REDIRECT_TEMPLATE.formatted(req.getContextPath(), uuidMap));
+        }else {
             throw new FindMatchException(MATCH_NOT_FOUND);
         }
 
-        CurrentMatch currentMatch = findMatch.get();
 
-        matchScoreCalculationService.addPointToPlayer(currentMatch, id);
+    }
 
-
-
-        if (currentMatch.isMatchFinished()) {
-            finishedMatches.saveMatch(currentMatch);
-            req.getSession().setAttribute(ATTRIBUTE_FINISHED_MATCH, currentMatch);
-        }
-
-        resp.sendRedirect(PATH_REDIRECT_TEMPLATE.formatted(req.getContextPath(), uuidMap));
+    @Override
+    protected String getErrorPath() {
+        return NAME_PAGE;
     }
 
     private long parseLong(String playerId) {
@@ -111,8 +109,17 @@ public class MatchScoreController extends BaseServlet {
         }
     }
 
-    @Override
-    protected String getErrorPath() {
-        return NAME_PAGE;
+    private CurrentMatch getFinishedMatchFromSession(HttpServletRequest req) {
+        HttpSession session = req.getSession(false);
+        if (session == null) return null;
+
+        CurrentMatch match = (CurrentMatch) session.getAttribute(ATTRIBUTE_FINISHED_MATCH);
+
+        if (match != null) {
+            session.removeAttribute(ATTRIBUTE_FINISHED_MATCH);
+        }
+        return match;
     }
+
+
 }
