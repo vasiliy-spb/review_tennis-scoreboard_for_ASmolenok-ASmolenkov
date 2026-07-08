@@ -234,6 +234,7 @@ tr:has(.tb-badge) .game-cell {
     font-weight: 600;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    text-transform: capitalize
 }
 
 .all-matches {
@@ -270,4 +271,13 @@ tr:has(.tb-badge) .game-cell {
 .all-matches:focus-visible {
     outline: 3px solid rgba(46, 125, 50, 0.5);
     outline-offset: 2px;
+}
+.winner-name{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 5px 5px;
+    font-weight: 600;
+    text-transform: capitalize
 }

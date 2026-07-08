@@ -20,7 +20,7 @@
     <div class="finished-match"><h1>  Матч завершен!</h1>
 
     </div>
-    <div class="winner"><h2> Победитель - ${currentMatch.getWinner().name()}</h2></div>
+    <div class="winner"><h2> Победитель - <div class="winner-name">${currentMatch.getWinner().name()}</div></h2></div>
 
     <table class="players-table">
         <thead>
