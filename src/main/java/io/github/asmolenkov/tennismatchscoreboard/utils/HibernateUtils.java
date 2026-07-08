@@ -10,6 +10,7 @@ import org.hibernate.cfg.Configuration;
 @Slf4j
 @UtilityClass
 public class HibernateUtils {
+    private static final String INITIAL_SESSION_FAILED_TEMPLATE = "Initial SessionFactory creation failed: {}";
     @Getter
     private static SessionFactory sessionFactory;
 
@@ -19,7 +20,7 @@ public class HibernateUtils {
         try {
             sessionFactory = new Configuration().configure().buildSessionFactory();
         }catch (Throwable ex){
-            log.error("Initial SessionFactory creation failed: {}", ex.getMessage(), ex);
+            log.error(INITIAL_SESSION_FAILED_TEMPLATE, ex.getMessage(), ex);
         }
     }
 

@@ -23,6 +23,10 @@ public class NewMathController extends BaseServlet {
     private static final String REDIRECT_PATH_TEMPLATE = "/match-score?uuid=%s";
     private static final String PAGE_NAME = "NewMatch";
 
+    private static final String PARAMETER_PLAYER_ONE_NAME = "playerOneName";
+    private static final String PARAMETER_PLAYER_TWO_NAME = "playerTwoName";
+
+
     private PlayerService playerService;
     private OngoingMatchesService ongoingMatchesService;
 
@@ -44,8 +48,8 @@ public class NewMathController extends BaseServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        String nameOnePlayer = req.getParameter("playerOneName");
-        String nameSecondPlayer = req.getParameter("playerTwoName");
+        String nameOnePlayer = req.getParameter(PARAMETER_PLAYER_ONE_NAME);
+        String nameSecondPlayer = req.getParameter(PARAMETER_PLAYER_TWO_NAME);
 
         String normalizedNameOne = nameOnePlayer.trim().toLowerCase();
         String normalizedNameSecond = nameSecondPlayer.trim().toLowerCase();

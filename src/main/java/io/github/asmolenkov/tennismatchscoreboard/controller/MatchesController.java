@@ -13,6 +13,18 @@ import java.io.IOException;
 @Slf4j
 @WebServlet("/matches")
 public class MatchesController extends BaseServlet {
+
+    private static final String PARAMETER_FILTER = "filterByPlayerName";
+    private static final String PARAMETER_PAGE = "page";
+    private static final String PARAMETER_SIZE = "size";
+
+    private static final String ATTRIBUTE_MATCHES = "matches";
+    private static final String ATTRIBUTE_PAGE_INFO = "pageInfo";
+    private static final String ATTRIBUTE_CURRENT_SEARCH = "currentSearch";
+
+    private static final String PATH_FILE = "/WEB-INF/views/Matches.jsp";
+    private static final String VIEW_FILE_NAME = "Matches";
+
     private FinishedMatchesPersistenceService finishedMatches;
 
     @Override
@@ -23,17 +35,17 @@ public class MatchesController extends BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String playerName = req.getParameter("filterByPlayerName");
-        int page = parseIntParam(req.getParameter("page"), 1);
-        int size = parseIntParam(req.getParameter("size"), 3);
+        String playerName = req.getParameter(PARAMETER_FILTER);
+        int page = parseIntParam(req.getParameter(PARAMETER_PAGE), 1);
+        int size = parseIntParam(req.getParameter(PARAMETER_SIZE), 3);
 
         MatchesPage result = finishedMatches.getMatchesPage(playerName, page, size);
 
-        req.setAttribute("matches", result.getMatches());
-        req.setAttribute("pageInfo", result.getPageInfo());
-        req.setAttribute("currentSearch", playerName); // ⚠️ Важно для JSP!
+        req.setAttribute(ATTRIBUTE_MATCHES, result.getMatches());
+        req.setAttribute(ATTRIBUTE_PAGE_INFO, result.getPageInfo());
+        req.setAttribute(ATTRIBUTE_CURRENT_SEARCH, playerName); // ⚠️ Важно для JSP!
 
-        req.getRequestDispatcher("/WEB-INF/views/Matches.jsp").forward(req, resp);
+        req.getRequestDispatcher(PATH_FILE).forward(req, resp);
     }
 
     private int parseIntParam(String param, int defaultValue) {
@@ -47,6 +59,6 @@ public class MatchesController extends BaseServlet {
 
     @Override
     protected String getErrorPath() {
-        return "Matches";
+        return VIEW_FILE_NAME;
     }
 }

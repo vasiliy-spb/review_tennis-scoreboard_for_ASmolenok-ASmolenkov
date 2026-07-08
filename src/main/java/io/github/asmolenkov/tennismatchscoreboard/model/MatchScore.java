@@ -7,6 +7,10 @@ import lombok.Getter;
 @Builder
 @Getter
 public class MatchScore {
+    private static final int NUMBER_SET_WON = 2;
+    private static final int GAME_SCORE = 6;
+    private static final int POINT_DIFFERENCE_IN_SET = 2;
+
     @Builder.Default
     private SetScore setOneScore = new SetScore();
     @Builder.Default
@@ -33,11 +37,11 @@ public class MatchScore {
         int setsWonP1 = countSetWon(PlayerSide.ONE);
         int setsWonP2 = countSetWon(PlayerSide.TWO);
 
-        return setsWonP1 >=2 || setsWonP2 >=2;
+        return setsWonP1 >= NUMBER_SET_WON || setsWonP2 >= NUMBER_SET_WON;
     }
 
     public boolean isStartTieBreak(int playerOneGames, int playerTwoGames){
-        return playerOneGames == 6 && playerTwoGames == 6;
+        return playerOneGames == GAME_SCORE && playerTwoGames == GAME_SCORE;
     }
 
     public boolean isStartTieBreak(SetScore set){
@@ -49,8 +53,8 @@ public class MatchScore {
     }
 
     private boolean isSetFinished(int playerOneGames, int playerTwoGames) {
-        return  (playerOneGames >= 6 && playerOneGames - playerTwoGames >= 2) ||
-                (playerTwoGames >= 6 && playerTwoGames - playerOneGames >= 2);
+        return  (playerOneGames >= GAME_SCORE && playerOneGames - playerTwoGames >= POINT_DIFFERENCE_IN_SET) ||
+                (playerTwoGames >= GAME_SCORE && playerTwoGames - playerOneGames >= POINT_DIFFERENCE_IN_SET);
 
     }
 

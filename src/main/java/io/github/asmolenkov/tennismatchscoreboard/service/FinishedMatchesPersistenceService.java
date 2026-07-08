@@ -1,6 +1,5 @@
 package io.github.asmolenkov.tennismatchscoreboard.service;
 
-import io.github.asmolenkov.tennismatchscoreboard.dto.MatchDto;
 import io.github.asmolenkov.tennismatchscoreboard.dto.MatchesPage;
 import io.github.asmolenkov.tennismatchscoreboard.dto.PageInfo;
 import io.github.asmolenkov.tennismatchscoreboard.entity.Match;
@@ -14,7 +13,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -55,38 +53,6 @@ public class FinishedMatchesPersistenceService {
                 return match.get();
             } catch (Exception e) {
                 tr.rollback();
-                throw new FindMatchException("Ошибка поиска матча", e);
-            }
-        }
-    }
-
-    public List<MatchDto> findMatchesByName(String playerName) {
-        try (Session session = sessionFactory.openSession()) {
-            Transaction tr = session.beginTransaction();
-            try {
-                List<Match> matches = repository.find(playerName, session);
-                log.info("Найдено матчей с игроком '{}': {}", playerName, matches.size());
-                tr.commit();
-                return MatchMapper.toDtoList(matches);
-            } catch (Exception e) {
-                tr.rollback();
-                log.error("Неизвестная ошибка поиска матча!", e);
-                throw new FindMatchException("Ошибка поиска матча", e);
-            }
-        }
-    }
-
-    public List<MatchDto> findAll() {
-        try (Session session = sessionFactory.openSession()) {
-            Transaction tr = session.beginTransaction();
-            try {
-                List<Match> matches = repository.find(session);
-                log.info("Найдено матчей : {}", matches.size());
-                tr.commit();
-                return MatchMapper.toDtoList(matches);
-            } catch (Exception e) {
-                tr.rollback();
-                log.error("Неизвестная ошибка поиска матча!", e);
                 throw new FindMatchException("Ошибка поиска матча", e);
             }
         }

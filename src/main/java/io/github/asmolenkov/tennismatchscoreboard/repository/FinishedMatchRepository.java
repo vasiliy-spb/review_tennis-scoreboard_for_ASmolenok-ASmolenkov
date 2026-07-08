@@ -10,93 +10,73 @@ import java.util.Optional;
 @Slf4j
 public class FinishedMatchRepository {
 
+    private static final String JPQL_FIND_MATCH = """
+            FROM Match m WHERE m.id = :id
+            """;
+    private static final String JPQL_FIND_PAGINATION_MATCH = """
+            SELECT m FROM Match m
+            JOIN FETCH m.playerOne
+            JOIN FETCH m.playerSecond
+            LEFT JOIN FETCH m.winner
+            ORDER BY m.id DESC  /* Новые матчи сверху */
+            """;
+    private static final String JPQL_COUNT_TOTAL = "SELECT COUNT(m) FROM Match m";
+    private static final String JPQL_FIND_BY_NAME_PAGINATION_MATCH = """
+            SELECT m FROM Match m
+            JOIN FETCH m.playerOne
+            JOIN FETCH m.playerSecond
+            LEFT JOIN FETCH m.winner
+            WHERE LOWER(m.playerOne.name) LIKE LOWER(:name)
+               OR LOWER(m.playerSecond.name) LIKE LOWER(:name)
+            ORDER BY m.id DESC
+            """;
+    private static final String JPQL_COUNT_BY_NAME_TOTAL = """
+            SELECT COUNT(m) FROM Match m
+            WHERE LOWER(m.playerOne.name) LIKE LOWER(:name)
+               OR LOWER(m.playerSecond.name) LIKE LOWER(:name)
+            """;
+
+    private static final String PARAMETER_NAME = "name";
+
+
     public void save(Match match, Session session) {
         session.persist(match);
     }
 
     public Optional<Match> find(long id, Session session) {
-        String jpql = "FROM Match m WHERE m.id = :id";
 
-        List<Match> findMatches = session.createQuery(jpql, Match.class)
+        List<Match> findMatches = session.createQuery(JPQL_FIND_MATCH, Match.class)
                                          .setParameter("id", id)
                                          .getResultList();
 
         return findMatches.isEmpty() ? Optional.empty() : Optional.of(findMatches.getFirst());
     }
 
-    public List<Match> find(String playerName, Session session) {
-        String jpql = "FROM Match m WHERE LOWER(m.playerOne.name) LIKE LOWER(:name) OR LOWER(m.playerSecond.name) LIKE LOWER(:name)";
-
-        List<Match> findMatches = session.createQuery(jpql, Match.class)
-                                         .setParameter("name", playerName)
-                                         .getResultList();
-        log.info("Количество матчей с игроком {} = {}", playerName, findMatches.size());
-
-        return findMatches;
-    }
-
-    public List<Match> find(Session session) {
-        String jpql = """
-                SELECT m FROM Match m 
-                JOIN FETCH m.playerOne 
-                JOIN FETCH m.playerSecond
-                JOIN FETCH m.winner
-                """;
-
-        List<Match> findMatches = session.createQuery(jpql, Match.class)
-                                         .getResultList();
-        log.info("Количество матчей = {}", findMatches.size());
-
-        return findMatches;
-    }
 
     public List<Match> findWithPagination(Session session, int offset, int limit) {
-        String jpql = """
-                SELECT m FROM Match m 
-                JOIN FETCH m.playerOne 
-                JOIN FETCH m.playerSecond
-                LEFT JOIN FETCH m.winner
-                ORDER BY m.id DESC  /* Новые матчи сверху */
-                """;
 
-        return session.createQuery(jpql, Match.class)
-                      .setFirstResult(offset)  // 🔹 Пропустить N записей
-                      .setMaxResults(limit)    // 🔹 Взять не больше M записей
+        return session.createQuery(JPQL_FIND_PAGINATION_MATCH, Match.class)
+                      .setFirstResult(offset)
+                      .setMaxResults(limit)
                       .getResultList();
     }
 
     public long countTotal(Session session) {
-        String jpql = "SELECT COUNT(m) FROM Match m";
-        return session.createQuery(jpql, Long.class).getSingleResult();
+        return session.createQuery(JPQL_COUNT_TOTAL, Long.class)
+                      .getSingleResult();
     }
 
     public List<Match> findByNameWithPagination(Session session, String name, int offset, int limit) {
-        String jpql = """
-        SELECT m FROM Match m 
-        JOIN FETCH m.playerOne 
-        JOIN FETCH m.playerSecond
-        LEFT JOIN FETCH m.winner
-        WHERE LOWER(m.playerOne.name) LIKE LOWER(:name) 
-           OR LOWER(m.playerSecond.name) LIKE LOWER(:name)
-        ORDER BY m.id DESC
-        """;
-
-        return session.createQuery(jpql, Match.class)
-                      .setParameter("name", "%" + name + "%")  // LIKE с wildcard'ами
+        return session.createQuery(JPQL_FIND_BY_NAME_PAGINATION_MATCH, Match.class)
+                      .setParameter(PARAMETER_NAME, "%" + name + "%")
                       .setFirstResult(offset)
                       .setMaxResults(limit)
                       .getResultList();
     }
 
     public long countByName(Session session, String name) {
-        String jpql = """
-        SELECT COUNT(m) FROM Match m 
-        WHERE LOWER(m.playerOne.name) LIKE LOWER(:name) 
-           OR LOWER(m.playerSecond.name) LIKE LOWER(:name)
-        """;
-
-        return session.createQuery(jpql, Long.class)
-                      .setParameter("name", "%" + name + "%")
+        return session.createQuery(JPQL_COUNT_BY_NAME_TOTAL, Long.class)
+                      .setParameter(PARAMETER_NAME, "%" + name + "%")
                       .getSingleResult();
     }
 }
