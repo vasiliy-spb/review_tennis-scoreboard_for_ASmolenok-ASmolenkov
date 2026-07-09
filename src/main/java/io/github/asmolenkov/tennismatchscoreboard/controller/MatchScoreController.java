@@ -33,9 +33,9 @@ public class MatchScoreController extends BaseServlet {
     private static final String PATH_FORWARD = "/WEB-INF/views/MatchScore.jsp";
     private static final String NAME_PAGE = "MatchScore";
     private static final String PATH_REDIRECT_TEMPLATE = "%s/match-score?uuid=%s";
-    private static final String ID_PLAYER_EMPTY = "Id игрока не может быть пустым";
-    private static final String ID_MUST_BE_NUMBER_TEMPLATE = "Id игрока быть только числом, получено %s";
-    private static final String MATCH_NOT_FOUND = "Матч не найден";
+    private static final String ID_PLAYER_EMPTY = "Player ID cannot be empty";
+    private static final String ID_MUST_BE_NUMBER_TEMPLATE = "Player ID to be only a number, received %s";
+    private static final String MATCH_NOT_FOUND = "No match found";
 
     private OngoingMatchesService ongoingMatchesService;
     private MatchScoreCalculationService matchScoreCalculationService;

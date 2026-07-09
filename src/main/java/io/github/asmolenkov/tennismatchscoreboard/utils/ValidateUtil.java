@@ -14,15 +14,15 @@ public class ValidateUtil {
 
     private static final int MAX_LENGTH_NAME = 30;
 
-    private static final String NAME_LONG_TEMPLATE = "Имя %s слишком длинное (Лимит 30 букв).";
+    private static final String NAME_LONG_TEMPLATE = "The name %s is too long (30 letter limit).";
 
     private static final String REGULAR_EXPRESSION_SPECIAL_CHARACTERS = "^[\\p{L}\\s]+$";
-    private static final String NAME_CONTAINS_SPECIAL_CHARACTERS_TEMPLATE = "Имя %s не должно содержать спецсимволы или цифры.";
-    private static final String NAME_NULL = "Имя игрока отсутствует!";
-    private static final String NAME_EMPTY = "Имя игрока не может быть пустым.";
-    private static final String NAMES_SOME = "Имена игроков не могут быть одинаковыми";
-    private static final String UUID_NOT_SPECIFIED = "UUID матча не указан";
-    private static final String UUID_INCORRECT_FORMAT_TEMPLATE = "Некорректный формат UUID: %s";
+    private static final String NAME_CONTAINS_SPECIAL_CHARACTERS_TEMPLATE = "The name %s must not contain special characters or numbers.";
+    private static final String NAME_NULL = "Player name missing!";
+    private static final String NAME_EMPTY = "The player's name cannot be empty.";
+    private static final String NAMES_SOME = "Player names cannot be the same.";
+    private static final String UUID_NOT_SPECIFIED = "Match UUID not specified";
+    private static final String UUID_INCORRECT_FORMAT_TEMPLATE = "Invalid UUID format: %s";
 
 
     public void validateNamePlayer(String name){

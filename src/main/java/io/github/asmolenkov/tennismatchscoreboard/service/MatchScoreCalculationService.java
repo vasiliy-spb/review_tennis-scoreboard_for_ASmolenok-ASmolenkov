@@ -15,14 +15,14 @@ public class MatchScoreCalculationService {
         this.activeMatchRepository = activeMatchRepository;
     }
 
-    private static final String PLAYER_NOT_FOUND_IN_MATCH_TEMPLATE = "Игрок ID %s not found in match";
-    private static final String LOG_START_TIE_BREAK = "Начинается Тай-брейк";
-    private static final String LOG_FINISHED_TIE_BREAK_TEMPLATE = "Тай-брейк завершён. Победитель сета: {}";
-    private static final String LOG_SET_FINISHED = "Сет завершен";
-    private static final String LOG_MATCH_FINISHED = "Матч завершен";
-    private static final String LOG_WINNER_TEMPLATE = "Победитель - {}";
-    private static final String LOG_GAME_FINISHED = "Гейм завершен";
-    private static final String LOG_RESET_ADVANTAGE_OPPONENT = "Сброс преимущества оппонента";
+    private static final String PLAYER_NOT_FOUND_IN_MATCH_TEMPLATE = "Player ID %s not found in match";
+    private static final String LOG_START_TIE_BREAK = "Tie-break begins";
+    private static final String LOG_FINISHED_TIE_BREAK_TEMPLATE = "The tie-break is over. Set Winner: {}";
+    private static final String LOG_SET_FINISHED = "Set Completed";
+    private static final String LOG_MATCH_FINISHED = "Match ended";
+    private static final String LOG_WINNER_TEMPLATE = "Winner - {}";
+    private static final String LOG_GAME_FINISHED = "Game ended";
+    private static final String LOG_RESET_ADVANTAGE_OPPONENT = "Resetting Opponent's Advantage";
 
     public void addPointToPlayer(CurrentMatch currentMatch, long playerId) {
         if (currentMatch.getMatchScore().isMatchFinished()) {

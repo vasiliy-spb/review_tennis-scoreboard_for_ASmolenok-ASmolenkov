@@ -17,9 +17,9 @@ import java.util.Optional;
 @AllArgsConstructor
 public class PlayerService {
 
-    private static final String LOG_PLAYER_EXISTS_TEMPLATE = "Игрок {} уже существует в БД!";
-    private static final String LOG_PLAYER_SAVE_TEMPLATE = "Игрок {} сохранен в БД!";
-    private static final String ERROR_SAVE_PLAYER = "Ошибка создания игрока";
+    private static final String LOG_PLAYER_EXISTS_TEMPLATE = "Player {} already exists in the database!";
+    private static final String LOG_PLAYER_SAVE_TEMPLATE = "Player {} is saved in the database!";
+    private static final String ERROR_SAVE_PLAYER = "Player creation error";
 
     private final PlayerRepository playerRepository;
     private final SessionFactory sessionFactory;

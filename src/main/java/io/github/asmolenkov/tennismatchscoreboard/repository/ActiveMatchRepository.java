@@ -11,11 +11,11 @@ import java.util.concurrent.ConcurrentHashMap;
 @Slf4j
 public class ActiveMatchRepository {
 
-    private static final String LOG_MATCH_SAVE_TEMPLATE = "Матч {} - {} сохранен";
+    private static final String LOG_MATCH_SAVE_TEMPLATE = "Match {} - {} saved";
     private static final String CURRENT_MATCH_NULL = "Current match must not be null";
     private static final String MATCH_UUID_NULL = "Match UUID must not be null";
-    private static final String MATCH_DELETED_TEMPLATE = "Матч с UUID - {} удален";
-    private static final String MATCH_NOT_FOUND_UUID_NULL = "Матч не найден, UUID = null";
+    private static final String MATCH_DELETED_TEMPLATE = "Match with UUID - {} removed";
+    private static final String MATCH_NOT_FOUND_UUID_NULL = "No match found, UUID = null";
 
     private final Map<UUID, CurrentMatch> activeMatches = new ConcurrentHashMap<>();
 
