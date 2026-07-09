@@ -1,26 +1,26 @@
 <configuration>
-    <!-- Пути к файлам -->
+
     <property name="LOG_HOME" value="logs" />
     <property name="LOG_FILE" value="app.log" />
 
-    <!-- 1. Консоль (чтобы видеть логи при запуске из IDE) -->
+
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <!-- 2. Файл с ротацией (основной лог) -->
+
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_HOME}/${LOG_FILE}</file>
 
-        <!-- Настройки ротации: по дате и размеру -->
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- Архивные файлы будут лежать в папке archived -->
-            <fileNamePattern>${LOG_HOME}/archived/app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxHistory>30</maxHistory> <!-- Хранить 30 дней -->
 
-            <!-- Максимальный размер файла перед прокруткой (10 МБ) -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+
+            <fileNamePattern>${LOG_HOME}/archived/app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+
+
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>10MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
@@ -31,7 +31,7 @@
         </encoder>
     </appender>
 
-    <!-- Подключение аппендеров -->
+
     <root level="INFO">
         <appender-ref ref="CONSOLE" />
         <appender-ref ref="FILE" />
