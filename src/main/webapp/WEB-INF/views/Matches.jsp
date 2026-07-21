@@ -75,6 +75,7 @@
         </a>
 
 
+        <!-- Цикл от 1 до totalPages отображает сразу все существующие страницы. Лучше сделать окно пагинации ограниченным текущей страницей +-2 вокруг неё -->
         <div class="page-numbers">
             <c:forEach var="i" begin="1" end="${pageInfo.totalPages}">
                 <c:choose>

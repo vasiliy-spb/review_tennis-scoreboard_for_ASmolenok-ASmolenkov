@@ -12,11 +12,28 @@ import java.io.IOException;
 @Slf4j
 public abstract class BaseServlet extends HttpServlet {
 
+    // TODO: Класс отправляет сообщение из исключения (`e.getMessage()`) напрямую пользователю.
+        // Сообщения об ошибках из исключений могут содержать технические детали, которые не предназначены
+        // для конечного пользователя и могут представлять угрозу безопасности. Например, сообщение может быть
+        // `"No entity found for query 'SELECT ...'"` или `"Validation failed for field 'internalFieldName'"`,
+        // что раскрывает структуру БД или внутренние имена полей.
+        //
+        // Лучше никогда не отправлять необработанное сообщение из исключения на клиент.
+        // Вместо этого можно использовать заранее определённые, безопасные сообщения или коды ошибок.
+        // Само исключение при этом нужно логировать для разработчиков.
+        //
+        // Это повысит безопасность приложения и улучшит пользовательский опыт при возникновении ошибок.
+        //
+        // Допустимо оставить e.getMessage() для ошибок валидации.
+
+    // Все повторяющиеся или важные строковые литералы лучше выносить в `private static final` константы с понятными именами.
+        // Именованная константа делает код более семантически понятным.
+
     private static final String ERROR_PATH_TEMPLATE = "/WEB-INF/views/%s.jsp";
     private static final String LOG_VALIDATION_ERROR_TEMPLATE = "Validation error [{}] on {}: {}";
     private static final String LOG_CONFLICT_ERROR_TEMPLATE = "Conflict error [{}] on {}: {}";
     private static final String LOG_NOT_FOUND_ERROR_TEMPLATE = "Not found error [{}] on {}: {}";
-    private static final String LOG_ITERNAL_SERVER_ERROR_TEMPLATE = "Internal Server Error [{}] on {}: {}";
+    private static final String LOG_ITERNAL_SERVER_ERROR_TEMPLATE = "Internal Server Error [{}] on {}: {}"; // Опечатка: ITERNAL —> INTERNAL
 
     protected abstract String getErrorPath();
 

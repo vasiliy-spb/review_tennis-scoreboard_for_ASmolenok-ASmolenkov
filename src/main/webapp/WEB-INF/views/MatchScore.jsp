@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<!-- Как и из кода, комментарии из файлов JSP стоит удалять перед коммитом. -->
 <html>
 <head>
     <title>Title</title>
@@ -88,6 +89,9 @@
                 </c:otherwise>
             </c:choose>
         </td> <!-- Game  !-->
+
+        <!-- По ТЗ форма должна отправлять POST-запрос по адресу `/match-score?uuid=$match_id`.
+                В текущей реализации `uuid` передается в теле запроса как скрытое поле, а не в URL. -->
         <td><form action="${pageContext.request.contextPath}/match-score" method="post">
             <input type="hidden" name="uuid" value="${currentMatch.uuid}">
             <input type="hidden" name="playerId" value="${currentMatch.playerOne.id}">
@@ -113,6 +117,9 @@
             </c:choose>
         </td> <!-- Game  !-->
         <td><form action="${pageContext.request.contextPath}/match-score" method="post">
+
+            <!-- По ТЗ форма должна отправлять POST-запрос по адресу `/match-score?uuid=$match_id`.
+                В текущей реализации `uuid` передается в теле запроса как скрытое поле, а не в URL. -->
             <input type="hidden" name="uuid" value="${currentMatch.uuid}">
             <input type="hidden" name="playerId" value="${currentMatch.playerSecond.id}">
             <button type="submit" class="btn-add-point">+ Point</button>

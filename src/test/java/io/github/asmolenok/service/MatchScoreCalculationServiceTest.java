@@ -16,6 +16,10 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 public class MatchScoreCalculationServiceTest {
+
+    // После рефакторинга доменных моделей стоит переписать тесты для основной бизнес-логики.
+        // Для каждого класса доменной модели должны быть написаны юнит-тесты без участия сервисов.
+
     private final ActiveMatchRepository activeMatchRepository = new ActiveMatchRepository();
     private final MatchScoreCalculationService scoreCalculation = new MatchScoreCalculationService(activeMatchRepository);
 

@@ -15,6 +15,7 @@
         <maven.compiler.target>21</maven.compiler.target>
         <maven.compiler.source>21</maven.compiler.source>
         <junit.version>5.13.2</junit.version>
+        <!-- Версии других зависимостей (особенно повторяющиеся) тоже лучше вынести в properties -->
     </properties>
 
     <dependencies>
@@ -48,6 +49,9 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
+
+            <!-- Alpha и milestone версии программного обеспечения являются предварительными выпусками.
+                    Лучше использовать стабильные (GA - General Availability) версии зависимостей. -->
             <version>6.1.0-M1</version>
             <scope>test</scope>
         </dependency>
@@ -69,11 +73,15 @@
         <dependency>
             <groupId>jakarta.servlet.jsp.jstl</groupId>
             <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+
+            <!-- Лучше использовать одинаковые версии jakarta.servlet.jsp.jstl-api и jakarta.servlet.jsp.jstl -->
             <version>3.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+
+            <!-- Лучше использовать одинаковые версии jakarta.servlet.jsp.jstl-api и jakarta.servlet.jsp.jstl -->
             <version>3.0.1</version>
         </dependency>
         <!-- Source: https://mvnrepository.com/artifact/org.mockito/mockito-core -->

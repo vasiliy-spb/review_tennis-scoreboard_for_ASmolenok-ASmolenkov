@@ -4,12 +4,36 @@ import lombok.Builder;
 import lombok.Getter;
 
 
-@Builder
+@Builder // Строитель для этого класса избыточен — его объекты всегда создаются в одном месте и в специальном классе
 @Getter
 public class MatchScore {
+
+    // Даже если в матче будет сыграно только 2 сета, в этом классе всегда будет 3 объекта SetScore.
+        // Также такой подход делает невозможным использовать класс, чтобы сыграть матч из 5 сетов (например).
+        // Стоит придумать, как использовать ровно то количество объектов SetScore,
+        // которое действительно будет сыграно в матче.
+
+    // TODO: Класс отвечает за счёт в матче, а также содержит объекты SetScore, GameScore, TieBreakScore.
+        // Это слишком большая ответственность для этого класса и нарушает Принцип единой ответственности (SRP).
+        // Лучшим решением в этом направлении было бы, чтобы MatchScore содержал несколько SetScore,
+        // а SetScore содержал несколько GameScore/TieBreakScore
+        // Такой подход больше соответствовал бы реальному теннисному матчу.
+
+    // TODO: Хранение поля boolean tieBreakActive вынуждает следить не только за состоянием объекта TieBreakScore,
+        // но и за этим флагом.
+        // Это нарушает Принцип Единого источника истины.
+        // (см. файл "ssot-principle.md" в этом же пакете)
+        // Само наличие TieBreakScore в классе SetScore (после рефакторинга) может означать, что идёт тай-брейк.
+
+    // TODO: Класс позволяет любому внешнему коду в произвольный момент изменять своё состояние (например через метод activateTieBreak).
+        // Это является признаком анемичной модели.
+        // (см. файл "reach-anemic-model.md" в этом же пакете)
+        // Класс должен самостоятельно и полностью управлять своим состоянием,
+        // предоставляя наружу только необходимые методы, для запуска этих изменений.
+
     private static final int NUMBER_SET_WON = 2;
-    private static final int GAME_SCORE = 6;
-    private static final int POINT_DIFFERENCE_IN_SET = 2;
+    private static final int GAME_SCORE = 6; // Можно назвать MIN_POINT_TO_WIN
+    private static final int POINT_DIFFERENCE_IN_SET = 2; // Можно назвать MIN_DIFFERENCE_TO_WIN
 
     @Builder.Default
     private SetScore setOneScore = new SetScore();

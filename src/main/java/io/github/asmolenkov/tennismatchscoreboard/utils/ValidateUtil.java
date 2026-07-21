@@ -12,6 +12,9 @@ import java.util.UUID;
 @UtilityClass
 public class ValidateUtil {
 
+    // Класс валидирует и парсит значение — это нарушает Принцип единой ответственности (SRP).
+        // Утилиты валидации должны заниматься только валидацией.
+
     private static final int MAX_LENGTH_NAME = 30;
 
     private static final String NAME_LONG_TEMPLATE = "The name %s is too long (30 letter limit).";
@@ -41,6 +44,8 @@ public class ValidateUtil {
         }
     }
 
+    // Нет обрезки крайних пробелов перед проверкой. Без этого для имён "Олег" и " Олег" метод equalsIgnoreCase() вернёт false
+    // Отсутствует проверка на null для обоих аргументов перед вызовом equalsIgnoreCase, что может привести к NullPointerException
     public void validateNamesAreUnique (String nameOne, String nameSecond) {
         if(nameOne.equalsIgnoreCase(nameSecond)){
             throw new DuplicateNameException(NAMES_SOME);

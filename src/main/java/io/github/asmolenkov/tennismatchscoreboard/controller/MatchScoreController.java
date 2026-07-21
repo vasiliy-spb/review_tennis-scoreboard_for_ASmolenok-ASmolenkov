@@ -24,6 +24,27 @@ import java.util.UUID;
 @Slf4j
 @WebServlet("/match-score")
 public class MatchScoreController extends BaseServlet {
+
+    // Больше подошло бы название *Servlet
+
+    // TODO: Сервлет работает с доменной моделью `CurrentMatch`.
+        // Это нарушает границы между слоями приложения и Принцип разделения ответственности
+        // (см. файл "separation-of-concerns-principle.md" в этом же пакете)
+        // Сервлет не должен работать с доменными моделями.
+        // Вместо этого он должен "общаться" с другими слоями через DTO.
+
+    // TODO: Сервлет оркестрирует работу нескольких сервисов и знает об их бизнес-логике
+        // (например, что сохраняется именно завершённый матч).
+        // Это является признаком толстого контроллера
+        // (см. файл "fat-controller.md" в этом же пакете)
+        // Идеальная картина для этого сервлета — использовать только один метод сервиса в каждом методе —
+        // отправлять ему входящие данные и получать ответ, который нужно отдать в представление.
+        // А бизнес-логикой пусть управляет сервисный слой. Такой рефакторинг сделает контроллер "тонким"
+        // и его единственной задачей останется обработка HTTP и делегирование бизнес-запроса сервисному слою.
+
+    // TODO: Класс использует сессии для передачи доменной модели матча между запросами.
+        // Это противоречит ТЗ: "Проект не многопользовательский, поэтому не используем сессии".
+
     private static final String PARAMETER_UUID = "uuid";
     private static final String PARAMETER_PLAYER_ID = "playerId";
 
@@ -45,6 +66,8 @@ public class MatchScoreController extends BaseServlet {
     @Override
     public void init() {
         ServletContext context = getServletContext();
+
+        // Для получения объектов из контекста можно использовать "естественные константы" — ClassName.class.getSimpleName() или ClassName.class.getName()
         this.ongoingMatchesService = (OngoingMatchesService) context.getAttribute(AppContextListener.ONGOING_MATH_SERVICE_KEY);
         this.matchScoreCalculationService = (MatchScoreCalculationService) context.getAttribute(AppContextListener.MATCH_SCORE_CALCULATION_SERVICE_KEY);
         this.finishedMatches = (FinishedMatchesPersistenceService) context.getAttribute(AppContextListener.FINISHED_MATCHES_PERSISTENCE_SERVICE_SERVICE_KEY);
@@ -111,6 +134,8 @@ public class MatchScoreController extends BaseServlet {
 
     private CurrentMatch getFinishedMatchFromSession(HttpServletRequest req) {
         HttpSession session = req.getSession(false);
+
+        // Тело блока if всегда нужно оборачивать в {}
         if (session == null) return null;
 
         CurrentMatch match = (CurrentMatch) session.getAttribute(ATTRIBUTE_FINISHED_MATCH);

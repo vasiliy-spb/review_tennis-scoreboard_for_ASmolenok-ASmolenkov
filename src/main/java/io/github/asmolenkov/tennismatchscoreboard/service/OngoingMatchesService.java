@@ -10,6 +10,14 @@ import java.util.Optional;
 import java.util.UUID;
 @Slf4j
 public class OngoingMatchesService {
+
+    // Можно использовать @RequiredArgsConstructor над классом вместо самописного конструктора
+
+    // TODO: Нет интерфейса для этого класса. (см. файл "service.md" в этом же пакете)
+
+    // TODO: Класс способствует смешению слоёв — передаёт доменную модель в слой контроллеров.
+        // (см. файл "separation-of-concerns-principle.md" в этом же пакете)
+
     private final ActiveMatchRepository activeMatchRepository;
 
     public OngoingMatchesService(ActiveMatchRepository activeMatchRepository) {

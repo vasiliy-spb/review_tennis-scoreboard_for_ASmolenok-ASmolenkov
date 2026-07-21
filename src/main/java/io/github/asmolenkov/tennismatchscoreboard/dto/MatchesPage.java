@@ -8,10 +8,13 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Data
-@Builder
+@Builder // Строитель для DTO избыточен — обычно такие объекты всегда создаются в одном месте и в специальном классе
 @NoArgsConstructor
 @AllArgsConstructor
 public class MatchesPage {
+
+    // Можно сделать record
+
     private List<MatchDto> matches;
     private PageInfo pageInfo;
 }

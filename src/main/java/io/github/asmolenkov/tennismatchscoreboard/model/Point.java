@@ -13,6 +13,8 @@ public enum Point {
         this.displayValue = displayValue;
     }
 
+    // Доменная модель не должна знать то, как она отображается во View — это нарушает Принцип единой ответственности (SRP).
+        // В идеале эта логика должна быть в маппере.
     public String getDisplayValue() {
         return displayValue;
     }

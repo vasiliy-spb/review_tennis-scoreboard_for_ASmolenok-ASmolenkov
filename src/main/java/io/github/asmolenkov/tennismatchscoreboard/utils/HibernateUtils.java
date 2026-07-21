@@ -10,6 +10,9 @@ import org.hibernate.cfg.Configuration;
 @Slf4j
 @UtilityClass
 public class HibernateUtils {
+
+    // В классе, помеченном @UtilityClass, слово static можно оставить только у констант
+
     private static final String INITIAL_SESSION_FAILED_TEMPLATE = "Initial SessionFactory creation failed: {}";
     @Getter
     private static SessionFactory sessionFactory;
@@ -24,6 +27,7 @@ public class HibernateUtils {
         }
     }
 
+    // В текущей реализации метод нигде не используется в проекте
     public static Session getSession(){
         return sessionFactory.getCurrentSession();
     }

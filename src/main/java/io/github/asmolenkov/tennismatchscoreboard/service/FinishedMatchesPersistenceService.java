@@ -18,6 +18,14 @@ import java.util.Optional;
 
 @Slf4j
 public class FinishedMatchesPersistenceService {
+
+    // Можно использовать @RequiredArgsConstructor над классом вместо самописного конструктора
+
+    // TODO: Нет интерфейса для этого класса. (см. файл "service.md" в этом же пакете)
+
+    // TODO: Класс вручную управляет сессиями и транзакциями
+        // (см. файл "service.md" в этом же пакете)
+
     private final SessionFactory sessionFactory;
     private final FinishedMatchRepository repository;
 
@@ -35,24 +43,37 @@ public class FinishedMatchesPersistenceService {
                 tr.commit();
                 log.info("Матч {} сохранен", currentMatch.getUuid());
             } catch (Exception e) {
+
+                // TODO: Перед откатом транзакции надо проверить, что она активна (isActive())
+                // TODO: Откат транзакции тоже должен выполняться в блоке try-catch (см. файл "service.md" в этом же пакете)
                 tr.rollback();
+
+                // Сообщения в исключениях принято писать на английском языке.
                 throw new SaveMatchException("Ошибка сохранения матча", e);
             }
         }
     }
 
-    public Match findMathById(long id) {
+    // Метод используется только в тестах — это недостаточная причина его существования в коде
+    public Match findMathById(long id) { // Опечатка: findMathById —> findMatchById
         try (Session session = sessionFactory.openSession()) {
             Transaction tr = session.beginTransaction();
             try {
                 Optional<Match> match = repository.find(id, session);
                 if (match.isEmpty()) {
+
+                    // Сообщения в исключениях принято писать на английском языке.
                     throw new FindMatchException("Матч с ID - %s не найден".formatted(id));
                 }
                 tr.commit();
                 return match.get();
             } catch (Exception e) {
+
+                // TODO: Перед откатом транзакции надо проверить, что она активна (isActive())
+                // TODO: Откат транзакции тоже должен выполняться в блоке try-catch (см. файл "service.md" в этом же пакете)
                 tr.rollback();
+
+                // Сообщения в исключениях принято писать на английском языке.
                 throw new FindMatchException("Ошибка поиска матча", e);
             }
         }
@@ -97,9 +118,14 @@ public class FinishedMatchesPersistenceService {
                                   .matches(MatchMapper.toDtoList(matches))
                                   .build();
             }catch (Exception e){
+
+                // TODO: Перед откатом транзакции надо проверить, что она активна (isActive())
+                // TODO: Откат транзакции тоже должен выполняться в блоке try-catch (см. файл "service.md" в этом же пакете)
                 tr.rollback();
                 log.error("Ошибка при загрузке страницы матчей", e);
-                throw new RuntimeException("Ошибка загрузки матчей", e);
+
+                // Сообщения в исключениях принято писать на английском языке.
+                throw new RuntimeException("Ошибка загрузки матчей", e); // Можно использовать FindMatchException
             }
         }
     }

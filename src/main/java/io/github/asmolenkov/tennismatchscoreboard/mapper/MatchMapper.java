@@ -10,7 +10,10 @@ import java.util.List;
 
 public class MatchMapper {
 
-    public static Match toEntity(CurrentMatch model) {
+    // Класс спроектирован как утилитный, но при этом не объявлен как final и имеет публичный конструктор.
+        // Можно использовать @UtilityClass из Lombok
+
+    public static Match toEntity(CurrentMatch model) { // Можно назвать аргумент CurrentMatch currentMatch
         if (model == null) {
             return null;
         }
@@ -32,7 +35,7 @@ public class MatchMapper {
                                                                    .getName());
     }
 
-    public static List<MatchDto> toDtoList(List<Match> entity) {
+    public static List<MatchDto> toDtoList(List<Match> entity) { // Можно назвать аргумент List<Match> matches
         if (entity == null) {
             return null;
         }

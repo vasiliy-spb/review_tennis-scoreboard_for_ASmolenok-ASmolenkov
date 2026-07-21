@@ -17,6 +17,18 @@ import java.util.Optional;
 @AllArgsConstructor
 public class PlayerService {
 
+    // Даже если сейчас у класса есть только final поля, то всё равно лучше использовать
+        // максимально "узкую" аннотацию `@RequiredArgsConstructor` вместо `@AllArgsConstructor`.
+        // Чтобы при добавлении новых non-final полей они автоматически не попадали в параметры конструктора.
+
+    // Можно константам с шаблонами для логирования дать суффикс LOG_TEMPLATE,
+        // а сообщениям для исключений — ERROR_MESSAGE
+
+    // TODO: Нет интерфейса для этого класса. (см. файл "service.md" в этом же пакете)
+
+    // TODO: Класс вручную управляет сессиями и транзакциями
+        // (см. файл "service.md" в этом же пакете)
+
     private static final String LOG_PLAYER_EXISTS_TEMPLATE = "Player {} already exists in the database!";
     private static final String LOG_PLAYER_SAVE_TEMPLATE = "Player {} is saved in the database!";
     private static final String ERROR_SAVE_PLAYER = "Player creation error";
@@ -46,6 +58,9 @@ public class PlayerService {
                                          return PlayerMapper.toDto(newPlayer);
                                      });
             } catch (Exception e) {
+
+                // TODO: Перед откатом транзакции надо проверить, что она активна (isActive())
+                // TODO: Откат транзакции тоже должен выполняться в блоке try-catch (см. файл "service.md" в этом же пакете)
                 transaction.rollback();
                 throw new PlayerCreationException(ERROR_SAVE_PLAYER, e);
             }

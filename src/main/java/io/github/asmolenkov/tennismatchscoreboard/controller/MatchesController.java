@@ -14,6 +14,11 @@ import java.io.IOException;
 @WebServlet("/matches")
 public class MatchesController extends BaseServlet {
 
+    // Больше подошло бы название *Servlet
+
+    // Все повторяющиеся или важные числовые литералы лучше вынести в `private static final` константы с понятными именами.
+        // Именованная константа делает код более семантически понятным.
+
     private static final String PARAMETER_FILTER = "filterByPlayerName";
     private static final String PARAMETER_PAGE = "page";
     private static final String PARAMETER_SIZE = "size";
@@ -30,6 +35,8 @@ public class MatchesController extends BaseServlet {
     @Override
     public void init()  {
         ServletContext context = getServletContext();
+
+        // Для получения объектов из контекста можно использовать "естественные константы" — ClassName.class.getSimpleName() или ClassName.class.getName()
         this.finishedMatches = (FinishedMatchesPersistenceService) context.getAttribute(AppContextListener.FINISHED_MATCHES_PERSISTENCE_SERVICE_SERVICE_KEY);
     }
 
@@ -41,14 +48,19 @@ public class MatchesController extends BaseServlet {
 
         MatchesPage result = finishedMatches.getMatchesPage(playerName, page, size);
 
+        // Можно передавать объект MatchesPage целиком, а не по частям
         req.setAttribute(ATTRIBUTE_MATCHES, result.getMatches());
         req.setAttribute(ATTRIBUTE_PAGE_INFO, result.getPageInfo());
+
+        // Стоит удалять комментарии (вроде того, что указан в следующей строке) из кода перед тем, как выполнять коммит
         req.setAttribute(ATTRIBUTE_CURRENT_SEARCH, playerName); // ⚠️ Важно для JSP!
 
         req.getRequestDispatcher(PATH_FILE).forward(req, resp);
     }
 
     private int parseIntParam(String param, int defaultValue) {
+
+        // Тело блока if всегда нужно оборачивать в {}
         if (param == null) return defaultValue;
         try {
             return Integer.parseInt(param);
